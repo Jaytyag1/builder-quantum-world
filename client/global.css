@@ -8,45 +8,50 @@
    * HSL format for tailwind compatibility
   */
   :root {
-    /* Dark theme as default */
-    --background: 220 27% 4%;
-    --foreground: 220 9% 96%;
+    /* Premium bright theme as default */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
 
-    --card: 220 23% 7%;
-    --card-foreground: 220 9% 96%;
+    --card: 0 0% 99%;
+    --card-foreground: 220 20% 15%;
 
-    --popover: 220 23% 7%;
-    --popover-foreground: 220 9% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
 
-    --primary: 266 100% 65%;
-    --primary-foreground: 220 9% 96%;
+    --primary: 266 100% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 23% 11%;
-    --secondary-foreground: 220 9% 85%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 20% 20%;
 
-    --muted: 220 23% 11%;
-    --muted-foreground: 220 9% 60%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 266 100% 65%;
-    --accent-foreground: 220 9% 96%;
+    --accent: 266 100% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 220 9% 96%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 23% 11%;
-    --input: 220 23% 11%;
-    --ring: 266 100% 65%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 266 100% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom colors for FollowUpAI */
-    --brand-purple: 266 100% 65%;
-    --brand-blue: 220 100% 70%;
-    --brand-cyan: 180 100% 70%;
-    --glass-bg: 220 23% 7% / 0.8;
-    --glass-border: 220 23% 20% / 0.3;
-    --gradient-start: 266 100% 65%;
-    --gradient-end: 220 100% 70%;
+    /* Custom colors for FollowUpAI - Premium bright */
+    --brand-purple: 266 100% 55%;
+    --brand-blue: 220 100% 55%;
+    --brand-cyan: 180 100% 45%;
+    --glass-bg: 255 255 255 / 0.7;
+    --glass-border: 220 15% 85% / 0.8;
+    --gradient-start: 266 100% 55%;
+    --gradient-end: 220 100% 60%;
+
+    /* New premium colors */
+    --premium-gradient: 266 100% 55%;
+    --premium-accent: 280 100% 70%;
+    --premium-light: 250 100% 98%;
   }
 
   .light {
