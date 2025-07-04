@@ -417,10 +417,12 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.1}>
-              <Card className="glass-card border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-300 h-full">
+              <Card className="glass-card border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
                 <CardHeader>
-                  <Brain className="h-10 w-10 text-brand-blue mb-4" />
-                  <CardTitle>AI-Generated Follow-ups</CardTitle>
+                  <Brain className="h-10 w-10 text-brand-blue mb-4 group-hover:animate-bounceIn" />
+                  <CardTitle className="group-hover:gradient-text transition-all duration-300">
+                    AI-Generated Follow-ups
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base">
@@ -432,10 +434,12 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.2}>
-              <Card className="glass-card border-brand-cyan/20 hover:border-brand-cyan/40 transition-all duration-300 h-full">
+              <Card className="glass-card border-brand-cyan/20 hover:border-brand-cyan/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
                 <CardHeader>
-                  <Settings className="h-10 w-10 text-brand-cyan mb-4" />
-                  <CardTitle>Tone Customization</CardTitle>
+                  <Settings className="h-10 w-10 text-brand-cyan mb-4 group-hover:animate-bounceIn" />
+                  <CardTitle className="group-hover:gradient-text transition-all duration-300">
+                    Tone Customization
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base">
