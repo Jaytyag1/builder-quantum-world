@@ -166,7 +166,7 @@ export default function Index() {
             >
               <Button
                 size="lg"
-                className="bg-brand-purple hover:bg-brand-purple/80 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-brand-purple/25 transition-all duration-300 shimmer-effect premium-glow hover:scale-105 transform"
+                className="bg-gradient-to-r from-brand-purple to-brand-blue hover:from-brand-purple/80 hover:to-brand-blue/80 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform premium-shadow"
               >
                 <Upload className="mr-2 h-5 w-5" />
                 Upload Invoice
@@ -174,7 +174,7 @@ export default function Index() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/10 px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 transform hover:shadow-lg hover:shadow-brand-blue/25"
+                className="border-2 border-brand-purple text-brand-purple hover:bg-brand-purple/5 px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 transform hover:shadow-lg"
               >
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
