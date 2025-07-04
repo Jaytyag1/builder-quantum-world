@@ -271,16 +271,16 @@ export default function Index() {
 
       {/* Before vs After Section */}
       <section className="py-24 px-4 bg-gradient-to-r from-muted/30 to-transparent">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             Transform your payment process
           </h2>
+          <h3 className="text-2xl font-bold mb-8 text-destructive">
+            ❌ Before FollowUpAI
+          </h3>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Before */}
             <div>
-              <h3 className="text-2xl font-bold mb-8 text-destructive">
-                ❌ Before FollowUpAI
-              </h3>
               <div className="space-y-4">
                 <div className="glass-card p-6 border-destructive/20">
                   <div className="flex items-start gap-4">
