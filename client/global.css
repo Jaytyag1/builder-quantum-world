@@ -99,13 +99,50 @@
 
 @layer components {
   .glass {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
   }
 
   .glass-card {
     @apply glass rounded-2xl p-6;
+    position: relative;
+  }
+
+  .animated-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(
+      45deg,
+      hsl(var(--brand-purple)) 0%,
+      hsl(var(--brand-blue)) 25%,
+      hsl(var(--brand-cyan)) 50%,
+      hsl(var(--brand-purple)) 75%,
+      hsl(var(--brand-blue)) 100%
+    );
+    border-radius: inherit;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    animation: border-loop 3s linear infinite;
+  }
+
+  @keyframes border-loop {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   .gradient-text {
