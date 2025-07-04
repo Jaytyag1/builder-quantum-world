@@ -122,9 +122,9 @@ export default function Index() {
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           <div className="space-y-8 animate-fadeInUp">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight">
-              Stop chasing clients
               <br />
-              <span className="gradient-text">to pay.</span>
+              Stop chasing clients
+              <span className="gradient-text">&nbsp;to pay.</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
