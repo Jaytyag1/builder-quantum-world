@@ -110,21 +110,45 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden floating-particles">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/10 via-background to-brand-blue/10" />
-        <div className="absolute top-20 left-20 w-72 h-72 bg-brand-purple/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 left-20 w-72 h-72 bg-brand-purple/20 rounded-full blur-3xl animate-pulse premium-glow" />
         <div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl animate-pulse"
+          className="absolute bottom-20 right-20 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl animate-pulse premium-glow"
           style={{ animationDelay: "2s" }}
         />
 
+        {/* Additional floating elements */}
+        <div
+          className="absolute top-1/4 left-1/4 w-4 h-4 bg-brand-cyan/60 rounded-full animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute top-3/4 right-1/3 w-3 h-3 bg-brand-purple/80 rounded-full animate-float"
+          style={{ animationDelay: "3s" }}
+        />
+        <div
+          className="absolute top-1/2 left-3/4 w-2 h-2 bg-brand-blue/70 rounded-full animate-float"
+          style={{ animationDelay: "5s" }}
+        />
+
         <div className="relative z-10 max-w-6xl mx-auto text-center">
-          <div className="space-y-8 animate-fadeInUp">
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight">
+          <div className="space-y-8">
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-focus-in">
               <br />
-              Stop chasing clients
-              <span className="gradient-text">&nbsp;to pay.</span>
+              <span
+                className="inline-block stagger-animation"
+                style={{ animationDelay: "0.2s" }}
+              >
+                Stop chasing clients
+              </span>
+              <span
+                className="gradient-text inline-block stagger-animation"
+                style={{ animationDelay: "0.4s" }}
+              >
+                &nbsp;to pay.
+              </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
