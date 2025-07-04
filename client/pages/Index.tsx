@@ -439,7 +439,7 @@ export default function Index() {
                       😊 "Hi John! Hope you're well..."
                     </div>
                     <div className="text-green-400">
-                      ⚡ Generated in 2 seconds
+                      �� Generated in 2 seconds
                     </div>
                     <div className="text-green-400">
                       📈 3x higher response rate
@@ -643,7 +643,7 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.3}>
-              <Card className="glass-card border-brand-purple/20 hover:border-brand-purple/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
+              <Card className="animated-border glass-card transition-all duration-500 h-full group hover:scale-105 premium-shadow">
                 <CardHeader>
                   <RefreshCw className="h-10 w-10 text-brand-purple mb-4 group-hover:animate-bounceIn" />
                   <CardTitle className="group-hover:gradient-text transition-all duration-300">
@@ -660,7 +660,7 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.4}>
-              <Card className="glass-card border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
+              <Card className="animated-border glass-card transition-all duration-500 h-full group hover:scale-105 premium-shadow">
                 <CardHeader>
                   <BarChart3 className="h-10 w-10 text-brand-blue mb-4 group-hover:animate-bounceIn" />
                   <CardTitle className="group-hover:gradient-text transition-all duration-300">
@@ -677,7 +677,7 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.5}>
-              <Card className="glass-card border-brand-cyan/20 hover:border-brand-cyan/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
+              <Card className="animated-border glass-card transition-all duration-500 h-full group hover:scale-105 premium-shadow">
                 <CardHeader>
                   <Shield className="h-10 w-10 text-brand-cyan mb-4 group-hover:animate-bounceIn" />
                   <CardTitle className="group-hover:gradient-text transition-all duration-300">
