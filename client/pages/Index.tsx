@@ -592,7 +592,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FloatingCard delay={0}>
-              <Card className="glass-card border-brand-purple/20 hover:border-brand-purple/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
+              <Card className="animated-border glass-card transition-all duration-500 h-full group hover:scale-105 premium-shadow">
                 <CardHeader>
                   <FileText className="h-10 w-10 text-brand-purple mb-4 group-hover:animate-bounceIn" />
                   <CardTitle className="group-hover:gradient-text transition-all duration-300">
