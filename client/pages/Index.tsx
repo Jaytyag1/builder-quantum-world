@@ -530,15 +530,64 @@ export default function Index() {
       {/* Features Section */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Autonomous revenue{" "}
-              <span className="gradient-text">acceleration engine</span>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border border-brand-purple/20 mb-6">
+              <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-brand-purple">
+                Next-Generation AI Platform
+              </span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              Revenue Intelligence{" "}
+              <span className="gradient-text block md:inline">Redefined</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Every feature designed to turn your invoices into payments, faster
-              and with less stress.
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+              Multi-agent AI system that learns, adapts, and optimizes your
+              entire payment collection workflow with human-level emotional
+              intelligence.
             </p>
+
+            {/* Live Feature Showcase */}
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              <div className="animated-border glass-card hover:scale-105 transition-all duration-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full flex items-center justify-center">
+                    <Brain className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="font-semibold">Neural Processing</span>
+                </div>
+                <div className="text-2xl font-bold gradient-text">15ms</div>
+                <div className="text-sm text-muted-foreground">
+                  Average response time
+                </div>
+              </div>
+
+              <div className="animated-border glass-card hover:scale-105 transition-all duration-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full flex items-center justify-center">
+                    <Zap className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="font-semibold">Learning Rate</span>
+                </div>
+                <div className="text-2xl font-bold gradient-text">97.3%</div>
+                <div className="text-sm text-muted-foreground">
+                  Model accuracy
+                </div>
+              </div>
+
+              <div className="animated-border glass-card hover:scale-105 transition-all duration-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-full flex items-center justify-center">
+                    <BarChart3 className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="font-semibold">Optimization</span>
+                </div>
+                <div className="text-2xl font-bold gradient-text">340%</div>
+                <div className="text-sm text-muted-foreground">
+                  Performance boost
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
