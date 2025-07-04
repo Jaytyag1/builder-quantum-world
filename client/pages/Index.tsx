@@ -151,16 +151,22 @@ export default function Index() {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p
+              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed stagger-animation"
+              style={{ animationDelay: "0.6s" }}
+            >
               FollowUpAI reads your invoices and follows up on your behalf.
               Transform awkward payment chases into automated, professional
               reminders.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center stagger-animation"
+              style={{ animationDelay: "0.8s" }}
+            >
               <Button
                 size="lg"
-                className="bg-brand-purple hover:bg-brand-purple/80 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-brand-purple/25 transition-all duration-300"
+                className="bg-brand-purple hover:bg-brand-purple/80 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-brand-purple/25 transition-all duration-300 shimmer-effect premium-glow hover:scale-105 transform"
               >
                 <Upload className="mr-2 h-5 w-5" />
                 Upload Invoice
@@ -168,7 +174,7 @@ export default function Index() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/10 px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300"
+                className="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue/10 px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 transform hover:shadow-lg hover:shadow-brand-blue/25"
               >
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
