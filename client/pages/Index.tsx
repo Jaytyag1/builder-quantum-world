@@ -1285,23 +1285,69 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Strip */}
-      <section className="py-16 px-4 bg-gradient-to-r from-brand-purple to-brand-blue">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Start chasing results, not clients.
+      {/* Investor-Focused CTA */}
+      <section className="py-24 px-4 bg-gradient-to-r from-brand-purple to-brand-blue relative overflow-hidden">
+        {/* Background Animation */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full animate-float"></div>
+          <div
+            className="absolute bottom-10 right-10 w-24 h-24 bg-white/10 rounded-full animate-float"
+            style={{ animationDelay: "2s" }}
+          ></div>
+          <div
+            className="absolute top-1/2 left-1/3 w-16 h-16 bg-white/10 rounded-full animate-float"
+            style={{ animationDelay: "4s" }}
+          ></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto text-center text-white relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            The future of B2B payments is{" "}
+            <span className="text-white/90">autonomous</span>
           </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Join 10,000+ freelancers who get paid faster with FollowUpAI.
+          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-4xl mx-auto">
+            Join the revenue acceleration revolution. FollowUpAI is transforming
+            how 10,000+ businesses collect payments.
           </p>
-          <Button
-            size="lg"
-            className="bg-white text-brand-purple hover:bg-white/90 px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg"
-          >
-            <Sparkles className="mr-2 h-5 w-5" />
-            Try FollowUpAI Free
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+            <div className="glass-card p-6 bg-white/10 backdrop-blur-lg">
+              <div className="text-3xl font-bold mb-2">$2.4M+</div>
+              <div className="text-white/80">Revenue Recovered</div>
+            </div>
+            <div className="glass-card p-6 bg-white/10 backdrop-blur-lg">
+              <div className="text-3xl font-bold mb-2">340%</div>
+              <div className="text-white/80">ROI Average</div>
+            </div>
+            <div className="glass-card p-6 bg-white/10 backdrop-blur-lg">
+              <div className="text-3xl font-bold mb-2">40%</div>
+              <div className="text-white/80">Faster Collections</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Button
+              size="lg"
+              className="bg-white text-brand-purple hover:bg-white/90 px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:scale-105 transition-all duration-300"
+            >
+              <Sparkles className="mr-2 h-5 w-5" />
+              Start Free Trial
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-2xl backdrop-blur-sm"
+            >
+              <Users className="mr-2 h-5 w-5" />
+              Schedule Demo
+            </Button>
+          </div>
+
+          <p className="text-white/70 text-sm">
+            No credit card required • 14-day free trial • Enterprise SSO
+            available
+          </p>
         </div>
       </section>
 
