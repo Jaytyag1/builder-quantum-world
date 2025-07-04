@@ -520,10 +520,14 @@ export default function Index() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Free Plan */}
-            <Card className="glass-card relative">
+            <Card className="glass-card relative hover:scale-105 transition-all duration-500 shimmer-effect group">
               <CardHeader>
-                <CardTitle className="text-2xl">Free</CardTitle>
-                <div className="text-4xl font-bold">$0</div>
+                <CardTitle className="text-2xl group-hover:gradient-text transition-all duration-300">
+                  Free
+                </CardTitle>
+                <div className="text-4xl font-bold group-hover:text-brand-purple transition-all duration-300">
+                  $0
+                </div>
                 <CardDescription>Perfect for getting started</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
