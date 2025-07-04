@@ -594,10 +594,12 @@ export default function Index() {
             </Card>
 
             {/* Premium Plan */}
-            <Card className="glass-card relative">
+            <Card className="glass-card relative hover:scale-105 transition-all duration-500 shimmer-effect group">
               <CardHeader>
-                <CardTitle className="text-2xl">Premium</CardTitle>
-                <div className="text-4xl font-bold">
+                <CardTitle className="text-2xl group-hover:gradient-text transition-all duration-300">
+                  Premium
+                </CardTitle>
+                <div className="text-4xl font-bold group-hover:text-brand-blue transition-all duration-300">
                   $29
                   <span className="text-lg text-muted-foreground">/month</span>
                 </div>
