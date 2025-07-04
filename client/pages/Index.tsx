@@ -112,10 +112,10 @@ export default function Index() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden floating-particles">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/10 via-background to-brand-blue/10" />
-        <div className="absolute top-20 left-20 w-72 h-72 bg-brand-purple/20 rounded-full blur-3xl animate-pulse premium-glow" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 via-background to-brand-blue/5" />
+        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-brand-purple/20 to-brand-blue/20 rounded-full blur-3xl animate-pulse" />
         <div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl animate-pulse premium-glow"
+          className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-brand-blue/20 to-brand-cyan/20 rounded-full blur-3xl animate-pulse"
           style={{ animationDelay: "2s" }}
         />
 
