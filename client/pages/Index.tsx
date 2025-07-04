@@ -650,23 +650,24 @@ export default function Index() {
           </h2>
 
           <div className="relative">
-            <Card className="glass-card p-8 max-w-2xl mx-auto">
+            <Card className="glass-card p-8 max-w-2xl mx-auto shimmer-effect premium-glow hover:scale-105 transition-all duration-500">
               <CardContent className="space-y-6">
                 <div className="flex justify-center space-x-1">
                   {[...Array(testimonials[currentTestimonial].rating)].map(
                     (_, i) => (
                       <Star
                         key={i}
-                        className="h-5 w-5 fill-yellow-400 text-yellow-400"
+                        className="h-5 w-5 fill-yellow-400 text-yellow-400 animate-pulse"
+                        style={{ animationDelay: `${i * 0.2}s` }}
                       />
                     ),
                   )}
                 </div>
-                <blockquote className="text-xl italic leading-relaxed">
+                <blockquote className="text-xl italic leading-relaxed text-focus-in">
                   "{testimonials[currentTestimonial].quote}"
                 </blockquote>
                 <div className="border-t border-border pt-6">
-                  <div className="font-semibold text-lg">
+                  <div className="font-semibold text-lg gradient-text">
                     {testimonials[currentTestimonial].author}
                   </div>
                   <div className="text-muted-foreground">
