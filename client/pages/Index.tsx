@@ -228,8 +228,8 @@ export default function Index() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <FloatingCard delay={0}>
-              <div className="glass-card text-center p-8">
-                <Clock className="h-12 w-12 text-destructive mx-auto mb-4" />
+              <div className="glass-card text-center p-8 hover:scale-105 transition-all duration-500 group hover:shadow-xl hover:shadow-destructive/10">
+                <Clock className="h-12 w-12 text-destructive mx-auto mb-4 group-hover:animate-pulse" />
                 <h3 className="text-xl font-semibold mb-3">
                   Late payments hurt your cash flow
                 </h3>
@@ -241,8 +241,8 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.2}>
-              <div className="glass-card text-center p-8">
-                <MessageSquare className="h-12 w-12 text-destructive mx-auto mb-4" />
+              <div className="glass-card text-center p-8 hover:scale-105 transition-all duration-500 group hover:shadow-xl hover:shadow-destructive/10">
+                <MessageSquare className="h-12 w-12 text-destructive mx-auto mb-4 group-hover:animate-pulse" />
                 <h3 className="text-xl font-semibold mb-3">
                   You hate sounding desperate
                 </h3>
@@ -254,8 +254,8 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.4}>
-              <div className="glass-card text-center p-8">
-                <Users className="h-12 w-12 text-destructive mx-auto mb-4" />
+              <div className="glass-card text-center p-8 hover:scale-105 transition-all duration-500 group hover:shadow-xl hover:shadow-destructive/10">
+                <Users className="h-12 w-12 text-destructive mx-auto mb-4 group-hover:animate-pulse" />
                 <h3 className="text-xl font-semibold mb-3">
                   Clients ghost after getting the invoice
                 </h3>
