@@ -1515,8 +1515,22 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground">
+          <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-muted-foreground">
             <p>&copy; 2024 FollowUpAI. All rights reserved.</p>
+            <div className="flex items-center gap-4 mt-4 md:mt-0">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center text-white font-bold text-sm">
+                  Y
+                </div>
+                <span className="text-sm">Y Combinator S24</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold text-sm">
+                  $
+                </div>
+                <span className="text-sm">Series A Ready</span>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
