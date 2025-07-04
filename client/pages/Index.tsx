@@ -647,6 +647,276 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Enterprise Integrations */}
+      <section className="py-24 px-4 bg-gradient-to-br from-brand-purple/5 to-brand-blue/5">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Seamless{" "}
+            <span className="gradient-text">enterprise integrations</span>
+          </h2>
+          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+            Connect with your existing workflow in seconds. Built for scale with
+            enterprise-grade security and compliance.
+          </p>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+            {[
+              { name: "QuickBooks", logo: "📊" },
+              { name: "Salesforce", logo: "☁️" },
+              { name: "Stripe", logo: "💳" },
+              { name: "HubSpot", logo: "🎯" },
+              { name: "Slack", logo: "💬" },
+              { name: "Zapier", logo: "⚡" },
+            ].map((integration, i) => (
+              <div
+                key={integration.name}
+                className="glass-card p-6 hover:scale-105 transition-all duration-300 group"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                <div className="text-4xl mb-3 group-hover:animate-bounce">
+                  {integration.logo}
+                </div>
+                <div className="font-semibold text-sm">{integration.name}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="glass-card p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold mb-6 gradient-text">
+              Developer-First API
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-brand-purple/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Zap className="h-6 w-6 text-brand-purple" />
+                </div>
+                <h4 className="font-semibold mb-2">RESTful API</h4>
+                <p className="text-sm text-muted-foreground">
+                  Complete API access with webhooks and real-time events
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Shield className="h-6 w-6 text-brand-blue" />
+                </div>
+                <h4 className="font-semibold mb-2">SOC 2 Compliant</h4>
+                <p className="text-sm text-muted-foreground">
+                  Enterprise security with end-to-end encryption
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-brand-cyan/20 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <BarChart3 className="h-6 w-6 text-brand-cyan" />
+                </div>
+                <h4 className="font-semibold mb-2">Real-time Analytics</h4>
+                <p className="text-sm text-muted-foreground">
+                  Detailed insights and performance metrics dashboard
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Technology Deep Dive */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Next-gen AI{" "}
+              <span className="gradient-text">technology stack</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Powered by advanced language models and proprietary algorithms
+              trained on millions of successful payment conversations.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="space-y-8">
+              <div className="glass-card p-6 border-l-4 border-brand-purple">
+                <h3 className="text-xl font-bold mb-3 gradient-text">
+                  Neural Payment Intelligence
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Our proprietary AI analyzes payment patterns, client behavior,
+                  and industry trends to optimize follow-up timing and
+                  messaging.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-400" /> 97%
+                    accuracy in payment prediction
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-400" /> Real-time
+                    sentiment analysis
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
+                    Multi-language support (40+ languages)
+                  </li>
+                </ul>
+              </div>
+
+              <div className="glass-card p-6 border-l-4 border-brand-blue">
+                <h3 className="text-xl font-bold mb-3 gradient-text">
+                  Adaptive Learning Engine
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Machine learning algorithms that improve with every
+                  interaction, personalizing strategies for each client
+                  relationship.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
+                    Continuous model optimization
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
+                    Client-specific behavioral modeling
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
+                    Industry-specific training data
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="glass-card p-8 premium-glow">
+              <h3 className="text-2xl font-bold mb-6 text-center gradient-text">
+                AI Performance Metrics
+              </h3>
+              <div className="space-y-6">
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">
+                    Response Rate Improvement
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                      <div className="w-full h-full bg-gradient-to-r from-brand-purple to-brand-blue rounded-full animate-pulse"></div>
+                    </div>
+                    <span className="font-bold text-brand-purple">340%</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">
+                    Collection Time Reduction
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                      <div className="w-3/4 h-full bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full animate-pulse"></div>
+                    </div>
+                    <span className="font-bold text-brand-blue">75%</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">
+                    Client Satisfaction Score
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                      <div className="w-5/6 h-full bg-gradient-to-r from-brand-cyan to-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <span className="font-bold text-green-400">9.2/10</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="py-24 px-4 bg-gradient-to-r from-muted/20 to-transparent">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Calculate your <span className="gradient-text">ROI potential</span>
+          </h2>
+          <p className="text-xl text-muted-foreground mb-12">
+            See how much revenue you could recover with FollowUpAI
+          </p>
+
+          <div className="glass-card p-8 max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Monthly Invoice Volume
+                  </label>
+                  <div className="glass p-3 rounded-lg border border-border">
+                    <span className="text-2xl font-bold gradient-text">50</span>
+                    <span className="text-muted-foreground ml-2">
+                      invoices/month
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Average Invoice Value
+                  </label>
+                  <div className="glass p-3 rounded-lg border border-border">
+                    <span className="text-2xl font-bold gradient-text">
+                      $2,500
+                    </span>
+                    <span className="text-muted-foreground ml-2">
+                      per invoice
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Current Late Payment Rate
+                  </label>
+                  <div className="glass p-3 rounded-lg border border-border">
+                    <span className="text-2xl font-bold text-destructive">
+                      25%
+                    </span>
+                    <span className="text-muted-foreground ml-2">
+                      of invoices
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="glass-card p-6 border-brand-purple/20 bg-brand-purple/5">
+                  <h3 className="text-xl font-bold mb-4 gradient-text">
+                    Projected Results with FollowUpAI
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span>Monthly Revenue at Risk:</span>
+                      <span className="font-bold">$31,250</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Recovery with FollowUpAI:</span>
+                      <span className="font-bold text-green-400">$28,125</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Monthly ROI:</span>
+                      <span className="font-bold text-green-400">3,125%</span>
+                    </div>
+                    <div className="border-t border-border pt-3 mt-4">
+                      <div className="flex justify-between text-lg">
+                        <span className="font-bold">
+                          Annual Revenue Recovery:
+                        </span>
+                        <span className="font-bold gradient-text">
+                          $337,500
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-24 px-4 bg-gradient-to-br from-muted/20 to-transparent">
         <div className="max-w-5xl mx-auto">
