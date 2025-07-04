@@ -451,10 +451,12 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.3}>
-              <Card className="glass-card border-brand-purple/20 hover:border-brand-purple/40 transition-all duration-300 h-full">
+              <Card className="glass-card border-brand-purple/20 hover:border-brand-purple/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
                 <CardHeader>
-                  <RefreshCw className="h-10 w-10 text-brand-purple mb-4" />
-                  <CardTitle>Auto Resend with Attachment</CardTitle>
+                  <RefreshCw className="h-10 w-10 text-brand-purple mb-4 group-hover:animate-bounceIn" />
+                  <CardTitle className="group-hover:gradient-text transition-all duration-300">
+                    Auto Resend with Attachment
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base">
@@ -466,10 +468,12 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.4}>
-              <Card className="glass-card border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-300 h-full">
+              <Card className="glass-card border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
                 <CardHeader>
-                  <BarChart3 className="h-10 w-10 text-brand-blue mb-4" />
-                  <CardTitle>Payment Tracking</CardTitle>
+                  <BarChart3 className="h-10 w-10 text-brand-blue mb-4 group-hover:animate-bounceIn" />
+                  <CardTitle className="group-hover:gradient-text transition-all duration-300">
+                    Payment Tracking
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base">
@@ -481,10 +485,12 @@ export default function Index() {
             </FloatingCard>
 
             <FloatingCard delay={0.5}>
-              <Card className="glass-card border-brand-cyan/20 hover:border-brand-cyan/40 transition-all duration-300 h-full">
+              <Card className="glass-card border-brand-cyan/20 hover:border-brand-cyan/40 transition-all duration-500 h-full group hover:scale-105 shimmer-effect">
                 <CardHeader>
-                  <Shield className="h-10 w-10 text-brand-cyan mb-4" />
-                  <CardTitle>Client Memory</CardTitle>
+                  <Shield className="h-10 w-10 text-brand-cyan mb-4 group-hover:animate-bounceIn" />
+                  <CardTitle className="group-hover:gradient-text transition-all duration-300">
+                    Client Memory
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base">
