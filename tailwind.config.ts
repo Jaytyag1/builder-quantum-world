@@ -91,6 +91,24 @@ export default {
           "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        slideInLeft: {
+          "0%": { opacity: "0", transform: "translateX(-50px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        slideInRight: {
+          "0%": { opacity: "0", transform: "translateX(50px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        scaleIn: {
+          "0%": { opacity: "0", transform: "scale(0.8)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        bounceIn: {
+          "0%": { opacity: "0", transform: "scale(0.3)" },
+          "50%": { opacity: "1", transform: "scale(1.05)" },
+          "70%": { transform: "scale(0.9)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -98,6 +116,10 @@ export default {
         float: "float 6s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite alternate",
         fadeInUp: "fadeInUp 0.6s ease-out",
+        slideInLeft: "slideInLeft 0.8s ease-out",
+        slideInRight: "slideInRight 0.8s ease-out",
+        scaleIn: "scaleIn 0.6s ease-out",
+        bounceIn: "bounceIn 0.8s ease-out",
       },
     },
   },
