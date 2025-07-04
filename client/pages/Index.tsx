@@ -72,6 +72,10 @@ const FloatingCard = ({
 export default function Index() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
+
   const testimonials = [
     {
       quote:
