@@ -183,11 +183,20 @@ export default function Index() {
           </div>
 
           {/* Typing Animation Demo */}
-          <div className="mt-16 glass-card max-w-2xl mx-auto text-left">
+          <div
+            className="mt-16 glass-card max-w-2xl mx-auto text-left shimmer-effect stagger-animation"
+            style={{ animationDelay: "1s" }}
+          >
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 bg-red-500 rounded-full" />
-              <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-              <div className="w-3 h-3 bg-green-500 rounded-full" />
+              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+              <div
+                className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"
+                style={{ animationDelay: "0.5s" }}
+              />
+              <div
+                className="w-3 h-3 bg-green-500 rounded-full animate-pulse"
+                style={{ animationDelay: "1s" }}
+              />
               <span className="ml-2 text-sm text-muted-foreground">
                 FollowUpAI composing...
               </span>
