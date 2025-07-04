@@ -386,11 +386,11 @@ export default function Index() {
 
       {/* Features Section */}
       <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               AI that actually{" "}
-              <span className="gradient-text">gets you paid</span>
+              <span className="gradient-text">&nbsp;gets you paid</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Every feature designed to turn your invoices into payments, faster
