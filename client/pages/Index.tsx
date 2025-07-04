@@ -552,13 +552,13 @@ export default function Index() {
             </Card>
 
             {/* Pro Plan - Most Popular */}
-            <Card className="glass-card relative border-brand-purple/40 bg-brand-purple/5">
-              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-purple text-white">
+            <Card className="glass-card relative border-brand-purple/40 bg-brand-purple/5 hover:scale-110 transition-all duration-500 premium-glow group">
+              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-purple text-white animate-pulse">
                 Most Popular
               </Badge>
               <CardHeader>
-                <CardTitle className="text-2xl">Pro</CardTitle>
-                <div className="text-4xl font-bold">
+                <CardTitle className="text-2xl gradient-text">Pro</CardTitle>
+                <div className="text-4xl font-bold gradient-text">
                   $9
                   <span className="text-lg text-muted-foreground">/month</span>
                 </div>
