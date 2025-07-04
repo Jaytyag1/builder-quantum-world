@@ -184,7 +184,7 @@ export default function Index() {
 
           {/* Typing Animation Demo */}
           <div
-            className="mt-16 glass-card max-w-2xl mx-auto text-left shimmer-effect stagger-animation"
+            className="mt-16 animated-border glass-card max-w-2xl mx-auto text-left stagger-animation"
             style={{ animationDelay: "1s" }}
           >
             <div className="flex items-center gap-2 mb-4">
