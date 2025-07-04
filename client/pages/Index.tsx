@@ -73,7 +73,7 @@ export default function Index() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
-    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("dark");
   }, []);
 
   const testimonials = [
