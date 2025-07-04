@@ -1378,7 +1378,7 @@ export default function Index() {
                     href="#"
                     className="hover:text-foreground transition-colors"
                   >
-                    Pricing
+                    Enterprise
                   </a>
                 </li>
                 <li>
@@ -1386,7 +1386,7 @@ export default function Index() {
                     href="#"
                     className="hover:text-foreground transition-colors"
                   >
-                    Free Tools
+                    API & Integrations
                   </a>
                 </li>
                 <li>
@@ -1394,7 +1394,7 @@ export default function Index() {
                     href="#"
                     className="hover:text-foreground transition-colors"
                   >
-                    API
+                    Security
                   </a>
                 </li>
               </ul>
@@ -1408,7 +1408,7 @@ export default function Index() {
                     href="#"
                     className="hover:text-foreground transition-colors"
                   >
-                    Blog
+                    Case Studies
                   </a>
                 </li>
                 <li>
@@ -1416,7 +1416,7 @@ export default function Index() {
                     href="#"
                     className="hover:text-foreground transition-colors"
                   >
-                    Help Center
+                    ROI Calculator
                   </a>
                 </li>
                 <li>
@@ -1424,7 +1424,7 @@ export default function Index() {
                     href="#"
                     className="hover:text-foreground transition-colors"
                   >
-                    FollowUpAI vs Manual Emails
+                    AI Technology
                   </a>
                 </li>
                 <li>
@@ -1432,7 +1432,45 @@ export default function Index() {
                     href="#"
                     className="hover:text-foreground transition-colors"
                   >
-                    Templates
+                    Documentation
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="font-semibold">Company</h4>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Investors
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Press Kit
                   </a>
                 </li>
               </ul>
