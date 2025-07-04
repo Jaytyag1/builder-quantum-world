@@ -1054,6 +1054,184 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Success Stories */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Real results from{" "}
+              <span className="gradient-text">real businesses</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Case studies from companies scaling with FollowUpAI
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Case Study 1 */}
+            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-brand-purple/20 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">🏢</span>
+                </div>
+                <div>
+                  <h3 className="font-bold">Design Agency</h3>
+                  <p className="text-sm text-muted-foreground">50+ employees</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-400">
+                      $180K
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Recovered in 6 months
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-brand-purple">
+                      60%
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Faster collection
+                    </div>
+                  </div>
+                </div>
+                <blockquote className="text-sm italic text-muted-foreground border-l-2 border-brand-purple pl-4">
+                  "FollowUpAI transformed our cash flow. We went from constantly
+                  chasing payments to having clients pay proactively."
+                </blockquote>
+              </div>
+            </div>
+
+            {/* Case Study 2 */}
+            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <div>
+                  <h3 className="font-bold">SaaS Startup</h3>
+                  <p className="text-sm text-muted-foreground">Series A</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-400">
+                      $2.1M
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      ARR improvement
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-brand-blue">
+                      95%
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Collection rate
+                    </div>
+                  </div>
+                </div>
+                <blockquote className="text-sm italic text-muted-foreground border-l-2 border-brand-blue pl-4">
+                  "The ROI was immediate. FollowUpAI paid for itself in the
+                  first week and became critical to our growth metrics."
+                </blockquote>
+              </div>
+            </div>
+
+            {/* Case Study 3 */}
+            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-brand-cyan/20 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <div>
+                  <h3 className="font-bold">Consulting Firm</h3>
+                  <p className="text-sm text-muted-foreground">500+ clients</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-400">45%</div>
+                    <div className="text-xs text-muted-foreground">
+                      Revenue increase
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-brand-cyan">
+                      87%
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Client retention
+                    </div>
+                  </div>
+                </div>
+                <blockquote className="text-sm italic text-muted-foreground border-l-2 border-brand-cyan pl-4">
+                  "Our clients actually prefer the AI follow-ups. They're more
+                  consistent and professional than our manual emails."
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Security & Compliance */}
+      <section className="py-24 px-4 bg-gradient-to-br from-muted/20 to-transparent">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Enterprise-grade{" "}
+            <span className="gradient-text">security & compliance</span>
+          </h2>
+          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+            Built with security-first architecture and compliance standards that
+            enterprise customers demand.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-300">
+              <Shield className="h-12 w-12 text-brand-purple mx-auto mb-4" />
+              <h3 className="font-bold mb-2">SOC 2 Type II</h3>
+              <p className="text-sm text-muted-foreground">
+                Certified security controls and auditing
+              </p>
+            </div>
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-4xl mb-4">🔒</div>
+              <h3 className="font-bold mb-2">GDPR Compliant</h3>
+              <p className="text-sm text-muted-foreground">
+                Full data protection and privacy compliance
+              </p>
+            </div>
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-4xl mb-4">🛡️</div>
+              <h3 className="font-bold mb-2">256-bit Encryption</h3>
+              <p className="text-sm text-muted-foreground">
+                End-to-end encryption for all data
+              </p>
+            </div>
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-300">
+              <div className="text-4xl mb-4">⚡</div>
+              <h3 className="font-bold mb-2">99.9% Uptime SLA</h3>
+              <p className="text-sm text-muted-foreground">
+                Enterprise reliability guarantee
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center gap-8 opacity-60">
+            <div className="text-2xl font-bold">SOC 2</div>
+            <div className="text-2xl font-bold">GDPR</div>
+            <div className="text-2xl font-bold">HIPAA</div>
+            <div className="text-2xl font-bold">ISO 27001</div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
