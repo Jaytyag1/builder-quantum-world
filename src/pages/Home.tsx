@@ -729,7 +729,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-purple/5 to-transparent" />
         <div className="container mx-auto relative z-10 text-center">
           <Badge className="bg-brand-purple/20 text-brand-purple px-4 py-2 rounded-full text-sm mb-8">
-            🤖 Your invoice follow-up assistant — powered by GPT and emotional
+            🤖 Your invoice follow-up assistant ��� powered by GPT and emotional
             intelligence
           </Badge>
 
@@ -1012,7 +1012,9 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full gradient-bg hover:opacity-90" asChild>
-                  <Link to="/dashboard">Start Pro Trial</Link>
+                  <Link to="/dashboard">
+                    {isSignedIn ? "Go to Dashboard" : "Start Pro Trial"}
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
