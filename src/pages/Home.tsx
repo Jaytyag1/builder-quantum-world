@@ -952,7 +952,9 @@ export default function Home() {
                   className="w-full glass border-border/30"
                   asChild
                 >
-                  <Link to="/dashboard">Get Started Free</Link>
+                  <Link to="/dashboard">
+                    {isSignedIn ? "Go to Dashboard" : "Get Started Free"}
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
