@@ -318,8 +318,97 @@
 
   .premium-shadow {
     box-shadow:
-      0 20px 60px rgba(139, 92, 246, 0.15),
-      0 8px 25px rgba(139, 92, 246, 0.1);
+      0 20px 60px rgba(139, 92, 246, 0.3),
+      0 8px 25px rgba(139, 92, 246, 0.2);
+  }
+
+  .premium-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .floating-3d {
+    animation: float-3d 6s ease-in-out infinite;
+  }
+
+  @keyframes float-3d {
+    0%,
+    100% {
+      transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    33% {
+      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+    }
+    66% {
+      transform: translateY(-10px) rotateX(-3deg) rotateY(-3deg);
+    }
+  }
+
+  .workflow-step {
+    position: relative;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .workflow-step::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      45deg,
+      hsl(var(--brand-purple)) 0%,
+      hsl(var(--brand-blue)) 50%,
+      hsl(var(--brand-cyan)) 100%
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .workflow-step:hover::before {
+    opacity: 1;
+  }
+
+  .workflow-step:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 80px rgba(139, 92, 246, 0.4);
+  }
+
+  .hologram-effect {
+    position: relative;
+    background: linear-gradient(
+      45deg,
+      rgba(139, 92, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0.1) 50%,
+      rgba(6, 182, 212, 0.1) 100%
+    );
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(20px);
+  }
+
+  .hologram-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(139, 92, 246, 0.4) 50%,
+      transparent 100%
+    );
+    animation: hologram-scan 3s linear infinite;
+  }
+
+  @keyframes hologram-scan {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
   }
 
   .stagger-animation {
