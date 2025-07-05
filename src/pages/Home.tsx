@@ -35,6 +35,7 @@ import {
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import MouseFollower from "@/components/MouseFollower";
+import ROICalculator from "@/components/ROICalculator";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -227,6 +228,169 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Smart AI Section */}
+      <section className="py-20 px-4 relative">
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Built with Smart AI.{" "}
+              <span className="gradient-text">Trained to Get You Paid.</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our AI doesn't just send emails—it understands your clients,
+              learns from every interaction, and gets smarter with each payment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            {/* Left - Neural Payment Intelligence */}
+            <Card className="glass p-8 border-brand-purple/30 backdrop-blur-xl">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-brand-purple/20 flex items-center justify-center">
+                  <Brain className="h-6 w-6 text-brand-purple" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">
+                    Neural Payment Intelligence
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Predicts when to follow up, in what tone, and how often —
+                    based on your client's behavior.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-muted-foreground">
+                    97% accuracy in payment prediction
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-muted-foreground">
+                    Real-time sentiment shift detection
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-muted-foreground">
+                    Understands 40+ languages
+                  </span>
+                </div>
+              </div>
+            </Card>
+
+            {/* Right - AI Performance Boost & Adaptive Learning */}
+            <div className="space-y-8">
+              {/* AI Performance Boost */}
+              <Card className="glass p-6 border-brand-blue/30 backdrop-blur-xl">
+                <h3 className="text-xl font-bold text-white mb-6">
+                  AI Performance Boost
+                </h3>
+
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-muted-foreground">
+                        Reply Rate Increase
+                      </span>
+                      <span className="text-2xl font-bold text-brand-purple">
+                        +340%
+                      </span>
+                    </div>
+                    <div className="w-full bg-background/30 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-brand-purple to-brand-blue h-2 rounded-full"
+                        style={{ width: "85%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-muted-foreground">
+                        Time to Payment Cut By
+                      </span>
+                      <span className="text-2xl font-bold text-brand-blue">
+                        -75%
+                      </span>
+                    </div>
+                    <div className="w-full bg-background/30 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-brand-blue to-brand-cyan h-2 rounded-full"
+                        style={{ width: "75%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-muted-foreground">
+                        Client Experience Score
+                      </span>
+                      <span className="text-2xl font-bold text-brand-cyan">
+                        9.2/10
+                      </span>
+                    </div>
+                    <div className="w-full bg-background/30 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-brand-cyan to-green-400 h-2 rounded-full"
+                        style={{ width: "92%" }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-xs text-brand-purple/80 mt-4">
+                  Based on test invoices processed. Real data from Q4 2024
+                </p>
+              </Card>
+
+              {/* Adaptive Learning Engine */}
+              <Card className="glass p-6 border-brand-cyan/30 backdrop-blur-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-brand-cyan/20 flex items-center justify-center">
+                    <Cpu className="h-6 w-6 text-brand-cyan" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      Adaptive Learning Engine
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Every email improves it. The AI learns from your clients —
+                      not just the internet.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-cyan-400" />
+                    <span className="text-muted-foreground">
+                      Learns tone preferences for each client
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-cyan-400" />
+                    <span className="text-muted-foreground">
+                      Personalizes follow-up timing
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-cyan-400" />
+                    <span className="text-muted-foreground">
+                      Constantly optimizes success rate
+                    </span>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -555,6 +719,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ROI Calculator */}
+      <ROICalculator />
+
       {/* Chase Less Get Paid Faster */}
       <section className="py-20 px-4 relative border-t border-border/20">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-purple/5 to-transparent" />
@@ -728,6 +895,328 @@ export default function Home() {
               </p>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20 px-4 relative">
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Simple pricing that{" "}
+              <span className="gradient-text">pays for itself</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Get paid faster with automated follow-ups. Choose the plan that
+              fits your business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Free Plan */}
+            <Card className="glass p-8 border-border/20 relative">
+              <CardHeader className="p-0 mb-6">
+                <CardTitle className="text-2xl font-bold text-white">
+                  Free
+                </CardTitle>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-white">$0</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Perfect for getting started
+                </p>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      5 invoices per month
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Basic follow-up templates
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">Email support</span>
+                  </div>
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full glass border-border/30"
+                  asChild
+                >
+                  <Link to="/dashboard">Get Started Free</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Pro Plan */}
+            <Card className="glass p-8 border-brand-purple/50 relative scale-105 z-10">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-brand-purple text-white px-4 py-1">
+                  Most Popular
+                </Badge>
+              </div>
+              <CardHeader className="p-0 mb-6">
+                <CardTitle className="text-2xl font-bold text-white">
+                  Pro
+                </CardTitle>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold gradient-text">$9</span>
+                  <span className="text-muted-foreground">/month</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  For growing freelancers
+                </p>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      50 invoices per month
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      AI-generated follow-ups
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Tone customization
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Payment tracking dashboard
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Priority support
+                    </span>
+                  </div>
+                </div>
+                <Button className="w-full gradient-bg hover:opacity-90" asChild>
+                  <Link to="/dashboard">Start Pro Trial</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Premium Plan */}
+            <Card className="glass p-8 border-border/20 relative">
+              <CardHeader className="p-0 mb-6">
+                <CardTitle className="text-2xl font-bold text-white">
+                  Premium
+                </CardTitle>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold text-white">$29</span>
+                  <span className="text-muted-foreground">/month</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  For agencies and teams
+                </p>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Unlimited invoices
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Advanced AI features
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Client memory & insights
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      Team collaboration
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">
+                      White-label options
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-green-400" />
+                    <span className="text-muted-foreground">Phone support</span>
+                  </div>
+                </div>
+                <Button
+                  variant="outline"
+                  className="w-full glass border-border/30"
+                  asChild
+                >
+                  <Link to="/dashboard">Start Premium Trial</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Security & Compliance Section */}
+      <section className="py-20 px-4 relative border-t border-border/20">
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Enterprise-grade{" "}
+              <span className="gradient-text">security & compliance</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Built with security-first architecture and compliance standards
+              that enterprise customers demand.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12">
+            {/* SOC 2 Type II */}
+            <Card className="glass p-6 text-center border-brand-purple/20">
+              <div className="w-12 h-12 rounded-xl bg-brand-purple/20 flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-6 w-6 text-brand-purple" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-white">
+                SOC 2 Type II
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Certified security controls and auditing
+              </p>
+            </Card>
+
+            {/* GDPR Compliant */}
+            <Card className="glass p-6 text-center border-brand-blue/20">
+              <div className="w-12 h-12 rounded-xl bg-brand-blue/20 flex items-center justify-center mx-auto mb-4">
+                <Lock className="h-6 w-6 text-brand-blue" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-white">
+                GDPR Compliant
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Full data protection and privacy compliance
+              </p>
+            </Card>
+
+            {/* 256-bit Encryption */}
+            <Card className="glass p-6 text-center border-brand-cyan/20">
+              <div className="w-12 h-12 rounded-xl bg-brand-cyan/20 flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-6 w-6 text-brand-cyan" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-white">
+                256-bit Encryption
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                End-to-end encryption for all data
+              </p>
+            </Card>
+
+            {/* 99.9% Uptime SLA */}
+            <Card className="glass p-6 text-center border-yellow-500/20">
+              <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-6 w-6 text-yellow-500" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2 text-white">
+                99.9% Uptime SLA
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Enterprise reliability guarantee
+              </p>
+            </Card>
+          </div>
+
+          {/* Compliance Badges */}
+          <div className="flex justify-center items-center gap-8 flex-wrap text-2xl font-bold text-muted-foreground">
+            <span>SOC 2</span>
+            <span>GDPR</span>
+            <span>HIPAA</span>
+            <span>ISO 27001</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 px-4 relative bg-gradient-to-r from-brand-purple/20 via-brand-blue/20 to-brand-cyan/20">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-purple/5 to-transparent" />
+        <div className="container mx-auto relative z-10 text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            The future of B2B payments <br />
+            <span className="gradient-text">is autonomous</span>
+          </h2>
+          <p className="text-xl text-muted-foreground mb-12 max-w-4xl mx-auto">
+            Join the revenue acceleration revolution. FollowUpAI is transforming
+            how 10,000+ businesses collect payments.
+          </p>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                $2.4M+
+              </div>
+              <div className="text-muted-foreground">Revenue Recovered</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                340%
+              </div>
+              <div className="text-muted-foreground">ROI Average</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                40%
+              </div>
+              <div className="text-muted-foreground">Faster Collections</div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Button
+              asChild
+              size="lg"
+              className="gradient-bg hover:opacity-90 text-lg px-8 py-6"
+            >
+              <Link to="/dashboard">
+                <Sparkles className="mr-2 h-5 w-5" />
+                Start Free Trial
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="text-lg px-8 py-6 glass border-brand-purple/30 bg-white/10 text-white"
+            >
+              <Calendar className="mr-2 h-5 w-5" />
+              Schedule Demo
+            </Button>
+          </div>
+
+          <p className="text-sm text-muted-foreground">
+            No credit card required • 14-day free trial • Enterprise SSO
+            available
+          </p>
         </div>
       </section>
 
