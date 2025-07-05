@@ -29,25 +29,18 @@ import {
   Settings,
   Lock,
   Calendar,
+  Upload,
+  Edit3,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import MouseFollower from "@/components/MouseFollower";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [typingText, setTypingText] = useState("");
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  // Dynamic typing effect for FollowUpAI composing
+  // Dynamic typing effect for FollowUpAI composing - faster animation
   useEffect(() => {
     const fullText =
       "Hi John, I hope you're having a great week! I wanted to follow up on Invoice #2024-001 for $2,500 that was sent on February 15th. The payment was due on March 1st, and I haven't received it yet. I understand that things can get busy, so I wanted to check if there are any questions about the invoice or if there's anything I can help clarify.\n\nLooking forward to hearing from you!";
@@ -62,7 +55,7 @@ export default function Home() {
         currentIndex = 0;
         setTypingText("");
       }
-    }, 50);
+    }, 25); // Faster typing speed
 
     return () => clearInterval(typingInterval);
   }, []);
@@ -70,39 +63,24 @@ export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <Navigation />
-
-      {/* Cursor following circular effect */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div
-          className="absolute w-96 h-96 rounded-full pointer-events-none opacity-30"
-          style={{
-            background: `radial-gradient(circle, 
-              hsl(var(--brand-purple) / 0.1) 0%, 
-              hsl(var(--brand-blue) / 0.05) 50%, 
-              transparent 100%)`,
-            left: mousePosition.x - 192,
-            top: mousePosition.y - 192,
-            transition: "all 0.3s ease",
-          }}
-        />
-      </div>
+      <MouseFollower />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 min-h-screen flex items-center">
         <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
             {/* Left Content */}
-            <div className="space-y-8">
-              <Badge
-                variant="outline"
-                className="glass border-brand-purple/30 backdrop-blur-xl w-fit"
-              >
-                <Sparkles className="w-4 h-4 mr-2" />
-                AI-Powered Invoice Management
-              </Badge>
-
+            <div className="space-y-8 lg:space-y-12">
               <div className="space-y-6">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <Badge
+                  variant="outline"
+                  className="glass border-brand-purple/30 backdrop-blur-xl w-fit"
+                >
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  AI-Powered Invoice Management
+                </Badge>
+
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1]">
                   <span className="text-white">Stop chasing</span>
                   <br />
                   <span className="text-white">clients</span>
@@ -110,13 +88,11 @@ export default function Home() {
                   <span className="gradient-text">to pay.</span>
                 </h1>
 
-                <div className="relative p-6 glass border border-brand-blue/20 rounded-2xl">
-                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                    FollowUpAI reads your invoices and follows up on your
-                    behalf. Transform awkward payment chases into automated,
-                    professional reminders.
-                  </p>
-                </div>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-lg">
+                  FollowUpAI reads your invoices and follows up on your behalf.
+                  Transform awkward payment chases into automated, professional
+                  reminders.
+                </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -125,11 +101,9 @@ export default function Home() {
                   size="lg"
                   className="gradient-bg hover:opacity-90 text-lg px-8 py-4 rounded-xl group relative overflow-hidden shadow-2xl"
                 >
-                  <Link to="/dashboard">
-                    <span className="relative z-10 flex items-center">
-                      <ArrowRight className="mr-2 h-5 w-5" />
-                      Upload Invoice
-                    </span>
+                  <Link to="/invoice/create">
+                    <Upload className="mr-2 h-5 w-5" />
+                    Upload Invoice
                   </Link>
                 </Button>
                 <Button
@@ -137,31 +111,33 @@ export default function Home() {
                   size="lg"
                   className="text-lg px-8 py-4 rounded-xl glass border-brand-purple/30 hover:border-brand-purple/60 transition-all"
                 >
-                  <Zap className="mr-2 h-5 w-5" />
-                  Watch Demo
+                  <Edit3 className="mr-2 h-5 w-5" />
+                  Create Manually
                 </Button>
               </div>
 
               {/* Social Proof */}
-              <div className="flex items-center gap-4 pt-4">
-                <div className="flex -space-x-2">
-                  {[...Array(4)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-blue border-2 border-background flex items-center justify-center text-xs font-bold text-white"
-                    >
-                      {String.fromCharCode(65 + i)}
-                    </div>
-                  ))}
+              <div className="flex items-center gap-6 pt-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    {[...Array(4)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-10 h-10 rounded-full bg-gradient-to-r from-brand-purple to-brand-blue border-2 border-background flex items-center justify-center text-sm font-bold text-white"
+                      >
+                        {String.fromCharCode(65 + i)}
+                      </div>
+                    ))}
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    500+ users collecting payments faster
+                  </span>
                 </div>
-                <span className="text-sm text-muted-foreground">
-                  500+ waitlist
-                </span>
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className="w-4 h-4 text-yellow-400 fill-current"
+                      className="w-5 h-5 text-yellow-400 fill-current"
                       viewBox="0 0 20 20"
                     >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -171,13 +147,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right - Invoice Dashboard */}
-            <div className="relative lg:pl-8">
-              <div className="glass p-6 rounded-3xl border border-brand-purple/20 relative overflow-hidden">
+            {/* Right - Clean Invoice Preview */}
+            <div className="relative">
+              <div className="glass p-8 rounded-3xl border border-brand-purple/20 relative overflow-hidden backdrop-blur-xl">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-semibold text-white">
-                    Invoicing
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-2xl font-semibold text-white">
+                    Smart Dashboard
                   </h3>
                   <Button
                     size="sm"
@@ -187,14 +163,68 @@ export default function Home() {
                   </Button>
                 </div>
 
-                {/* Invoice List Header */}
-                <div className="grid grid-cols-6 gap-4 mb-4 text-sm text-muted-foreground px-3">
-                  <span>Recipient</span>
-                  <span>Amount</span>
-                  <span>Status</span>
-                  <span>Due date</span>
-                  <span>Invoice no.</span>
-                  <span>Invoice date</span>
+                {/* Clean Invoice List */}
+                <div className="space-y-4">
+                  {[
+                    {
+                      client: "Acme Corp",
+                      amount: "$2,500",
+                      status: "paid",
+                      due: "Jan 15",
+                    },
+                    {
+                      client: "TechStart Inc",
+                      amount: "$1,800",
+                      status: "sent",
+                      due: "Jan 20",
+                    },
+                    {
+                      client: "Global Solutions",
+                      amount: "$3,200",
+                      status: "overdue",
+                      due: "Jan 10",
+                    },
+                  ].map((invoice, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center justify-between p-4 rounded-xl bg-background/30 border border-brand-purple/10"
+                    >
+                      <div>
+                        <div className="font-medium text-white">
+                          {invoice.client}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          Due {invoice.due}
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-semibold text-white">
+                          {invoice.amount}
+                        </div>
+                        <div
+                          className={`text-xs px-2 py-1 rounded-full ${
+                            invoice.status === "paid"
+                              ? "bg-green-500/20 text-green-400"
+                              : invoice.status === "sent"
+                                ? "bg-blue-500/20 text-blue-400"
+                                : "bg-red-500/20 text-red-400"
+                          }`}
+                        >
+                          {invoice.status}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* AI Status */}
+                <div className="mt-6 p-4 rounded-xl bg-brand-purple/10 border border-brand-purple/20">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
+                    <span className="text-sm text-brand-purple font-medium">
+                      AI actively following up on 2 overdue invoices
+                    </span>
+                  </div>
                 </div>
 
                 {/* Invoice List */}
