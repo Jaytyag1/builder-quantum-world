@@ -53,12 +53,29 @@ export default function Navigation() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" asChild>
-              <Link to="/dashboard">Sign In</Link>
-            </Button>
-            <Button asChild className="gradient-bg hover:opacity-90">
-              <Link to="/dashboard">Get Started</Link>
-            </Button>
+            {isSignedIn ? (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link to="/dashboard">Dashboard</Link>
+                </Button>
+                <UserButton
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-8 h-8",
+                    },
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link to="/dashboard">Sign In</Link>
+                </Button>
+                <Button asChild className="gradient-bg hover:opacity-90">
+                  <Link to="/dashboard">Get Started</Link>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
