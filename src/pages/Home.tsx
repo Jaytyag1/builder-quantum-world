@@ -209,82 +209,110 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Everything you need to{" "}
-              <span className="gradient-text">get paid</span>
+      {/* Quantum Features Section */}
+      <section className="py-32 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-purple/5 to-transparent" />
+
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <Badge
+              variant="outline"
+              className="mb-6 glass border-brand-cyan/30"
+            >
+              <Cpu className="w-4 h-4 mr-2" />
+              Quantum Technology Stack
+            </Badge>
+            <h2 className="text-5xl md:text-6xl font-bold mb-8">
+              <span className="gradient-text">QUANTUM</span>{" "}
+              <span className="text-white">CAPABILITIES</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From creation to collection, InvoIQ handles every aspect of your
-              invoicing workflow
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Unleash the power of quantum computing for financial operations
+              that transcend traditional boundaries
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="glass animated-border">
-              <CardHeader>
-                <Zap className="h-10 w-10 text-brand-purple mb-4" />
-                <CardTitle>AI-Powered Automation</CardTitle>
-                <CardDescription>
-                  Let AI handle recurring invoices, payment reminders, and
-                  follow-ups automatically
+            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
+              <CardHeader className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                <Brain className="h-12 w-12 text-brand-purple mb-6 relative z-10 group-hover:animate-pulse" />
+                <CardTitle className="text-xl mb-3 relative z-10">
+                  Neural Invoice Matrix
+                </CardTitle>
+                <CardDescription className="relative z-10">
+                  Quantum neural networks analyze billing patterns across
+                  infinite dimensions, optimizing payment flows in real-time
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="glass animated-border">
-              <CardHeader>
-                <FileText className="h-10 w-10 text-brand-blue mb-4" />
-                <CardTitle>Smart Invoice Creation</CardTitle>
-                <CardDescription>
-                  Create professional invoices in seconds with intelligent
-                  templates and auto-fill
+            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
+              <CardHeader className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                <Orbit className="h-12 w-12 text-brand-blue mb-6 relative z-10 group-hover:animate-spin" />
+                <CardTitle className="text-xl mb-3 relative z-10">
+                  Entangled Payment Processing
+                </CardTitle>
+                <CardDescription className="relative z-10">
+                  Quantum entanglement ensures instantaneous payment
+                  verification across all financial dimensions simultaneously
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="glass animated-border">
-              <CardHeader>
-                <BarChart3 className="h-10 w-10 text-brand-cyan mb-4" />
-                <CardTitle>Real-time Analytics</CardTitle>
-                <CardDescription>
-                  Track payment trends, cash flow, and client behavior with
-                  detailed insights
+            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
+              <CardHeader className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                <Infinity className="h-12 w-12 text-brand-cyan mb-6 relative z-10 group-hover:animate-bounce" />
+                <CardTitle className="text-xl mb-3 relative z-10">
+                  Infinite Analytics
+                </CardTitle>
+                <CardDescription className="relative z-10">
+                  Harness quantum superposition to analyze infinite financial
+                  scenarios and predict payment behaviors with 100% accuracy
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="glass animated-border">
-              <CardHeader>
-                <Mail className="h-10 w-10 text-brand-purple mb-4" />
-                <CardTitle>Smart Reminders</CardTitle>
-                <CardDescription>
-                  AI-crafted payment reminders that maintain client
-                  relationships while ensuring payment
+            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
+              <CardHeader className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                <Sparkles className="h-12 w-12 text-brand-purple mb-6 relative z-10 group-hover:animate-pulse" />
+                <CardTitle className="text-xl mb-3 relative z-10">
+                  Quantum Encryption Shield
+                </CardTitle>
+                <CardDescription className="relative z-10">
+                  Unbreakable quantum cryptography protects your financial data
+                  using the fundamental laws of quantum mechanics
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="glass animated-border">
-              <CardHeader>
-                <Smartphone className="h-10 w-10 text-brand-blue mb-4" />
-                <CardTitle>Mobile-First Design</CardTitle>
-                <CardDescription>
-                  Manage invoices on the go with our responsive mobile interface
+            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
+              <CardHeader className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                <Zap className="h-12 w-12 text-brand-blue mb-6 relative z-10 group-hover:animate-pulse" />
+                <CardTitle className="text-xl mb-3 relative z-10">
+                  Photonic Speed Processing
+                </CardTitle>
+                <CardDescription className="relative z-10">
+                  Quantum photonic processors handle billing operations at the
+                  speed of light, transcending traditional computational limits
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="glass animated-border">
-              <CardHeader>
-                <Shield className="h-10 w-10 text-brand-cyan mb-4" />
-                <CardTitle>Bank-Level Security</CardTitle>
-                <CardDescription>
-                  Your financial data is protected with enterprise-grade
-                  security and encryption
+            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
+              <CardHeader className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                <Globe className="h-12 w-12 text-brand-cyan mb-6 relative z-10 group-hover:animate-spin" />
+                <CardTitle className="text-xl mb-3 relative z-10">
+                  Multidimensional Integration
+                </CardTitle>
+                <CardDescription className="relative z-10">
+                  Seamlessly integrate with financial systems across parallel
+                  universes for truly universal billing solutions
                 </CardDescription>
               </CardHeader>
             </Card>
