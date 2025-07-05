@@ -89,9 +89,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-lg">
-                  FollowUpAI reads your invoices and follows up on your behalf.
-                  Transform awkward payment chases into automated, professional
-                  reminders.
+                  FollowUpAI reads your invoices and follows up on your behalf. Transform awkward payment chases into automated, professional reminders.
                 </p>
               </div>
 
@@ -155,10 +153,7 @@ export default function Home() {
                   <h3 className="text-2xl font-semibold text-white">
                     Smart Dashboard
                   </h3>
-                  <Button
-                    size="sm"
-                    className="gradient-bg rounded-xl px-4 py-2"
-                  >
+                  <Button size="sm" className="gradient-bg rounded-xl px-4 py-2">
                     + Create Invoice
                   </Button>
                 </div>
@@ -166,50 +161,22 @@ export default function Home() {
                 {/* Clean Invoice List */}
                 <div className="space-y-4">
                   {[
-                    {
-                      client: "Acme Corp",
-                      amount: "$2,500",
-                      status: "paid",
-                      due: "Jan 15",
-                    },
-                    {
-                      client: "TechStart Inc",
-                      amount: "$1,800",
-                      status: "sent",
-                      due: "Jan 20",
-                    },
-                    {
-                      client: "Global Solutions",
-                      amount: "$3,200",
-                      status: "overdue",
-                      due: "Jan 10",
-                    },
+                    { client: "Acme Corp", amount: "$2,500", status: "paid", due: "Jan 15" },
+                    { client: "TechStart Inc", amount: "$1,800", status: "sent", due: "Jan 20" },
+                    { client: "Global Solutions", amount: "$3,200", status: "overdue", due: "Jan 10" }
                   ].map((invoice, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center justify-between p-4 rounded-xl bg-background/30 border border-brand-purple/10"
-                    >
+                    <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-background/30 border border-brand-purple/10">
                       <div>
-                        <div className="font-medium text-white">
-                          {invoice.client}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          Due {invoice.due}
-                        </div>
+                        <div className="font-medium text-white">{invoice.client}</div>
+                        <div className="text-sm text-muted-foreground">Due {invoice.due}</div>
                       </div>
                       <div className="text-right">
-                        <div className="font-semibold text-white">
-                          {invoice.amount}
-                        </div>
-                        <div
-                          className={`text-xs px-2 py-1 rounded-full ${
-                            invoice.status === "paid"
-                              ? "bg-green-500/20 text-green-400"
-                              : invoice.status === "sent"
-                                ? "bg-blue-500/20 text-blue-400"
-                                : "bg-red-500/20 text-red-400"
-                          }`}
-                        >
+                        <div className="font-semibold text-white">{invoice.amount}</div>
+                        <div className={`text-xs px-2 py-1 rounded-full ${
+                          invoice.status === 'paid' ? 'bg-green-500/20 text-green-400' :
+                          invoice.status === 'sent' ? 'bg-blue-500/20 text-blue-400' :
+                          'bg-red-500/20 text-red-400'
+                        }`}>
                           {invoice.status}
                         </div>
                       </div>
@@ -221,9 +188,7 @@ export default function Home() {
                 <div className="mt-6 p-4 rounded-xl bg-brand-purple/10 border border-brand-purple/20">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
-                    <span className="text-sm text-brand-purple font-medium">
-                      AI actively following up on 2 overdue invoices
-                    </span>
+                    <span className="text-sm text-brand-purple font-medium">AI actively following up on 2 overdue invoices</span>
                   </div>
                 </div>
 
@@ -384,149 +349,244 @@ export default function Home() {
       </section>
 
       {/* Transform Payment Process Section */}
-      <section className="py-20 px-4 relative">
+      <section className="py-32 px-4 relative">
         <div className="container mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <Badge className="bg-brand-purple text-white px-4 py-2 rounded-full text-sm mb-8">
+          <div className="text-center mb-20">
+            <Badge className="bg-brand-purple/20 text-brand-purple px-6 py-3 rounded-full text-sm mb-8">
               🧠 Intelligent Automation
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Transform your payment process
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Complete end-to-end automation with intelligent tracking,
-              analytics, and human intervention when needed
+              Complete end-to-end automation with intelligent tracking, analytics, and human intervention when needed
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
-            {/* Left - Neural Analysis */}
+          {/* Step 1 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto mb-32">
             <div className="space-y-8">
-              <Card className="glass p-6 border-brand-purple/30">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-full bg-brand-purple/20 flex items-center justify-center text-2xl font-bold text-brand-purple border border-brand-purple/30">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white">
+                    AI Processes Your Invoice
+                  </h3>
+                  <p className="text-brand-purple">Instant analysis in 3 seconds</p>
+                </div>
+              </div>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our neural network instantly analyzes every detail of your invoice with superhuman accuracy. No more manual data entry or human error.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-4 glass rounded-xl">
+                  <div className="text-3xl font-bold text-red-400 mb-2">30min</div>
+                  <div className="text-sm text-muted-foreground">Manual Process</div>
+                </div>
+                <div className="text-center p-4 glass rounded-xl border border-brand-purple/30">
+                  <div className="text-3xl font-bold text-green-400 mb-2">3sec</div>
+                  <div className="text-sm text-muted-foreground">AI Process</div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-muted-foreground">99.7% client detection accuracy</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-muted-foreground">Automatic amount & due date extraction</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-muted-foreground">Contact information parsing</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <Card className="glass p-8 border-brand-purple/30 backdrop-blur-xl">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-brand-purple/20 flex items-center justify-center">
                     <Brain className="h-6 w-6 text-brand-purple" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white">
-                      Neural Invoice Analysis
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      15ms processing time
-                    </p>
+                    <h3 className="text-lg font-semibold text-white">Neural Invoice Analysis</h3>
+                    <p className="text-sm text-brand-purple">Processing...</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">
-                      Client Detection
-                    </span>
-                    <span className="text-green-400 font-medium">✓ 99.7%</span>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-sm text-muted-foreground">Client Detection</span>
+                    <span className="text-green-400 font-medium">✓ Acme Corp</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">
-                      Amount Extraction
-                    </span>
-                    <span className="text-green-400 font-medium">✓ $2,500</span>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-sm text-muted-foreground">Amount Extraction</span>
+                    <span className="text-green-400 font-medium">✓ $2,500.00</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">
-                      Due Date Analysis
-                    </span>
-                    <span className="text-green-400 font-medium">✓ Mar 15</span>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-sm text-muted-foreground">Due Date Analysis</span>
+                    <span className="text-green-400 font-medium">✓ Mar 15, 2024</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-sm text-muted-foreground">Contact Info</span>
+                    <span className="text-green-400 font-medium">✓ john@acme.com</span>
                   </div>
                 </div>
               </Card>
-
-              <div>
-                <h3 className="text-2xl font-bold mb-4">
-                  Step 1: AI Processes Your Invoice
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Our neural network instantly analyzes every detail of your
-                  invoice with superhuman accuracy. No more manual data entry or
-                  human error.
-                </p>
-                <div className="flex items-center gap-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-red-400">30min</div>
-                    <div className="text-sm text-muted-foreground">
-                      Manual Process
-                    </div>
-                  </div>
-                  <ArrowRight className="h-6 w-6 text-brand-purple" />
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-400">
-                      3sec
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      AI Process
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold mb-4">
-                  Step 2: AI Sends & Tracks Everything
-                </h3>
-                <p className="text-muted-foreground">
-                  Our AI doesn't just send follow-ups—it tracks every
-                  interaction, monitors engagement, and alerts you when human
-                  intervention is needed.
-                </p>
-              </div>
             </div>
+          </div>
 
-            {/* Right - Email and Analytics */}
-            <div className="space-y-8">
-              {/* Email Compose Window */}
-              <Card className="glass p-6 bg-black border border-gray-700">
+          {/* Step 2 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto mb-32">
+            <div className="order-2 lg:order-1">
+              <Card className="glass p-6 bg-black/80 border border-gray-700/50 backdrop-blur-xl">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                  <span className="ml-4 text-sm text-gray-400">
-                    FollowUpAI composing...
-                  </span>
+                  <span className="ml-4 text-sm text-gray-400">FollowUpAI composing...</span>
                 </div>
 
                 <div className="space-y-3 font-mono text-sm">
                   <div className="text-blue-400">to: john@company.com</div>
-                  <div className="text-gray-300">
-                    Subject: Payment reminder - Invoice #2024-001
-                  </div>
-                  <div className="border-t border-gray-700 pt-4 text-gray-300 leading-relaxed min-h-32">
+                  <div className="text-gray-300">Subject: Payment reminder - Invoice #2024-001</div>
+                  <div className="border-t border-gray-700 pt-4 text-gray-300 leading-relaxed min-h-40">
                     {typingText}
-                    <span className="animate-pulse">|</span>
+                    <span className="animate-pulse text-brand-purple">|</span>
                   </div>
                 </div>
               </Card>
+            </div>
 
-              {/* Smart Analytics Card */}
-              <Card className="glass p-6 border-brand-blue/30">
+            <div className="space-y-8 order-1 lg:order-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-full bg-brand-blue/20 flex items-center justify-center text-2xl font-bold text-brand-blue border border-brand-blue/30">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white">
+                    AI Sends & Tracks Everything
+                  </h3>
+                  <p className="text-brand-blue">Human-like communication</p>
+                </div>
+              </div>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our AI doesn't just send follow-ups—it tracks every interaction, monitors engagement, and alerts you when human intervention is needed.
+              </p>
+
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-blue-400" />
+                  <span className="text-muted-foreground">Personalized email generation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-blue-400" />
+                  <span className="text-muted-foreground">Real-time open & reply tracking</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-blue-400" />
+                  <span className="text-muted-foreground">Intelligent follow-up scheduling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+            <div className="space-y-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 rounded-full bg-brand-cyan/20 flex items-center justify-center text-2xl font-bold text-brand-cyan border border-brand-cyan/30">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white">
+                    Complete Oversight & Results
+                  </h3>
+                  <p className="text-brand-cyan">87% payment success rate</p>
+                </div>
+              </div>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Get complete visibility into every interaction while maintaining full control. Our system handles routine tasks and escalates when you're needed.
+              </p>
+
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-muted-foreground">Real-time analytics dashboard</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-brand-purple" />
+                  <span className="text-muted-foreground">Automatic payment status updates</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-blue-400" />
+                  <span className="text-muted-foreground">Smart human intervention alerts</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Users className="h-5 w-5 text-yellow-400" />
+                  <span className="text-muted-foreground">Instant notifications for complex responses</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <Card className="glass p-6 border-brand-cyan/30 backdrop-blur-xl">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-brand-blue/20 flex items-center justify-center">
-                    <BarChart3 className="h-6 w-6 text-brand-blue" />
+                  <div className="w-12 h-12 rounded-xl bg-brand-cyan/20 flex items-center justify-center">
+                    <BarChart3 className="h-6 w-6 text-brand-cyan" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white">
-                      Smart Analytics
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Real-time engagement tracking
-                    </p>
+                    <h3 className="text-lg font-semibold text-white">Smart Analytics</h3>
+                    <p className="text-sm text-muted-foreground">Real-time engagement tracking</p>
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">
-                      Open Rate
-                    </span>
-                    <span className="text-green-400 font-medium">94.2%</span>
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="glass p-4 rounded-xl text-center">
+                    <div className="text-2xl font-bold text-green-400">94.2%</div>
+                    <div className="text-xs text-muted-foreground">Open Rate</div>
                   </div>
+                  <div className="glass p-4 rounded-xl text-center">
+                    <div className="text-2xl font-bold text-brand-purple">67.8%</div>
+                    <div className="text-xs text-muted-foreground">Reply Rate</div>
+                  </div>
+                  <div className="glass p-4 rounded-xl text-center">
+                    <div className="text-2xl font-bold text-blue-400">87%</div>
+                    <div className="text-xs text-muted-foreground">Payment Success</div>
+                  </div>
+                  <div className="glass p-4 rounded-xl text-center">
+                    <div className="text-2xl font-bold text-brand-cyan">24/7</div>
+                    <div className="text-xs text-muted-foreground">Monitoring</div>
+                  </div>
+                </div>
+
+                {/* Human Intervention Alert */}
+                <div className="p-4 rounded-xl bg-yellow-900/20 border border-yellow-500/30">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-yellow-400 text-sm">⚠️</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-yellow-400">Human Intervention Required</h4>
+                      <p className="text-xs text-yellow-300/80">
+                        Client replied: "Having cash flow issues..." -
+                        <span className="underline cursor-pointer ml-1">View & Respond</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">
                       Reply Rate
