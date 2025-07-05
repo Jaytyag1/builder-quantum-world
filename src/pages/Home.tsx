@@ -36,6 +36,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [typingText, setTypingText] = useState("");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -46,37 +47,38 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  // Dynamic typing effect for FollowUpAI composing
+  useEffect(() => {
+    const fullText =
+      "Hi John, I hope you're having a great week! I wanted to follow up on Invoice #2024-001 for $2,500 that was sent on February 15th. The payment was due on March 1st, and I haven't received it yet. I understand that things can get busy, so I wanted to check if there are any questions about the invoice or if there's anything I can help clarify.\n\nLooking forward to hearing from you!";
+
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypingText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        // Reset and start over
+        currentIndex = 0;
+        setTypingText("");
+      }
+    }, 50);
+
+    return () => clearInterval(typingInterval);
+  }, []);
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       <Navigation />
 
-      {/* Subtle Background Effects */}
+      {/* Cursor following circular effect */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background" />
-
-        {/* Subtle animated particles */}
-        <div className="absolute inset-0">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-0.5 h-0.5 bg-brand-purple/20 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Interactive glow effect */}
         <div
           className="absolute w-96 h-96 rounded-full pointer-events-none opacity-30"
           style={{
-            background: `radial-gradient(circle,
-              hsl(var(--brand-purple) / 0.03) 0%,
-              hsl(var(--brand-blue) / 0.02) 50%,
+            background: `radial-gradient(circle, 
+              hsl(var(--brand-purple) / 0.1) 0%, 
+              hsl(var(--brand-blue) / 0.05) 50%, 
               transparent 100%)`,
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
@@ -110,11 +112,10 @@ export default function Home() {
 
                 <div className="relative p-6 glass border border-brand-blue/20 rounded-2xl">
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                    InvoIQ reads your invoices and follows up on your behalf.
-                    Transform awkward payment chases into automated,
+                    FollowUpAI reads your invoices and follows up on your
+                    behalf. Transform awkward payment chases into automated,
                     professional reminders.
                   </p>
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/5 via-brand-blue/5 to-brand-cyan/5 rounded-2xl animate-pulse" />
                 </div>
               </div>
 
@@ -184,13 +185,6 @@ export default function Home() {
                   >
                     + Create Invoice
                   </Button>
-                </div>
-
-                {/* Copy Layout Badge */}
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs">
-                    Copy Layout
-                  </Badge>
                 </div>
 
                 {/* Invoice List Header */}
@@ -299,21 +293,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-
-                {/* Floating particles for the dashboard */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-brand-cyan/20 rounded-full animate-pulse"
-                      style={{
-                        left: `${20 + Math.random() * 60}%`,
-                        top: `${20 + Math.random() * 60}%`,
-                        animationDelay: `${Math.random() * 3}s`,
-                      }}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -325,9 +304,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/5 to-transparent" />
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm mb-8">
-              Copy Layout
-            </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               The payment chase is{" "}
               <span className="text-red-400">killing your business</span>
@@ -383,9 +359,6 @@ export default function Home() {
           <div className="text-center mb-16">
             <Badge className="bg-brand-purple text-white px-4 py-2 rounded-full text-sm mb-8">
               🧠 Intelligent Automation
-            </Badge>
-            <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm mb-8 ml-4">
-              Copy Layout
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Transform your payment process
@@ -478,10 +451,6 @@ export default function Home() {
 
             {/* Right - Email and Analytics */}
             <div className="space-y-8">
-              <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
-                Copy Layout
-              </Badge>
-
               {/* Email Compose Window */}
               <Card className="glass p-6 bg-black border border-gray-700">
                 <div className="flex items-center gap-2 mb-4">
@@ -498,16 +467,9 @@ export default function Home() {
                   <div className="text-gray-300">
                     Subject: Payment reminder - Invoice #2024-001
                   </div>
-                  <div className="border-t border-gray-700 pt-4 text-gray-300 leading-relaxed">
-                    Hi John, I hope you're having a great week! I wanted to
-                    follow up on Invoice #2024-001 for $2,500 that was sent on
-                    February 15th. The payment was due on March 1st, and I
-                    haven't received it yet. I understand that things can get
-                    busy, so I wanted to check if there are any questions about
-                    the invoice or if there's anything I can help clarify.
-                    <br />
-                    <br />
-                    Looking forward to hearing from you!
+                  <div className="border-t border-gray-700 pt-4 text-gray-300 leading-relaxed min-h-32">
+                    {typingText}
+                    <span className="animate-pulse">|</span>
                   </div>
                 </div>
               </Card>
@@ -587,10 +549,6 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
             {/* Left - Automation Metrics */}
             <div>
-              <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm mb-8">
-                Copy Layout
-              </Badge>
-
               <Card className="glass p-6 border-brand-cyan/30 mb-8">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-brand-cyan/20 flex items-center justify-center">
@@ -683,368 +641,779 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quantum Features Section */}
-      <section className="py-32 px-4 relative">
+      {/* Chase Less Get Paid Faster */}
+      <section className="py-20 px-4 relative border-t border-border/20">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-purple/5 to-transparent" />
+        <div className="container mx-auto relative z-10 text-center">
+          <Badge className="bg-brand-purple/20 text-brand-purple px-4 py-2 rounded-full text-sm mb-8">
+            🤖 Your invoice follow-up assistant — powered by GPT and emotional
+            intelligence
+          </Badge>
 
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-20">
-            <Badge
-              variant="outline"
-              className="mb-6 glass border-brand-cyan/30"
-            >
-              <Cpu className="w-4 h-4 mr-2" />
-              Quantum Technology Stack
-            </Badge>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8">
-              <span className="gradient-text">QUANTUM</span>{" "}
-              <span className="text-white">CAPABILITIES</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Unleash the power of quantum computing for financial operations
-              that transcend traditional boundaries
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
+            Chase Less. Get Paid Faster.
+          </h2>
+
+          <p className="text-xl text-muted-foreground mb-6 max-w-4xl mx-auto">
+            Your AI-powered invoice follow-up agent that reads, writes, and
+            reminds — so you don't have to.
+          </p>
+
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Human-like emails, smart tone, and behavior-aware nudges that
+            actually get you paid.
+          </p>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+            <Card className="glass text-center p-6 border-brand-purple/20">
+              <div className="w-12 h-12 rounded-full bg-brand-purple/20 flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-6 w-6 text-brand-purple" />
+              </div>
+              <div className="text-2xl font-bold mb-2">~5 sec</div>
+              <div className="text-sm text-muted-foreground">
+                Avg Response Time
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">
+                From upload to follow-up
+              </div>
+            </Card>
+
+            <Card className="glass text-center p-6 border-brand-blue/20">
+              <div className="w-12 h-12 rounded-full bg-brand-blue/20 flex items-center justify-center mx-auto mb-4">
+                <Brain className="h-6 w-6 text-brand-blue" />
+              </div>
+              <div className="text-2xl font-bold mb-2">93.7%</div>
+              <div className="text-sm text-muted-foreground">
+                AI Follow-Up Accuracy
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">
+                Opens or replies rate
+              </div>
+            </Card>
+
+            <Card className="glass text-center p-6 border-brand-cyan/20">
+              <div className="w-12 h-12 rounded-full bg-brand-cyan/20 flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-6 w-6 text-brand-cyan" />
+              </div>
+              <div className="text-2xl font-bold mb-2">+32%</div>
+              <div className="text-sm text-muted-foreground">
+                Payment Collection Boost
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">
+                Average improvement
+              </div>
+            </Card>
+          </div>
+
+          <div className="text-center mb-8">
+            <p className="text-sm text-muted-foreground italic">
+              "Based on real client testing, InvoIQ helped freelancers collect
+              unpaid invoices 32% faster."
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
-              <CardHeader className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <Brain className="h-12 w-12 text-brand-purple mb-6 relative z-10 group-hover:animate-pulse" />
-                <CardTitle className="text-xl mb-3 relative z-10">
-                  Neural Invoice Matrix
-                </CardTitle>
-                <CardDescription className="relative z-10">
-                  Quantum neural networks analyze billing patterns across
-                  infinite dimensions, optimizing payment flows in real-time
-                </CardDescription>
-              </CardHeader>
+          {/* AI Agent Chat */}
+          <Card className="glass max-w-2xl mx-auto p-6 border-brand-purple/20">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-brand-purple flex items-center justify-center">
+                <span className="text-white font-bold">AI</span>
+              </div>
+              <div>
+                <div className="font-medium text-white">AI Agent</div>
+                <div className="text-xs text-green-400 flex items-center gap-1">
+                  <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                  Online
+                </div>
+              </div>
+            </div>
+            <div className="bg-background/50 rounded-lg p-4">
+              <p className="text-sm text-muted-foreground">
+                Hi James — just checking in on the invoice from last week. Let
+                me know if you need anything from me!
+              </p>
+              <p className="text-xs text-muted-foreground/60 mt-2 italic">
+                (sent automatically by your agent)
+              </p>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="glass p-6 text-center">
+              <FileText className="h-12 w-12 text-brand-purple mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-3 text-white">
+                Invoice Parsing
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Upload any invoice format. AI extracts client info, amounts, due
+                dates, and contact details automatically.
+              </p>
             </Card>
 
-            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
-              <CardHeader className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <Orbit className="h-12 w-12 text-brand-blue mb-6 relative z-10 group-hover:animate-spin" />
-                <CardTitle className="text-xl mb-3 relative z-10">
-                  Entangled Payment Processing
-                </CardTitle>
-                <CardDescription className="relative z-10">
-                  Quantum entanglement ensures instantaneous payment
-                  verification across all financial dimensions simultaneously
-                </CardDescription>
-              </CardHeader>
+            <Card className="glass p-6 text-center">
+              <Brain className="h-12 w-12 text-brand-blue mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-3 text-white">
+                AI-Generated Follow-ups
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Human-like emails that get results. Each message is personalized
+                based on client history and payment patterns.
+              </p>
             </Card>
 
-            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
-              <CardHeader className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <Infinity className="h-12 w-12 text-brand-cyan mb-6 relative z-10 group-hover:animate-bounce" />
-                <CardTitle className="text-xl mb-3 relative z-10">
-                  Infinite Analytics
-                </CardTitle>
-                <CardDescription className="relative z-10">
-                  Harness quantum superposition to analyze infinite financial
-                  scenarios and predict payment behaviors with 100% accuracy
-                </CardDescription>
-              </CardHeader>
+            <Card className="glass p-6 text-center">
+              <Settings className="h-12 w-12 text-brand-cyan mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-3 text-white">
+                Tone Customization
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Choose from polite, professional, or assertive tones. AI adapts
+                the message style to match your brand voice.
+              </p>
             </Card>
 
-            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
-              <CardHeader className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <Sparkles className="h-12 w-12 text-brand-purple mb-6 relative z-10 group-hover:animate-pulse" />
-                <CardTitle className="text-xl mb-3 relative z-10">
-                  Quantum Encryption Shield
-                </CardTitle>
-                <CardDescription className="relative z-10">
-                  Unbreakable quantum cryptography protects your financial data
-                  using the fundamental laws of quantum mechanics
-                </CardDescription>
-              </CardHeader>
+            <Card className="glass p-6 text-center">
+              <ArrowRight className="h-12 w-12 text-brand-purple mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-3 text-white">
+                Auto Resend with Attachment
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Automatically includes invoice attachments in follow-ups. No
+                more "I can't find the invoice" excuses.
+              </p>
             </Card>
 
-            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
-              <CardHeader className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <Zap className="h-12 w-12 text-brand-blue mb-6 relative z-10 group-hover:animate-pulse" />
-                <CardTitle className="text-xl mb-3 relative z-10">
-                  Photonic Speed Processing
-                </CardTitle>
-                <CardDescription className="relative z-10">
-                  Quantum photonic processors handle billing operations at the
-                  speed of light, transcending traditional computational limits
-                </CardDescription>
-              </CardHeader>
+            <Card className="glass p-6 text-center">
+              <BarChart3 className="h-12 w-12 text-brand-blue mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-3 text-white">
+                Payment Tracking
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Real-time dashboard showing which invoices are paid, pending, or
+                overdue. Never lose track again.
+              </p>
             </Card>
 
-            <Card className="glass animated-border group hover:scale-105 transition-all duration-500">
-              <CardHeader className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
-                <Globe className="h-12 w-12 text-brand-cyan mb-6 relative z-10 group-hover:animate-spin" />
-                <CardTitle className="text-xl mb-3 relative z-10">
-                  Multidimensional Integration
-                </CardTitle>
-                <CardDescription className="relative z-10">
-                  Seamlessly integrate with financial systems across parallel
-                  universes for truly universal billing solutions
-                </CardDescription>
-              </CardHeader>
+            <Card className="glass p-6 text-center">
+              <Shield className="h-12 w-12 text-brand-cyan mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-3 text-white">
+                Client Memory
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                AI remembers each client's payment history and preferences to
+                optimize follow-up timing and tone.
+              </p>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Quantum Process Flow */}
-      <section className="py-32 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/10 via-brand-blue/5 to-brand-cyan/10" />
-        <div className="absolute inset-0">
-          <div className="h-full w-full bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
-        </div>
-
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-20">
-            <Badge
-              variant="outline"
-              className="mb-6 glass border-brand-blue/30"
-            >
-              <Orbit className="w-4 h-4 mr-2 animate-spin" />
-              Quantum Process Architecture
-            </Badge>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8">
-              <span className="text-white">QUANTUM</span>{" "}
-              <span className="gradient-text">WORKFLOW</span>
+      {/* Built with Smart AI */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Built with Smart AI. Trained to Get You Paid.
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Experience billing operations that exist in multiple states
-              simultaneously until observed by your clients
+              Our AI doesn't just send emails—it understands your clients,
+              learns from every interaction, and gets smarter with each payment.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div className="text-center group">
-              <div className="glass-card mb-8 relative overflow-hidden group-hover:scale-110 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10 p-8">
-                  <div className="text-5xl font-bold gradient-text mb-6 animate-pulse">
-                    Φ
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left - Features */}
+            <div className="space-y-8">
+              <Card className="glass p-6 border-brand-purple/30">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-brand-purple/20 flex items-center justify-center">
+                    <Brain className="h-6 w-6 text-brand-purple" />
                   </div>
-                  <Brain className="h-16 w-16 text-brand-purple mx-auto group-hover:animate-pulse" />
+                  <h3 className="text-xl font-semibold text-white">
+                    Neural Payment Intelligence
+                  </h3>
                 </div>
-                {/* Quantum particles */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(8)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-brand-purple/40 rounded-full animate-ping"
-                      style={{
-                        left: `${20 + Math.random() * 60}%`,
-                        top: `${20 + Math.random() * 60}%`,
-                        animationDelay: `${Math.random() * 2}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-white">
-                Quantum Genesis
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Neural quantum processors analyze infinite billing possibilities
-                and materialize the perfect invoice from the quantum field
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="glass-card mb-8 relative overflow-hidden group-hover:scale-110 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10 p-8">
-                  <div className="text-5xl font-bold gradient-text mb-6 animate-pulse">
-                    ∞
-                  </div>
-                  <Orbit className="h-16 w-16 text-brand-blue mx-auto group-hover:animate-spin" />
-                </div>
-                {/* Quantum orbits */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <div
-                    className="absolute inset-4 border border-brand-blue/20 rounded-full animate-spin"
-                    style={{ animationDuration: "4s" }}
-                  />
-                  <div
-                    className="absolute inset-8 border border-brand-cyan/20 rounded-full animate-spin"
-                    style={{
-                      animationDuration: "3s",
-                      animationDirection: "reverse",
-                    }}
-                  />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-white">
-                Entangled Transmission
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Quantum entanglement ensures instantaneous delivery across all
-                dimensions, with real-time observation tracking in parallel
-                universes
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="glass-card mb-8 relative overflow-hidden group-hover:scale-110 transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-brand-purple/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10 p-8">
-                  <div className="text-5xl font-bold gradient-text mb-6 animate-pulse">
-                    Ψ
-                  </div>
-                  <Infinity className="h-16 w-16 text-brand-cyan mx-auto group-hover:animate-bounce" />
-                </div>
-                {/* Energy waves */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-cyan/10 to-transparent animate-pulse" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-white">
-                Probability Collapse
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Payment probabilities collapse into certain financial reality
-                through quantum superposition optimization and temporal
-                acceleration
-              </p>
-            </div>
-          </div>
-
-          {/* Quantum Flow Visualization */}
-          <div className="mt-20 relative">
-            <div className="flex justify-center items-center space-x-8">
-              <div className="w-4 h-4 rounded-full bg-brand-purple animate-ping" />
-              <div className="w-32 h-0.5 bg-gradient-to-r from-brand-purple to-brand-blue animate-pulse" />
-              <div
-                className="w-4 h-4 rounded-full bg-brand-blue animate-ping"
-                style={{ animationDelay: "0.5s" }}
-              />
-              <div className="w-32 h-0.5 bg-gradient-to-r from-brand-blue to-brand-cyan animate-pulse" />
-              <div
-                className="w-4 h-4 rounded-full bg-brand-cyan animate-ping"
-                style={{ animationDelay: "1s" }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quantum CTA Section */}
-      <section className="py-32 px-4 relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-brand-purple/5 to-background" />
-
-        {/* Quantum field effect */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-purple/20 via-brand-blue/10 to-transparent animate-pulse" />
-        </div>
-
-        <div className="container mx-auto text-center relative z-10">
-          <div className="glass-card max-w-6xl mx-auto relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/10 via-brand-blue/5 to-brand-cyan/10" />
-
-            {/* Floating quantum elements */}
-            <div className="absolute inset-0 pointer-events-none">
-              <Sparkles className="absolute top-8 left-8 w-6 h-6 text-brand-purple/40 animate-pulse" />
-              <Brain className="absolute top-12 right-12 w-8 h-8 text-brand-blue/40 animate-pulse" />
-              <Orbit className="absolute bottom-8 left-12 w-7 h-7 text-brand-cyan/40 animate-spin" />
-              <Infinity className="absolute bottom-12 right-8 w-9 h-9 text-brand-purple/40 animate-bounce" />
-            </div>
-
-            <div className="relative z-10 p-12">
-              <Badge
-                variant="outline"
-                className="mb-8 glass border-brand-purple/30"
-              >
-                <Zap className="w-4 h-4 mr-2" />
-                Quantum Leap Available
-              </Badge>
-
-              <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-                <span className="text-white">ENTER THE</span>
-                <br />
-                <span className="gradient-text text-6xl md:text-8xl">
-                  QUANTUM
-                </span>
-                <br />
-                <span className="text-white">DIMENSION</span>
-              </h2>
-
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
-                Transcend conventional billing limitations. Join the quantum
-                revolution where{" "}
-                <span className="text-brand-purple font-semibold">
-                  payment certainty
-                </span>{" "}
-                exists in infinite parallel states until manifested in your
-                reality.
-              </p>
-
-              <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-12">
-                <Button
-                  asChild
-                  size="lg"
-                  className="gradient-bg hover:opacity-90 text-xl px-16 py-8 rounded-3xl group relative overflow-hidden shadow-2xl"
-                >
-                  <Link to="/dashboard">
-                    <span className="relative z-10 flex items-center">
-                      <Sparkles className="mr-3 h-6 w-6" />
-                      Activate Quantum Core
-                      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                <p className="text-muted-foreground mb-4">
+                  Predicts when to follow up, in what tone, and how often —
+                  based on your client's behavior.
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-4 w-4 text-green-400" />
+                    <span className="text-sm text-muted-foreground">
+                      97% accuracy in payment prediction
                     </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-brand-purple via-brand-blue to-brand-cyan opacity-0 group-hover:opacity-30 transition-opacity" />
-                  </Link>
-                </Button>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-4 w-4 text-green-400" />
+                    <span className="text-sm text-muted-foreground">
+                      Real-time sentiment shift detection
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-4 w-4 text-green-400" />
+                    <span className="text-sm text-muted-foreground">
+                      Understands 40+ languages
+                    </span>
+                  </div>
+                </div>
+              </Card>
 
-                <Button
-                  variant="outline"
-                  size="lg"
-                  asChild
-                  className="text-xl px-16 py-8 rounded-3xl glass border-brand-cyan/30 hover:border-brand-cyan/60 transition-all shadow-xl group"
-                >
-                  <Link to="/pricing">
-                    <Cpu className="mr-3 h-6 w-6 group-hover:animate-spin" />
-                    Quantum Pricing Matrix
-                  </Link>
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-                <div className="flex items-center justify-center gap-3 glass-card">
-                  <div className="w-3 h-3 rounded-full bg-brand-purple animate-pulse" />
-                  <span className="text-brand-purple font-semibold">
-                    Infinite Quantum States
-                  </span>
+              <Card className="glass p-6 border-brand-blue/30">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-brand-blue/20 flex items-center justify-center">
+                    <Zap className="h-6 w-6 text-brand-blue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white">
+                    Adaptive Learning Engine
+                  </h3>
                 </div>
-                <div className="flex items-center justify-center gap-3 glass-card">
-                  <div className="w-3 h-3 rounded-full bg-brand-blue animate-pulse" />
-                  <span className="text-brand-blue font-semibold">
-                    Zero Latency Processing
-                  </span>
+                <p className="text-muted-foreground mb-4">
+                  Every email improves it. The AI learns from your clients — not
+                  just the internet.
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-4 w-4 text-green-400" />
+                    <span className="text-sm text-muted-foreground">
+                      Learns tone preferences for each client
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-4 w-4 text-green-400" />
+                    <span className="text-sm text-muted-foreground">
+                      Personalizes follow-up timing
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-4 w-4 text-green-400" />
+                    <span className="text-sm text-muted-foreground">
+                      Constantly optimizes success rate
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center justify-center gap-3 glass-card">
-                  <div className="w-3 h-3 rounded-full bg-brand-cyan animate-pulse" />
-                  <span className="text-brand-cyan font-semibold">
-                    Multidimensional Support
-                  </span>
-                </div>
-              </div>
+              </Card>
             </div>
-          </div>
 
-          {/* Quantum signature */}
-          <div className="mt-16 text-center">
-            <p className="text-muted-foreground/60 text-sm">
-              "Where quantum mechanics meets financial certainty"
-              <span className="text-brand-purple">
-                — Dr. Quantum, Lead Architect
-              </span>
-            </p>
+            {/* Right - Performance Dashboard */}
+            <div>
+              <Card className="glass p-6 border-brand-cyan/30">
+                <h3 className="text-xl font-semibold text-white mb-6 text-center">
+                  AI Performance Boost
+                </h3>
+
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-muted-foreground">
+                        Reply Rate Increase
+                      </span>
+                      <span className="text-2xl font-bold text-brand-purple">
+                        +340%
+                      </span>
+                    </div>
+                    <div className="w-full bg-background/30 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-brand-purple to-brand-blue h-2 rounded-full"
+                        style={{ width: "85%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-muted-foreground">
+                        Time to Payment Cut By
+                      </span>
+                      <span className="text-2xl font-bold text-brand-blue">
+                        −75%
+                      </span>
+                    </div>
+                    <div className="w-full bg-background/30 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-brand-blue to-brand-cyan h-2 rounded-full"
+                        style={{ width: "75%" }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-muted-foreground">
+                        Client Experience Score
+                      </span>
+                      <span className="text-2xl font-bold text-brand-cyan">
+                        9.2/10
+                      </span>
+                    </div>
+                    <div className="w-full bg-background/30 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-brand-cyan to-brand-purple h-2 rounded-full"
+                        style={{ width: "92%" }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 text-center">
+                  <p className="text-xs text-muted-foreground">
+                    Based on test invoices processed • Real data from Q4 2024
+                  </p>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ROI Calculator */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Calculate your ROI potential
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              See how much revenue you could recover with InvoIQ's AI-powered
+              follow-ups
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Left - Business Metrics */}
+            <Card className="glass p-8 space-y-8">
+              <h3 className="text-xl font-semibold text-white">
+                Your Business Metrics
+              </h3>
+
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-muted-foreground">
+                    Monthly Invoice Volume
+                  </span>
+                  <span className="text-xl font-bold text-white">50</span>
+                </div>
+                <div className="w-full bg-background/30 rounded-full h-2 mb-2">
+                  <div
+                    className="bg-brand-purple h-2 rounded-full"
+                    style={{ width: "25%" }}
+                  ></div>
+                </div>
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>10 invoices</span>
+                  <span>200 invoices</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-muted-foreground">
+                    Average Invoice Value
+                  </span>
+                  <span className="text-xl font-bold text-white">$500</span>
+                </div>
+                <div className="w-full bg-background/30 rounded-full h-2 mb-2">
+                  <div
+                    className="bg-brand-blue h-2 rounded-full"
+                    style={{ width: "15%" }}
+                  ></div>
+                </div>
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>$500</span>
+                  <span>$10,000</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-muted-foreground">
+                    Current Late Payment Rate
+                  </span>
+                  <span className="text-xl font-bold text-red-400">25%</span>
+                </div>
+                <div className="w-full bg-background/30 rounded-full h-2 mb-2">
+                  <div
+                    className="bg-red-500 h-2 rounded-full"
+                    style={{ width: "40%" }}
+                  ></div>
+                </div>
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>5%</span>
+                  <span>50%</span>
+                </div>
+              </div>
+            </Card>
+
+            {/* Right - Revenue Recovery */}
+            <Card className="glass p-8 space-y-8">
+              <h3 className="text-xl font-semibold text-white">
+                Your Revenue Recovery Potential
+              </h3>
+
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-muted-foreground">
+                    Monthly Revenue at Risk
+                  </span>
+                  <span className="text-2xl font-bold text-red-400">
+                    $6,250
+                  </span>
+                </div>
+                <div className="w-full bg-red-500/20 rounded-full h-1">
+                  <div
+                    className="bg-red-500 h-1 rounded-full"
+                    style={{ width: "100%" }}
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-muted-foreground">
+                    Recovery with InvoIQ
+                  </span>
+                  <span className="text-2xl font-bold text-green-400">
+                    $5,625
+                  </span>
+                </div>
+                <div className="w-full bg-green-500/20 rounded-full h-1">
+                  <div
+                    className="bg-green-500 h-1 rounded-full"
+                    style={{ width: "90%" }}
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-muted-foreground">Monthly ROI</span>
+                  <span className="text-2xl font-bold text-brand-purple">
+                    62,400%
+                  </span>
+                </div>
+                <div className="w-full bg-brand-purple/20 rounded-full h-1">
+                  <div
+                    className="bg-brand-purple h-1 rounded-full"
+                    style={{ width: "100%" }}
+                  ></div>
+                </div>
+              </div>
+
+              <div className="border-t border-border/20 pt-6 text-center">
+                <div className="text-sm text-muted-foreground mb-2">
+                  Annual Revenue Recovery
+                </div>
+                <div className="text-4xl font-bold gradient-text mb-2">
+                  $67,500
+                </div>
+                <div className="text-xs text-green-400">
+                  That's $625/profit after InvoIQ costs
+                </div>
+              </div>
+
+              <Button className="w-full gradient-bg hover:opacity-90 text-lg py-4">
+                $ Get Started - Recover Your Revenue →
+              </Button>
+              <p className="text-xs text-center text-muted-foreground">
+                No setup fees • Cancel anytime • 14-day free trial
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Simple pricing that pays for itself
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Get paid faster with automated follow-ups. Choose the plan that
+              fits your business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <Card className="glass p-8 text-center">
+              <h3 className="text-2xl font-bold mb-4">Free</h3>
+              <div className="text-4xl font-bold mb-6">$0</div>
+              <p className="text-muted-foreground mb-6">
+                Perfect for getting started
+              </p>
+
+              <div className="space-y-3 mb-8 text-left">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">5 invoices per month</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Basic follow-up templates</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Email support</span>
+                </div>
+              </div>
+
+              <Button variant="outline" className="w-full">
+                Get Started Free
+              </Button>
+            </Card>
+
+            <Card className="glass p-8 text-center border-brand-purple/50 relative">
+              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-purple">
+                Most Popular
+              </Badge>
+              <h3 className="text-2xl font-bold mb-4">Pro</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold">$9</span>
+                <span className="text-muted-foreground">/month</span>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                For growing freelancers
+              </p>
+
+              <div className="space-y-3 mb-8 text-left">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">50 invoices per month</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">AI-generated follow-ups</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Tone customization</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Payment tracking dashboard</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Priority support</span>
+                </div>
+              </div>
+
+              <Button className="w-full gradient-bg hover:opacity-90">
+                Start Pro Trial
+              </Button>
+            </Card>
+
+            <Card className="glass p-8 text-center">
+              <h3 className="text-2xl font-bold mb-4">Premium</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold">$29</span>
+                <span className="text-muted-foreground">/month</span>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                For agencies and teams
+              </p>
+
+              <div className="space-y-3 mb-8 text-left">
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Unlimited invoices</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Advanced AI features</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Client memory & insights</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Team collaboration</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">White-label options</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-400" />
+                  <span className="text-sm">Phone support</span>
+                </div>
+              </div>
+
+              <Button variant="outline" className="w-full">
+                Start Premium Trial
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Security & Compliance */}
+      <section className="py-20 px-4 bg-gradient-to-r from-background via-background/95 to-background">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Enterprise-grade security & compliance
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Built with security-first architecture and compliance standards
+              that enterprise customers demand.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto mb-12">
+            <Card className="glass p-6 text-center">
+              <Shield className="h-12 w-12 text-brand-purple mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">SOC 2 Type II</h3>
+              <p className="text-sm text-muted-foreground">
+                Certified security controls and auditing
+              </p>
+            </Card>
+
+            <Card className="glass p-6 text-center">
+              <Lock className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">GDPR Compliant</h3>
+              <p className="text-sm text-muted-foreground">
+                Full data protection and privacy compliance
+              </p>
+            </Card>
+
+            <Card className="glass p-6 text-center">
+              <FileText className="h-12 w-12 text-blue-500 mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">256-bit Encryption</h3>
+              <p className="text-sm text-muted-foreground">
+                End-to-end encryption for all data
+              </p>
+            </Card>
+
+            <Card className="glass p-6 text-center border-brand-blue/50">
+              <Zap className="h-12 w-12 text-brand-blue mx-auto mb-4" />
+              <h3 className="font-semibold mb-2">99.9% Uptime SLA</h3>
+              <p className="text-sm text-muted-foreground">
+                Enterprise reliability guarantee
+              </p>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <div className="flex justify-center items-center gap-8 text-muted-foreground font-semibold text-lg">
+              <span>SOC 2</span>
+              <span>GDPR</span>
+              <span>HIPAA</span>
+              <span>ISO 27001</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-32 px-4 relative bg-gradient-to-br from-brand-purple via-brand-blue to-brand-cyan">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
+            The future of B2B payments isautonomous
+          </h2>
+
+          <p className="text-xl text-white/80 mb-12 max-w-4xl mx-auto">
+            Join the revenue acceleration revolution. FollowUpAI is transforming
+            how 10,000+ businesses collect payments.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-2">$2.4M+</div>
+              <div className="text-white/80">Revenue Recovered</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-2">340%</div>
+              <div className="text-white/80">ROI Average</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-white mb-2">40%</div>
+              <div className="text-white/80">Faster Collections</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Button
+              size="lg"
+              className="bg-white text-brand-purple hover:bg-white/90 px-8 py-4 text-lg"
+            >
+              <Sparkles className="mr-2 h-5 w-5" />
+              Start Free Trial →
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg"
+            >
+              <Calendar className="mr-2 h-5 w-5" />
+              Schedule Demo
+            </Button>
+          </div>
+
+          <p className="text-white/60 text-sm">
+            No credit card required • 14-day free trial • Enterprise SSO
+            available
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-16 px-4 bg-black">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                FollowUpAI
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Agentic invoice reminders that get you paid faster.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-white mb-4">Product</h4>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div>Features</div>
+                <div>Enterprise</div>
+                <div>API & Integrations</div>
+                <div>Security</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-white mb-4">Resources</h4>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div>Case Studies</div>
+                <div>ROI Calculator</div>
+                <div>AI Technology</div>
+                <div>Documentation</div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-white mb-4">Company</h4>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div>About</div>
+                <div>Careers</div>
+                <div>Investors</div>
+                <div>Press Kit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
