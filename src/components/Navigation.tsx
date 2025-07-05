@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { isSignedIn } = useAuth();
+  const { isSignedIn } = useSafeAuth();
 
   const navItems = [
     { name: "Features", href: "/#features" },
