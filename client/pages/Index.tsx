@@ -1202,9 +1202,9 @@ export default function Index() {
               <div className="mt-6 p-4 bg-brand-purple/10 rounded-lg border border-brand-purple/20">
                 <p className="text-sm text-muted-foreground text-center">
                   <span className="text-brand-purple font-medium">
-                    Based on 10,000+ invoices processed
+                    Based on test invoices processed
                   </span>{" "}
-                  • Real client data from Q4 2024
+                  • Real data from Q4 2024
                 </p>
               </div>
             </div>
