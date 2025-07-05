@@ -1,39 +1,65 @@
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Download, Send, Edit, MoreVertical } from "lucide-react";
-import { Link, useParams } from "react-router-dom";
-
-// Mock invoice data
-const mockInvoice = {
-  id: "1",
-  invoiceNumber: "INV-001",
-  clientName: "Acme Corp",
-  clientEmail: "contact@acme.com",
-  clientAddress: "123 Business Street\nNew York, NY 10001",
-  amount: 2500.0,
-  status: "sent",
-  dueDate: "2024-01-15",
-  createdAt: "2024-01-01",
-  items: [
-    {
-      description: "Website Development",
-      quantity: 1,
-      rate: 2000.0,
-      amount: 2000.0,
-    },
-    {
-      description: "Logo Design",
-      quantity: 2,
-      rate: 250.0,
-      amount: 500.0,
-    },
-  ],
-  notes: "Payment is due within 30 days. Thank you for your business!",
-};
+import {
+  ArrowLeft,
+  Edit,
+  Send,
+  Download,
+  Copy,
+  DollarSign,
+  Trash2,
+  MoreHorizontal,
+} from "lucide-react";
+import { useInvoices } from "@/hooks/useInvoices";
+import { toast } from "sonner";
+import MouseFollower from "@/components/MouseFollower";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 export default function InvoiceView() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { getInvoiceById, updateInvoice, deleteInvoice } = useInvoices();
+
+  const invoice = id ? getInvoiceById(id) : null;
+
+  if (!invoice) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <MouseFollower />
+        <Card className="glass p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">Invoice Not Found</h2>
+          <p className="text-muted-foreground mb-6">
+            The invoice you're looking for doesn't exist.
+          </p>
+          <Button asChild className="gradient-bg">
+            <Link to="/dashboard">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Dashboard
+            </Link>
+          </Button>
+        </Card>
+      </div>
+    );
+  }
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -59,16 +85,29 @@ export default function InvoiceView() {
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
       month: "long",
       day: "numeric",
-      year: "numeric",
     });
+  };
+
+  const handleStatusUpdate = (newStatus: "sent" | "paid" | "overdue") => {
+    updateInvoice(invoice.id, { status: newStatus });
+    toast.success(`Invoice marked as ${newStatus}`);
+  };
+
+  const handleDelete = () => {
+    deleteInvoice(invoice.id);
+    toast.success("Invoice deleted successfully");
+    navigate("/dashboard");
   };
 
   return (
     <div className="min-h-screen bg-background">
+      <MouseFollower />
+
       {/* Header */}
-      <div className="border-b border-border/40 bg-background/95 backdrop-blur">
+      <div className="border-b border-border/40 bg-background/95 backdrop-blur sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -79,155 +118,225 @@ export default function InvoiceView() {
                 </Link>
               </Button>
               <div>
-                <h1 className="text-2xl font-bold">
-                  Invoice {mockInvoice.invoiceNumber}
-                </h1>
+                <div className="flex items-center gap-3">
+                  <h1 className="text-2xl font-bold">
+                    {invoice.invoiceNumber}
+                  </h1>
+                  <Badge
+                    variant="outline"
+                    className={getStatusColor(invoice.status)}
+                  >
+                    {invoice.status}
+                  </Badge>
+                </div>
                 <p className="text-muted-foreground">
-                  Created {formatDate(mockInvoice.createdAt)}
+                  Created on {formatDate(invoice.createdAt)}
                 </p>
               </div>
             </div>
+
             <div className="flex items-center gap-2">
-              <Badge
+              <Button
                 variant="outline"
-                className={getStatusColor(mockInvoice.status)}
+                className="glass border-brand-purple/30"
               >
-                {mockInvoice.status}
-              </Badge>
-              <Button variant="outline" size="sm">
                 <Download className="h-4 w-4 mr-2" />
                 Download PDF
               </Button>
-              <Button variant="outline" size="sm">
-                <Send className="h-4 w-4 mr-2" />
-                Send
-              </Button>
-              <Button variant="outline" size="sm">
-                <Edit className="h-4 w-4 mr-2" />
-                Edit
-              </Button>
-              <Button variant="ghost" size="sm">
-                <MoreVertical className="h-4 w-4" />
-              </Button>
+
+              {invoice.status === "draft" && (
+                <Button
+                  onClick={() => handleStatusUpdate("sent")}
+                  className="gradient-bg"
+                >
+                  <Send className="h-4 w-4 mr-2" />
+                  Send Invoice
+                </Button>
+              )}
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="icon" className="glass">
+                    <MoreHorizontal className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="end"
+                  className="glass border-brand-purple/30"
+                >
+                  <DropdownMenuItem>
+                    <Edit className="mr-2 h-4 w-4" />
+                    Edit Invoice
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Copy className="mr-2 h-4 w-4" />
+                    Duplicate
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  {invoice.status !== "paid" && (
+                    <>
+                      <DropdownMenuItem
+                        onClick={() => handleStatusUpdate("paid")}
+                      >
+                        <DollarSign className="mr-2 h-4 w-4" />
+                        Mark as Paid
+                      </DropdownMenuItem>
+                      {invoice.status !== "sent" && (
+                        <DropdownMenuItem
+                          onClick={() => handleStatusUpdate("sent")}
+                        >
+                          <Send className="mr-2 h-4 w-4" />
+                          Mark as Sent
+                        </DropdownMenuItem>
+                      )}
+                      <DropdownMenuSeparator />
+                    </>
+                  )}
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <DropdownMenuItem
+                        onSelect={(e) => e.preventDefault()}
+                        className="text-red-400 hover:text-red-300"
+                      >
+                        <Trash2 className="mr-2 h-4 w-4" />
+                        Delete
+                      </DropdownMenuItem>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent className="glass border-brand-purple/30">
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Delete Invoice</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          Are you sure you want to delete this invoice? This
+                          action cannot be undone.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction
+                          onClick={handleDelete}
+                          className="bg-red-600 hover:bg-red-700"
+                        >
+                          Delete
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Invoice Content */}
       <div className="container mx-auto px-4 py-8 max-w-4xl">
-        {/* Invoice Content */}
         <Card className="glass">
           <CardContent className="p-8">
-            {/* Header */}
+            {/* Invoice Header */}
             <div className="flex justify-between items-start mb-8">
               <div>
                 <h2 className="text-3xl font-bold gradient-text mb-2">
-                  InvoIQ
+                  INVOICE
                 </h2>
                 <p className="text-muted-foreground">
-                  123 Business Ave
-                  <br />
-                  San Francisco, CA 94105
-                  <br />
-                  hello@invoiq.com
+                  #{invoice.invoiceNumber}
                 </p>
               </div>
               <div className="text-right">
-                <h3 className="text-2xl font-bold mb-2">INVOICE</h3>
-                <p className="text-muted-foreground">
-                  Invoice #{mockInvoice.invoiceNumber}
-                  <br />
-                  Date: {formatDate(mockInvoice.createdAt)}
-                  <br />
-                  Due: {formatDate(mockInvoice.dueDate)}
-                </p>
+                <p className="text-sm text-muted-foreground">Issue Date</p>
+                <p className="font-medium">{formatDate(invoice.createdAt)}</p>
+                <p className="text-sm text-muted-foreground mt-2">Due Date</p>
+                <p className="font-medium">{formatDate(invoice.dueDate)}</p>
               </div>
             </div>
 
-            {/* Bill To */}
-            <div className="mb-8">
-              <h4 className="font-semibold mb-2">Bill To:</h4>
-              <div className="text-muted-foreground">
-                <p className="font-medium text-foreground">
-                  {mockInvoice.clientName}
-                </p>
-                <p>{mockInvoice.clientEmail}</p>
-                <p className="whitespace-pre-line">
-                  {mockInvoice.clientAddress}
-                </p>
+            {/* From/To Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h3 className="font-semibold mb-2">From:</h3>
+                <div className="text-muted-foreground">
+                  <p className="font-medium text-white">Your Company</p>
+                  <p>123 Business Street</p>
+                  <p>City, State 12345</p>
+                  <p>contact@yourcompany.com</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-2">Bill To:</h3>
+                <div className="text-muted-foreground">
+                  <p className="font-medium text-white">{invoice.clientName}</p>
+                  {invoice.clientAddress && (
+                    <p className="whitespace-pre-line">
+                      {invoice.clientAddress}
+                    </p>
+                  )}
+                  {invoice.clientEmail && <p>{invoice.clientEmail}</p>}
+                </div>
               </div>
             </div>
 
             {/* Items Table */}
             <div className="mb-8">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-border">
-                      <th className="text-left py-3">Description</th>
-                      <th className="text-right py-3">Qty</th>
-                      <th className="text-right py-3">Rate</th>
-                      <th className="text-right py-3">Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {mockInvoice.items.map((item, index) => (
-                      <tr key={index} className="border-b border-border/40">
-                        <td className="py-3">{item.description}</td>
-                        <td className="text-right py-3">{item.quantity}</td>
-                        <td className="text-right py-3">
-                          {formatCurrency(item.rate)}
-                        </td>
-                        <td className="text-right py-3">
-                          {formatCurrency(item.amount)}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="glass rounded-lg overflow-hidden">
+                <div className="grid grid-cols-12 gap-4 p-4 bg-brand-purple/10 font-medium">
+                  <div className="col-span-6">Description</div>
+                  <div className="col-span-2 text-center">Quantity</div>
+                  <div className="col-span-2 text-center">Rate</div>
+                  <div className="col-span-2 text-right">Amount</div>
+                </div>
+                {invoice.items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="grid grid-cols-12 gap-4 p-4 border-t border-border/20"
+                  >
+                    <div className="col-span-6">{item.description}</div>
+                    <div className="col-span-2 text-center">
+                      {item.quantity}
+                    </div>
+                    <div className="col-span-2 text-center">
+                      {formatCurrency(item.rate)}
+                    </div>
+                    <div className="col-span-2 text-right font-medium">
+                      {formatCurrency(item.amount)}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Totals */}
+            {/* Total Section */}
             <div className="flex justify-end mb-8">
               <div className="w-64">
                 <div className="flex justify-between py-2">
                   <span>Subtotal:</span>
-                  <span>{formatCurrency(mockInvoice.amount)}</span>
+                  <span>{formatCurrency(invoice.amount)}</span>
                 </div>
                 <div className="flex justify-between py-2">
                   <span>Tax:</span>
                   <span>$0.00</span>
                 </div>
-                <div className="flex justify-between py-2 border-t border-border font-semibold text-lg">
-                  <span>Total:</span>
-                  <span className="gradient-text">
-                    {formatCurrency(mockInvoice.amount)}
-                  </span>
+                <div className="border-t border-border/20 pt-2">
+                  <div className="flex justify-between font-bold text-lg">
+                    <span>Total:</span>
+                    <span className="gradient-text">
+                      {formatCurrency(invoice.amount)}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Notes */}
-            {mockInvoice.notes && (
-              <div className="border-t border-border pt-6">
-                <h4 className="font-semibold mb-2">Notes:</h4>
-                <p className="text-muted-foreground">{mockInvoice.notes}</p>
+            {invoice.notes && (
+              <div className="border-t border-border/20 pt-6">
+                <h3 className="font-semibold mb-2">Notes:</h3>
+                <p className="text-muted-foreground whitespace-pre-line">
+                  {invoice.notes}
+                </p>
               </div>
             )}
           </CardContent>
         </Card>
-
-        {/* Actions */}
-        <div className="mt-6 flex flex-wrap gap-4 justify-center">
-          <Button className="gradient-bg hover:opacity-90">Mark as Paid</Button>
-          <Button variant="outline" className="glass border-brand-purple/30">
-            Send Reminder
-          </Button>
-          <Button variant="outline" className="glass border-brand-blue/30">
-            Duplicate Invoice
-          </Button>
-        </div>
       </div>
     </div>
   );
