@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useUser, useClerk } from "@clerk/clerk-react";
+import { useSafeUser, useSafeClerk } from "@/hooks/useSafeAuth";
 import { Button } from "@/components/ui/button";
 import {
   Card,
