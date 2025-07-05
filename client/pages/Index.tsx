@@ -399,232 +399,271 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Animated Workflow Section */}
-      <section className="py-24 px-4 bg-gradient-to-r from-muted/30 to-transparent relative overflow-hidden">
+      {/* Premium Workflow Transformation Section */}
+      <section className="py-32 px-4 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border border-brand-purple/20 mb-6">
-              <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse"></div>
+          <div className="text-center mb-24">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple/20 to-brand-blue/20 border border-brand-purple/30 mb-8 hologram-effect">
+              <div className="w-3 h-3 bg-brand-purple rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-brand-purple">
-                Workflow Automation
+                Workflow Transformation
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-5xl md:text-7xl font-bold mb-8 gradient-text">
               Transform your payment process
             </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Watch how FollowUpAI revolutionizes your invoice collection
+              workflow with autonomous intelligence
+            </p>
           </div>
 
-          {/* Animated Workflow Timeline */}
-          <div className="relative">
-            {/* Central Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-destructive via-brand-purple to-brand-blue rounded-full opacity-30"></div>
-
-            {/* Step 1 - Invoice Upload */}
-            <div className="relative mb-20">
-              <div className="flex items-center justify-center mb-8">
-                <div className="glass-card p-6 rounded-2xl premium-glow animate-pulse">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-brand-purple/20 rounded-full flex items-center justify-center">
-                      <Upload className="h-8 w-8 text-brand-purple animate-bounceIn" />
+          {/* 3D Workflow Steps */}
+          <div className="premium-3d space-y-24">
+            {/* Step 1: AI Analysis */}
+            <div className="workflow-step">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="floating-3d">
+                  <div className="glass-card p-8 hologram-effect">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-r from-brand-purple to-brand-blue rounded-2xl flex items-center justify-center premium-shadow">
+                        <Brain className="h-8 w-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold gradient-text">
+                          Neural Invoice Analysis
+                        </h3>
+                        <p className="text-muted-foreground">
+                          15ms processing time
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold gradient-text">
-                        1. Upload Invoice
-                      </h3>
-                      <p className="text-muted-foreground">
-                        AI instantly reads and processes your invoice
-                      </p>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center p-3 rounded-lg bg-brand-purple/10">
+                        <span>Client Detection</span>
+                        <span className="text-green-400 font-mono">
+                          ✓ 99.7%
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 rounded-lg bg-brand-blue/10">
+                        <span>Amount Extraction</span>
+                        <span className="text-green-400 font-mono">
+                          ✓ $2,500
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 rounded-lg bg-brand-cyan/10">
+                        <span>Due Date Analysis</span>
+                        <span className="text-green-400 font-mono">
+                          ✓ Mar 15
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Animated Invoice Cards */}
-              <div className="flex justify-center gap-4 mb-8">
-                <div className="glass-card p-4 max-w-xs animate-slideInLeft">
-                  <div className="text-xs text-muted-foreground mb-2">
-                    BEFORE
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span>Manual Entry:</span>
-                      <span className="text-destructive">😤 30 mins</span>
+                <div className="space-y-6">
+                  <h4 className="text-3xl font-bold">
+                    Step 1: AI Processes Your Invoice
+                  </h4>
+                  <p className="text-lg text-muted-foreground">
+                    Our neural network instantly analyzes every detail of your
+                    invoice with superhuman accuracy. No more manual data entry
+                    or human error.
+                  </p>
+                  <div className="flex gap-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-destructive">
+                        30min
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Manual Process
+                      </div>
                     </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Error Rate:</span>
-                      <span className="text-destructive">❌ 15%</span>
-                    </div>
-                  </div>
-                </div>
-
-                <ArrowRight className="h-8 w-8 text-brand-purple mt-6 animate-pulse" />
-
-                <div className="glass-card p-4 max-w-xs border-brand-purple/20 bg-brand-purple/5 animate-slideInRight">
-                  <div className="text-xs text-brand-purple mb-2">AFTER</div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span>AI Processing:</span>
-                      <span className="text-green-400">⚡ 3 seconds</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Error Rate:</span>
-                      <span className="text-green-400">✅ 0%</span>
+                    <ArrowRight className="h-8 w-8 text-brand-purple mt-2" />
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-400">
+                        3sec
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        AI Process
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Step 2 - AI Follow-ups */}
-            <div className="relative mb-20">
-              <div className="flex items-center justify-center mb-8">
-                <div
-                  className="glass-card p-6 rounded-2xl premium-glow animate-pulse"
-                  style={{ animationDelay: "1s" }}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-brand-blue/20 rounded-full flex items-center justify-center">
-                      <Brain
-                        className="h-8 w-8 text-brand-blue animate-bounceIn"
+            {/* Step 2: AI Follow-up Generation with Typing Animation */}
+            <div className="workflow-step">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="order-2 lg:order-1 space-y-6">
+                  <h4 className="text-3xl font-bold">
+                    Step 2: AI Crafts Perfect Follow-ups
+                  </h4>
+                  <p className="text-lg text-muted-foreground">
+                    Watch our AI compose human-like follow-up messages that get
+                    results. Each message is personalized and perfectly timed
+                    for maximum impact.
+                  </p>
+
+                  {/* Live Typing Animation */}
+                  <div className="animated-border glass-card p-6 max-w-lg">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+                      <div
+                        className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"
+                        style={{ animationDelay: "0.5s" }}
+                      />
+                      <div
+                        className="w-3 h-3 bg-green-500 rounded-full animate-pulse"
                         style={{ animationDelay: "1s" }}
                       />
+                      <span className="ml-2 text-sm text-muted-foreground">
+                        FollowUpAI composing...
+                      </span>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold gradient-text">
-                        2. AI Generates Follow-ups
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Smart, contextual messages at perfect timing
-                      </p>
+                    <div className="font-mono text-sm space-y-2">
+                      <div className="text-muted-foreground">
+                        To: john@company.com
+                      </div>
+                      <div className="text-muted-foreground">
+                        Subject: Payment reminder - Invoice #2024-001
+                      </div>
+                      <div className="mt-4 leading-relaxed">
+                        <TypingAnimation
+                          text="Hi John, I hope you're having a great week! I wanted to follow up on Invoice #2024-001 for $2,500 that was sent on February 15th. The payment was due on March 1st, and I haven't received it yet. I understand that things can get busy, so I wanted to check if there are any questions about the invoice or if there's anything I can help clarify. Looking forward to hearing from you!"
+                          className="text-foreground"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Animated Email Flow */}
-              <div className="flex justify-center items-center gap-6">
-                <div
-                  className="glass-card p-4 max-w-sm animate-fadeInUp"
-                  style={{ animationDelay: "1.2s" }}
-                >
-                  <div className="text-xs text-muted-foreground mb-2">
-                    MANUAL EMAILS
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="text-destructive">
-                      😰 "Um, hi... about that invoice..."
-                    </div>
-                    <div className="text-destructive">
-                      ⏰ Takes 20+ minutes to write
-                    </div>
-                    <div className="text-destructive">📉 Low response rate</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <Sparkles
-                    className="h-8 w-8 text-brand-purple animate-spin"
-                    style={{ animationDelay: "1.5s" }}
-                  />
-                  <span className="text-sm text-brand-purple mt-2">
-                    AI Magic
-                  </span>
                 </div>
 
                 <div
-                  className="glass-card p-4 max-w-sm border-brand-blue/20 bg-brand-blue/5 animate-fadeInUp"
-                  style={{ animationDelay: "1.8s" }}
+                  className="order-1 lg:order-2 floating-3d"
+                  style={{ animationDelay: "2s" }}
                 >
-                  <div className="text-xs text-brand-blue mb-2">AI-POWERED</div>
-                  <div className="space-y-2 text-sm">
-                    <div className="text-green-400">
-                      😊 "Hi John! Hope you're well..."
+                  <div className="glass-card p-8 hologram-effect">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-2xl flex items-center justify-center premium-shadow">
+                        <MessageSquare className="h-8 w-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold gradient-text">
+                          Message Intelligence
+                        </h3>
+                        <p className="text-muted-foreground">
+                          340% higher response rate
+                        </p>
+                      </div>
                     </div>
-                    <div className="text-green-400">
-                      ⚡ Generated in 2 seconds
-                    </div>
-                    <div className="text-green-400">
-                      📈 3x higher response rate
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-lg bg-gradient-to-r from-brand-purple/20 to-brand-blue/20 border border-brand-purple/30">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="font-semibold">Tone Analysis</span>
+                          <span className="text-green-400">Professional</span>
+                        </div>
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="font-semibold">Sentiment Score</span>
+                          <span className="text-green-400">9.2/10</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="font-semibold">
+                            Success Probability
+                          </span>
+                          <span className="text-green-400">87%</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Step 3 - Payment Success */}
-            <div className="relative">
-              <div className="flex items-center justify-center mb-8">
-                <div
-                  className="glass-card p-6 rounded-2xl premium-glow animate-pulse"
-                  style={{ animationDelay: "2s" }}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center">
-                      <DollarSign
-                        className="h-8 w-8 text-green-400 animate-bounceIn"
-                        style={{ animationDelay: "2s" }}
-                      />
+            {/* Step 3: Automated Success */}
+            <div className="workflow-step">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="floating-3d" style={{ animationDelay: "4s" }}>
+                  <div className="glass-card p-8 hologram-effect">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-r from-brand-cyan to-green-400 rounded-2xl flex items-center justify-center premium-shadow">
+                        <Zap className="h-8 w-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold gradient-text">
+                          Payment Acceleration
+                        </h3>
+                        <p className="text-muted-foreground">
+                          Results in real-time
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold gradient-text">
-                        3. Get Paid Faster
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Automated persistence gets results
-                      </p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-4 rounded-lg bg-green-400/20">
+                        <div className="text-3xl font-bold text-green-400">
+                          40%
+                        </div>
+                        <div className="text-sm">Faster Payments</div>
+                      </div>
+                      <div className="text-center p-4 rounded-lg bg-brand-purple/20">
+                        <div className="text-3xl font-bold text-brand-purple">
+                          $2.4M
+                        </div>
+                        <div className="text-sm">Recovered</div>
+                      </div>
+                      <div className="text-center p-4 rounded-lg bg-brand-blue/20">
+                        <div className="text-3xl font-bold text-brand-blue">
+                          95%
+                        </div>
+                        <div className="text-sm">Success Rate</div>
+                      </div>
+                      <div className="text-center p-4 rounded-lg bg-brand-cyan/20">
+                        <div className="text-3xl font-bold text-brand-cyan">
+                          24/7
+                        </div>
+                        <div className="text-sm">Automation</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Success Metrics Animation */}
-              <div className="grid md:grid-cols-3 gap-6">
-                <div
-                  className="glass-card p-6 text-center animate-scaleIn"
-                  style={{ animationDelay: "2.2s" }}
-                >
-                  <div className="text-3xl font-bold text-green-400 mb-2">
-                    40%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Faster Payments
-                  </div>
-                </div>
-                <div
-                  className="glass-card p-6 text-center animate-scaleIn"
-                  style={{ animationDelay: "2.4s" }}
-                >
-                  <div className="text-3xl font-bold text-brand-purple mb-2">
-                    90%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Less Time Chasing
-                  </div>
-                </div>
-                <div
-                  className="glass-card p-6 text-center animate-scaleIn"
-                  style={{ animationDelay: "2.6s" }}
-                >
-                  <div className="text-3xl font-bold text-brand-blue mb-2">
-                    100%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Peace of Mind
+                <div className="space-y-6">
+                  <h4 className="text-3xl font-bold">
+                    Step 3: Guaranteed Results
+                  </h4>
+                  <p className="text-lg text-muted-foreground">
+                    Our AI doesn't just send emails—it optimizes timing, tracks
+                    responses, and automatically adjusts strategy to maximize
+                    your collection rate.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 p-4 rounded-lg bg-green-400/10 border border-green-400/20">
+                      <CheckCircle className="h-6 w-6 text-green-400" />
+                      <span>Automated follow-up sequences</span>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 rounded-lg bg-brand-purple/10 border border-brand-purple/20">
+                      <CheckCircle className="h-6 w-6 text-brand-purple" />
+                      <span>Real-time payment tracking</span>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 rounded-lg bg-brand-blue/10 border border-brand-blue/20">
+                      <CheckCircle className="h-6 w-6 text-brand-blue" />
+                      <span>Client relationship preservation</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Floating Elements for Enhanced Animation */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-brand-purple/10 rounded-full blur-xl animate-float"></div>
+          {/* Background Effects */}
+          <div className="absolute top-20 left-20 w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl animate-pulse"></div>
           <div
-            className="absolute bottom-20 right-10 w-32 h-32 bg-brand-blue/10 rounded-full blur-xl animate-float"
-            style={{ animationDelay: "3s" }}
+            className="absolute bottom-20 right-20 w-72 h-72 bg-brand-blue/10 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "2s" }}
           ></div>
           <div
-            className="absolute top-1/2 right-20 w-16 h-16 bg-brand-cyan/10 rounded-full blur-lg animate-float"
-            style={{ animationDelay: "1.5s" }}
+            className="absolute top-1/2 left-1/3 w-48 h-48 bg-brand-cyan/10 rounded-full blur-2xl animate-pulse"
+            style={{ animationDelay: "4s" }}
           ></div>
         </div>
       </section>
@@ -814,7 +853,7 @@ export default function Index() {
             {[
               { name: "QuickBooks", logo: "📊" },
               { name: "Salesforce", logo: "☁️" },
-              { name: "Stripe", logo: "💳" },
+              { name: "Stripe", logo: "��" },
               { name: "HubSpot", logo: "🎯" },
               { name: "Slack", logo: "💬" },
               { name: "Zapier", logo: "⚡" },
