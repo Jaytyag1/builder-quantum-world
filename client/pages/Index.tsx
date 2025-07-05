@@ -603,48 +603,48 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Step 3: Automated Success */}
+            {/* Step 3: Complete Monitoring & Results */}
             <div className="workflow-step">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="floating-3d" style={{ animationDelay: "4s" }}>
-                  <div className="glass-card p-8 hologram-effect">
+                  <div className="glass-card p-8 clean-glass">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-r from-brand-cyan to-green-400 rounded-2xl flex items-center justify-center premium-shadow">
                         <Zap className="h-8 w-8 text-white" />
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold gradient-text">
-                          Payment Acceleration
+                          Complete Automation
                         </h3>
                         <p className="text-muted-foreground">
-                          Results in real-time
+                          Full visibility & control
                         </p>
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="text-center p-4 rounded-lg bg-green-400/20">
                         <div className="text-3xl font-bold text-green-400">
-                          40%
+                          94.2%
                         </div>
-                        <div className="text-sm">Faster Payments</div>
+                        <div className="text-sm">Open Rate</div>
                       </div>
                       <div className="text-center p-4 rounded-lg bg-brand-purple/20">
                         <div className="text-3xl font-bold text-brand-purple">
-                          $2.4M
+                          67.8%
                         </div>
-                        <div className="text-sm">Recovered</div>
+                        <div className="text-sm">Reply Rate</div>
                       </div>
                       <div className="text-center p-4 rounded-lg bg-brand-blue/20">
                         <div className="text-3xl font-bold text-brand-blue">
-                          95%
+                          87%
                         </div>
-                        <div className="text-sm">Success Rate</div>
+                        <div className="text-sm">Payment Success</div>
                       </div>
                       <div className="text-center p-4 rounded-lg bg-brand-cyan/20">
                         <div className="text-3xl font-bold text-brand-cyan">
                           24/7
                         </div>
-                        <div className="text-sm">Automation</div>
+                        <div className="text-sm">Monitoring</div>
                       </div>
                     </div>
                   </div>
@@ -652,25 +652,29 @@ export default function Index() {
 
                 <div className="space-y-6">
                   <h4 className="text-3xl font-bold">
-                    Step 3: Guaranteed Results
+                    Step 3: Complete Oversight & Results
                   </h4>
                   <p className="text-lg text-muted-foreground">
-                    Our AI doesn't just send emails—it optimizes timing, tracks
-                    responses, and automatically adjusts strategy to maximize
-                    your collection rate.
+                    Get complete visibility into every interaction while
+                    maintaining full control. Our system handles routine tasks
+                    and escalates when you're needed.
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 p-4 rounded-lg bg-green-400/10 border border-green-400/20">
                       <CheckCircle className="h-6 w-6 text-green-400" />
-                      <span>Automated follow-up sequences</span>
+                      <span>Real-time open & reply rate tracking</span>
                     </div>
                     <div className="flex items-center gap-4 p-4 rounded-lg bg-brand-purple/10 border border-brand-purple/20">
                       <CheckCircle className="h-6 w-6 text-brand-purple" />
-                      <span>Real-time payment tracking</span>
+                      <span>Automatic payment status updates</span>
                     </div>
                     <div className="flex items-center gap-4 p-4 rounded-lg bg-brand-blue/10 border border-brand-blue/20">
                       <CheckCircle className="h-6 w-6 text-brand-blue" />
-                      <span>Client relationship preservation</span>
+                      <span>Smart human intervention alerts</span>
+                    </div>
+                    <div className="flex items-center gap-4 p-4 rounded-lg bg-yellow-400/10 border border-yellow-400/20">
+                      <Users className="h-6 w-6 text-yellow-400" />
+                      <span>Instant notifications for complex responses</span>
                     </div>
                   </div>
                 </div>
