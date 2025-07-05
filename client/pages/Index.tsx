@@ -776,17 +776,22 @@ export default function Index() {
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border border-brand-purple/20 mb-6">
               <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-brand-purple">
-                Next-Generation AI Platform
+                Your invoice follow-up assistant — powered by GPT and emotional
+                intelligence
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              Revenue Intelligence{" "}
-              <span className="gradient-text block md:inline">Redefined</span>
+              💥 Chase Less.{" "}
+              <span className="gradient-text block md:inline">
+                Get Paid Faster.
+              </span>
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
-              Multi-agent AI system that learns, adapts, and optimizes your
-              entire payment collection workflow with human-level emotional
-              intelligence.
+              Your AI-powered invoice follow-up agent that reads, writes, and
+              reminds — so you don't have to.
+              <br />
+              Human-like emails, smart tone, and behavior-aware nudges that
+              actually get you paid.
             </p>
 
             {/* Live Feature Showcase */}
