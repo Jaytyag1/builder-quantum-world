@@ -1,0 +1,334 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * InvoIQ Dark Futuristic Theme
+   * HSL format for tailwind compatibility
+  */
+  :root {
+    /* Dark futuristic premium theme */
+    --background: 220 27% 4%;
+    --foreground: 220 9% 96%;
+
+    --card: 220 23% 7%;
+    --card-foreground: 220 9% 96%;
+
+    --popover: 220 23% 7%;
+    --popover-foreground: 220 9% 96%;
+
+    --primary: 266 100% 65%;
+    --primary-foreground: 220 9% 96%;
+
+    --secondary: 220 23% 11%;
+    --secondary-foreground: 220 9% 85%;
+
+    --muted: 220 23% 11%;
+    --muted-foreground: 220 9% 60%;
+
+    --accent: 266 100% 65%;
+    --accent-foreground: 220 9% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 9% 96%;
+
+    --border: 220 23% 11%;
+    --input: 220 23% 11%;
+    --ring: 266 100% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors for InvoIQ - Dark futuristic */
+    --brand-purple: 266 100% 65%;
+    --brand-blue: 220 100% 70%;
+    --brand-cyan: 180 100% 70%;
+    --glass-bg: 220 23% 7% / 0.8;
+    --glass-border: 220 23% 20% / 0.3;
+    --gradient-start: 266 100% 65%;
+    --gradient-end: 220 100% 70%;
+
+    /* Premium dark colors */
+    --premium-gradient: 266 100% 65%;
+    --premium-accent: 280 100% 70%;
+    --premium-dark: 220 30% 6%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 266 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 266 100% 50%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 266 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--premium-dark)) 100%
+    );
+    min-height: 100vh;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl p-6;
+    position: relative;
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-purple)) 0%,
+      hsl(var(--brand-blue)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--brand-purple)) 0%,
+      hsl(var(--brand-blue)) 100%
+    );
+  }
+
+  .invoice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .animated-border {
+    position: relative;
+    border: 1px solid rgba(139, 92, 246, 0.15);
+  }
+
+  .animated-border::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    border-radius: inherit;
+    background:
+      linear-gradient(90deg, hsl(var(--brand-purple)) 0%, transparent 100%) top
+        left,
+      linear-gradient(180deg, hsl(var(--brand-blue)) 0%, transparent 100%) top
+        right,
+      linear-gradient(270deg, hsl(var(--brand-cyan)) 0%, transparent 100%)
+        bottom right,
+      linear-gradient(0deg, hsl(var(--brand-purple)) 0%, transparent 100%)
+        bottom left;
+    background-size:
+      var(--line-progress, 0%) 1px,
+      1px var(--line-progress, 0%),
+      var(--line-progress, 0%) 1px,
+      1px var(--line-progress, 0%);
+    background-repeat: no-repeat;
+    animation: trace-line 6s ease-in-out infinite;
+  }
+
+  @keyframes trace-line {
+    0% {
+      background-size:
+        0% 1px,
+        1px 0%,
+        0% 1px,
+        1px 0%;
+    }
+    25% {
+      background-size:
+        100% 1px,
+        1px 0%,
+        0% 1px,
+        1px 0%;
+    }
+    50% {
+      background-size:
+        100% 1px,
+        1px 100%,
+        0% 1px,
+        1px 0%;
+    }
+    75% {
+      background-size:
+        100% 1px,
+        1px 100%,
+        100% 1px,
+        1px 0%;
+    }
+    100% {
+      background-size:
+        100% 1px,
+        1px 100%,
+        100% 1px,
+        1px 100%;
+    }
+  }
+
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .premium-shadow {
+    box-shadow:
+      0 20px 60px rgba(139, 92, 246, 0.3),
+      0 8px 25px rgba(139, 92, 246, 0.2);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes quantumFloat {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(90deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(-15px) rotate(270deg);
+    }
+  }
+
+  @keyframes quantumPulse {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes quantumGlow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 10px hsl(var(--brand-purple) / 0.3),
+        0 0 20px hsl(var(--brand-purple) / 0.2),
+        0 0 30px hsl(var(--brand-purple) / 0.1);
+    }
+    33% {
+      box-shadow:
+        0 0 10px hsl(var(--brand-blue) / 0.3),
+        0 0 20px hsl(var(--brand-blue) / 0.2),
+        0 0 30px hsl(var(--brand-blue) / 0.1);
+    }
+    66% {
+      box-shadow:
+        0 0 10px hsl(var(--brand-cyan) / 0.3),
+        0 0 20px hsl(var(--brand-cyan) / 0.2),
+        0 0 30px hsl(var(--brand-cyan) / 0.1);
+    }
+  }
+
+  @keyframes quantumRipple {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .quantum-float {
+    animation: quantumFloat 6s ease-in-out infinite;
+  }
+
+  .quantum-pulse {
+    animation: quantumPulse 2s ease-in-out infinite;
+  }
+
+  .quantum-glow {
+    animation: quantumGlow 4s ease-in-out infinite;
+  }
+
+  .quantum-ripple {
+    animation: quantumRipple 1.5s ease-out infinite;
+  }
+}
