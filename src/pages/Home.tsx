@@ -41,6 +41,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [typingText, setTypingText] = useState("");
+  const { isSignedIn } = useAuth();
 
   // Dynamic typing effect for FollowUpAI composing - faster animation
   useEffect(() => {
