@@ -1154,12 +1154,7 @@ export default function Index() {
               <div className="space-y-8">
                 <div className="group cursor-pointer">
                   <div className="flex justify-between items-center mb-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">📈</span>
-                      <span className="text-foreground font-semibold">
-                        Reply Rate Increase
-                      </span>
-                    </div>
+                    <div className="gap-3">Reply Rate Increase</div>
                     <span className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform">
                       +340%
                     </span>
