@@ -320,53 +320,139 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 px-4 bg-gradient-to-r from-brand-purple/5 to-brand-blue/5">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              How <span className="gradient-text">InvoIQ</span> works
+      {/* Quantum Process Flow */}
+      <section className="py-32 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/10 via-brand-blue/5 to-brand-cyan/10" />
+        <div className="absolute inset-0">
+          <div className="h-full w-full bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
+        </div>
+
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <Badge
+              variant="outline"
+              className="mb-6 glass border-brand-blue/30"
+            >
+              <Orbit className="w-4 h-4 mr-2 animate-spin" />
+              Quantum Process Architecture
+            </Badge>
+            <h2 className="text-5xl md:text-6xl font-bold mb-8">
+              <span className="text-white">QUANTUM</span>{" "}
+              <span className="gradient-text">WORKFLOW</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Get started in minutes, not hours
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Experience billing operations that exist in multiple states
+              simultaneously until observed by your clients
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="glass-card mb-6">
-                <div className="text-4xl font-bold gradient-text mb-4">1</div>
-                <FileText className="h-12 w-12 text-brand-purple mx-auto" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div className="text-center group">
+              <div className="glass-card mb-8 relative overflow-hidden group-hover:scale-110 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 to-brand-blue/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10 p-8">
+                  <div className="text-5xl font-bold gradient-text mb-6 animate-pulse">
+                    Φ
+                  </div>
+                  <Brain className="h-16 w-16 text-brand-purple mx-auto group-hover:animate-pulse" />
+                </div>
+                {/* Quantum particles */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(8)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-1 bg-brand-purple/40 rounded-full animate-ping"
+                      style={{
+                        left: `${20 + Math.random() * 60}%`,
+                        top: `${20 + Math.random() * 60}%`,
+                        animationDelay: `${Math.random() * 2}s`,
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Create Invoice</h3>
-              <p className="text-muted-foreground">
-                Use our AI-powered templates to create professional invoices in
-                seconds
+              <h3 className="text-2xl font-bold mb-4 text-white">
+                Quantum Genesis
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Neural quantum processors analyze infinite billing possibilities
+                and materialize the perfect invoice from the quantum field
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="glass-card mb-6">
-                <div className="text-4xl font-bold gradient-text mb-4">2</div>
-                <Mail className="h-12 w-12 text-brand-blue mx-auto" />
+            <div className="text-center group">
+              <div className="glass-card mb-8 relative overflow-hidden group-hover:scale-110 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10 p-8">
+                  <div className="text-5xl font-bold gradient-text mb-6 animate-pulse">
+                    ∞
+                  </div>
+                  <Orbit className="h-16 w-16 text-brand-blue mx-auto group-hover:animate-spin" />
+                </div>
+                {/* Quantum orbits */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div
+                    className="absolute inset-4 border border-brand-blue/20 rounded-full animate-spin"
+                    style={{ animationDuration: "4s" }}
+                  />
+                  <div
+                    className="absolute inset-8 border border-brand-cyan/20 rounded-full animate-spin"
+                    style={{
+                      animationDuration: "3s",
+                      animationDirection: "reverse",
+                    }}
+                  />
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Send & Track</h3>
-              <p className="text-muted-foreground">
-                Send invoices instantly and track when they're viewed,
-                downloaded, or paid
+              <h3 className="text-2xl font-bold mb-4 text-white">
+                Entangled Transmission
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Quantum entanglement ensures instantaneous delivery across all
+                dimensions, with real-time observation tracking in parallel
+                universes
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="glass-card mb-6">
-                <div className="text-4xl font-bold gradient-text mb-4">3</div>
-                <DollarSign className="h-12 w-12 text-brand-cyan mx-auto" />
+            <div className="text-center group">
+              <div className="glass-card mb-8 relative overflow-hidden group-hover:scale-110 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-brand-purple/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10 p-8">
+                  <div className="text-5xl font-bold gradient-text mb-6 animate-pulse">
+                    Ψ
+                  </div>
+                  <Infinity className="h-16 w-16 text-brand-cyan mx-auto group-hover:animate-bounce" />
+                </div>
+                {/* Energy waves */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-cyan/10 to-transparent animate-pulse" />
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Get Paid</h3>
-              <p className="text-muted-foreground">
-                Automated reminders and multiple payment options ensure faster
-                payment
+              <h3 className="text-2xl font-bold mb-4 text-white">
+                Probability Collapse
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Payment probabilities collapse into certain financial reality
+                through quantum superposition optimization and temporal
+                acceleration
               </p>
+            </div>
+          </div>
+
+          {/* Quantum Flow Visualization */}
+          <div className="mt-20 relative">
+            <div className="flex justify-center items-center space-x-8">
+              <div className="w-4 h-4 rounded-full bg-brand-purple animate-ping" />
+              <div className="w-32 h-0.5 bg-gradient-to-r from-brand-purple to-brand-blue animate-pulse" />
+              <div
+                className="w-4 h-4 rounded-full bg-brand-blue animate-ping"
+                style={{ animationDelay: "0.5s" }}
+              />
+              <div className="w-32 h-0.5 bg-gradient-to-r from-brand-blue to-brand-cyan animate-pulse" />
+              <div
+                className="w-4 h-4 rounded-full bg-brand-cyan animate-ping"
+                style={{ animationDelay: "1s" }}
+              />
             </div>
           </div>
         </div>
