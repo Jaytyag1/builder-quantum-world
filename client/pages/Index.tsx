@@ -537,7 +537,7 @@ export default function Index() {
                     Step 2: AI Sends & Tracks Everything
                   </h4>
                   <p className="text-lg text-muted-foreground">
-                    Our AI doesn't just send follow-ups���it tracks every
+                    Our AI doesn't just send follow-ups—it tracks every
                     interaction, monitors engagement, and alerts you when human
                     intervention is needed.
                   </p>
@@ -1184,12 +1184,7 @@ export default function Index() {
 
                 <div className="group cursor-pointer">
                   <div className="flex justify-between items-center mb-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">❤️</span>
-                      <span className="text-foreground font-semibold">
-                        Client Experience Score
-                      </span>
-                    </div>
+                    <div className="gap-3">Client Experience Score</div>
                     <span className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform">
                       9.2/10
                     </span>
