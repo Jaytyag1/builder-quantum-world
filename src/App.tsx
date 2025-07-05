@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useAuth } from "@clerk/clerk-react";
 import { Toaster } from "@/components/ui/sonner";
+import { useSafeAuth } from "@/hooks/useSafeAuth";
 import AuthWrapper from "@/components/AuthWrapper";
 import Home from "@/pages/Home";
 import Dashboard from "@/pages/Dashboard";
@@ -11,7 +11,7 @@ import About from "@/pages/About";
 import NotFound from "@/pages/NotFound";
 
 export default function App() {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn } = useSafeAuth();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
