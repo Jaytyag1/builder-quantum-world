@@ -206,10 +206,12 @@ export default function Dashboard() {
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
                       <p className="text-sm font-medium leading-none">
-                        Jay Tyagi
+                        {user?.fullName ||
+                          `${user?.firstName || ""} ${user?.lastName || ""}`.trim() ||
+                          "User"}
                       </p>
                       <p className="text-xs leading-none text-muted-foreground">
-                        jay@example.com
+                        {user?.primaryEmailAddress?.emailAddress || "No email"}
                       </p>
                     </div>
                   </DropdownMenuLabel>
