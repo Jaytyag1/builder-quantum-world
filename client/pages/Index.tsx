@@ -839,10 +839,32 @@ export default function Index() {
             </div>
 
             {/* Trust Statement */}
-            <p className="text-center text-muted-foreground italic mb-12 max-w-3xl mx-auto">
+            <p className="text-center text-muted-foreground italic mb-8 max-w-3xl mx-auto">
               "Based on real client testing, InvoIQ helped freelancers collect
               unpaid invoices 32% faster."
             </p>
+
+            {/* Animated Message Preview */}
+            <div className="max-w-md mx-auto mb-12">
+              <div className="animated-border glass-card p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full flex items-center justify-center">
+                    <MessageSquare className="h-4 w-4 text-white" />
+                  </div>
+                  <span className="text-sm font-medium">AI Agent</span>
+                  <span className="text-xs text-green-400">● Online</span>
+                </div>
+                <div className="text-sm leading-relaxed">
+                  <TypingAnimation
+                    text="Hi James — just checking in on the invoice from last week. Let me know if you need anything from me!"
+                    className="text-foreground"
+                  />
+                </div>
+                <div className="text-xs text-muted-foreground mt-2 italic">
+                  (sent automatically by your agent)
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
