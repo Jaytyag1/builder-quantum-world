@@ -493,17 +493,17 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Step 2: AI Follow-up Generation with Typing Animation */}
+            {/* Step 2: AI Follow-up with Smart Tracking */}
             <div className="workflow-step">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="order-2 lg:order-1 space-y-6">
                   <h4 className="text-3xl font-bold">
-                    Step 2: AI Crafts Perfect Follow-ups
+                    Step 2: AI Sends & Tracks Everything
                   </h4>
                   <p className="text-lg text-muted-foreground">
-                    Watch our AI compose human-like follow-up messages that get
-                    results. Each message is personalized and perfectly timed
-                    for maximum impact.
+                    Our AI doesn't just send follow-ups—it tracks every
+                    interaction, monitors engagement, and alerts you when human
+                    intervention is needed.
                   </p>
 
                   {/* Live Typing Animation */}
@@ -537,40 +537,63 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
+
+                  {/* Human Intervention Alert */}
+                  <div className="glass-card p-4 border-yellow-500/30 bg-yellow-500/10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                        <Users className="h-4 w-4 text-yellow-400" />
+                      </div>
+                      <span className="font-semibold text-yellow-400">
+                        Human Intervention Required
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Client replied: "Having cash flow issues this month, can
+                      we discuss payment plan?" -
+                      <span className="text-yellow-400 underline cursor-pointer">
+                        View & Respond
+                      </span>
+                    </p>
+                  </div>
                 </div>
 
                 <div
                   className="order-1 lg:order-2 floating-3d"
                   style={{ animationDelay: "2s" }}
                 >
-                  <div className="glass-card p-8 hologram-effect">
+                  <div className="glass-card p-8 clean-glass">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-2xl flex items-center justify-center premium-shadow">
-                        <MessageSquare className="h-8 w-8 text-white" />
+                        <BarChart3 className="h-8 w-8 text-white" />
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold gradient-text">
-                          Message Intelligence
+                          Smart Analytics
                         </h3>
                         <p className="text-muted-foreground">
-                          340% higher response rate
+                          Real-time engagement tracking
                         </p>
                       </div>
                     </div>
                     <div className="space-y-4">
                       <div className="p-4 rounded-lg bg-gradient-to-r from-brand-purple/20 to-brand-blue/20 border border-brand-purple/30">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="font-semibold">Tone Analysis</span>
-                          <span className="text-green-400">Professional</span>
+                          <span className="font-semibold">Open Rate</span>
+                          <span className="text-green-400">94.2%</span>
                         </div>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="font-semibold">Sentiment Score</span>
-                          <span className="text-green-400">9.2/10</span>
+                          <span className="font-semibold">Reply Rate</span>
+                          <span className="text-green-400">67.8%</span>
+                        </div>
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="font-semibold">
+                            Human Alerts Sent
+                          </span>
+                          <span className="text-yellow-400">3 today</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="font-semibold">
-                            Success Probability
-                          </span>
+                          <span className="font-semibold">Payment Success</span>
                           <span className="text-green-400">87%</span>
                         </div>
                       </div>
