@@ -812,13 +812,13 @@ export default function Index() {
               <div className="animated-border glass-card hover:scale-105 transition-all duration-500">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full flex items-center justify-center">
-                    <Zap className="h-4 w-4 text-white" />
+                    <MessageSquare className="h-4 w-4 text-white" />
                   </div>
-                  <span className="font-semibold">Learning Rate</span>
+                  <span className="font-semibold">AI Follow-Up Accuracy</span>
                 </div>
-                <div className="text-2xl font-bold gradient-text">97.3%</div>
+                <div className="text-2xl font-bold gradient-text">93.7%</div>
                 <div className="text-sm text-muted-foreground">
-                  Model accuracy
+                  Opens or replies rate
                 </div>
               </div>
 
@@ -1511,7 +1511,7 @@ export default function Index() {
               </p>
             </div>
             <div className="glass-card p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-4xl mb-4">��</div>
+              <div className="text-4xl mb-4">⚡</div>
               <h3 className="font-bold mb-2">99.9% Uptime SLA</h3>
               <p className="text-sm text-muted-foreground">
                 Enterprise reliability guarantee
