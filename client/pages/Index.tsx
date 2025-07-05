@@ -403,18 +403,18 @@ export default function Index() {
       <section className="py-32 px-4 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple/20 to-brand-blue/20 border border-brand-purple/30 mb-8 hologram-effect">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple/20 to-brand-blue/20 border border-brand-purple/30 mb-8 clean-glass">
               <div className="w-3 h-3 bg-brand-purple rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-brand-purple">
-                Workflow Transformation
+                Intelligent Automation
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold mb-8 gradient-text">
               Transform your payment process
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Watch how FollowUpAI revolutionizes your invoice collection
-              workflow with autonomous intelligence
+              Complete end-to-end automation with intelligent tracking,
+              analytics, and human intervention when needed
             </p>
           </div>
 
@@ -853,7 +853,7 @@ export default function Index() {
             {[
               { name: "QuickBooks", logo: "📊" },
               { name: "Salesforce", logo: "☁️" },
-              { name: "Stripe", logo: "��" },
+              { name: "Stripe", logo: "💳" },
               { name: "HubSpot", logo: "🎯" },
               { name: "Slack", logo: "💬" },
               { name: "Zapier", logo: "⚡" },
