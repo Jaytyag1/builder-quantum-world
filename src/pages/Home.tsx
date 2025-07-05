@@ -1241,7 +1241,7 @@ export default function Home() {
             >
               <Link to="/dashboard">
                 <ArrowRight className="mr-2 h-5 w-5" />
-                Start Free Trial
+                {isSignedIn ? "Go to Dashboard" : "Start Free Trial"}
               </Link>
             </Button>
             <Button
