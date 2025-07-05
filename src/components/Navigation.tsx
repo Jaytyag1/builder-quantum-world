@@ -110,22 +110,38 @@ export default function Navigation() {
               </Link>
             ))}
             <div className="pt-4 space-y-2">
-              <Button variant="ghost" className="w-full" asChild>
-                <Link
-                  to="/dashboard"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Sign In
-                </Link>
-              </Button>
-              <Button className="w-full gradient-bg hover:opacity-90" asChild>
-                <Link
-                  to="/dashboard"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
-              </Button>
+              {isSignedIn ? (
+                <Button className="w-full gradient-bg hover:opacity-90" asChild>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                </Button>
+              ) : (
+                <>
+                  <Button variant="ghost" className="w-full" asChild>
+                    <Link
+                      to="/dashboard"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Sign In
+                    </Link>
+                  </Button>
+                  <Button
+                    className="w-full gradient-bg hover:opacity-90"
+                    asChild
+                  >
+                    <Link
+                      to="/dashboard"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Get Started
+                    </Link>
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         )}
