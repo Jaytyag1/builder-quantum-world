@@ -1,5 +1,5 @@
-import { useAuth } from "@clerk/clerk-react";
 import { SignIn } from "@clerk/clerk-react";
+import { useSafeAuth, isClerkAvailable } from "@/hooks/useSafeAuth";
 
 interface AuthWrapperProps {
   children: React.ReactNode;
