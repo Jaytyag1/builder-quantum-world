@@ -234,7 +234,7 @@ export default function Index() {
                     <div className="w-8 h-8 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-full border-2 border-white"></div>
                   </div>
                   <span className="text-sm text-muted-foreground">
-                    10,000+ happy users
+                    500+ waitlist
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -244,9 +244,7 @@ export default function Index() {
                       className="h-4 w-4 fill-yellow-400 text-yellow-400"
                     />
                   ))}
-                  <span className="text-sm text-muted-foreground ml-2">
-                    4.9/5 rating
-                  </span>
+                  <span className="text-sm text-muted-foreground ml-2"></span>
                 </div>
               </div>
             </div>
@@ -1030,7 +1028,7 @@ export default function Index() {
                 </p>
               </div>
               <div className="text-center space-y-3">
-                <div className="text-2xl">🧾</div>
+                <div className="text-2xl">����</div>
                 <h4 className="font-semibold">PayPal Friendly</h4>
                 <p className="text-sm text-muted-foreground">
                   Upload PayPal invoices or screenshots
