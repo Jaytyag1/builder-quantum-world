@@ -458,50 +458,116 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center">
-          <div className="glass-card max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to <span className="gradient-text">get paid faster</span>?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Join thousands of businesses that have transformed their invoicing
-              with InvoIQ
-            </p>
+      {/* Quantum CTA Section */}
+      <section className="py-32 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-brand-purple/5 to-background" />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                asChild
-                size="lg"
-                className="gradient-bg hover:opacity-90 text-lg px-8 py-6"
-              >
-                <Link to="/dashboard">Start Free Trial</Link>
-              </Button>
-              <Button
+        {/* Quantum field effect */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-purple/20 via-brand-blue/10 to-transparent animate-pulse" />
+        </div>
+
+        <div className="container mx-auto text-center relative z-10">
+          <div className="glass-card max-w-6xl mx-auto relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/10 via-brand-blue/5 to-brand-cyan/10" />
+
+            {/* Floating quantum elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              <Sparkles className="absolute top-8 left-8 w-6 h-6 text-brand-purple/40 animate-pulse" />
+              <Brain className="absolute top-12 right-12 w-8 h-8 text-brand-blue/40 animate-pulse" />
+              <Orbit className="absolute bottom-8 left-12 w-7 h-7 text-brand-cyan/40 animate-spin" />
+              <Infinity className="absolute bottom-12 right-8 w-9 h-9 text-brand-purple/40 animate-bounce" />
+            </div>
+
+            <div className="relative z-10 p-12">
+              <Badge
                 variant="outline"
-                size="lg"
-                asChild
-                className="text-lg px-8 py-6 glass border-brand-purple/30"
+                className="mb-8 glass border-brand-purple/30"
               >
-                <Link to="/pricing">View Pricing</Link>
-              </Button>
-            </div>
+                <Zap className="w-4 h-4 mr-2" />
+                Quantum Leap Available
+              </Badge>
 
-            <div className="mt-8 flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                No credit card required
+              <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                <span className="text-white">ENTER THE</span>
+                <br />
+                <span className="gradient-text text-6xl md:text-8xl">
+                  QUANTUM
+                </span>
+                <br />
+                <span className="text-white">DIMENSION</span>
+              </h2>
+
+              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
+                Transcend conventional billing limitations. Join the quantum
+                revolution where{" "}
+                <span className="text-brand-purple font-semibold">
+                  payment certainty
+                </span>{" "}
+                exists in infinite parallel states until manifested in your
+                reality.
+              </p>
+
+              <div className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-12">
+                <Button
+                  asChild
+                  size="lg"
+                  className="gradient-bg hover:opacity-90 text-xl px-16 py-8 rounded-3xl group relative overflow-hidden shadow-2xl"
+                >
+                  <Link to="/dashboard">
+                    <span className="relative z-10 flex items-center">
+                      <Sparkles className="mr-3 h-6 w-6" />
+                      Activate Quantum Core
+                      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-purple via-brand-blue to-brand-cyan opacity-0 group-hover:opacity-30 transition-opacity" />
+                  </Link>
+                </Button>
+
+                <Button
+                  variant="outline"
+                  size="lg"
+                  asChild
+                  className="text-xl px-16 py-8 rounded-3xl glass border-brand-cyan/30 hover:border-brand-cyan/60 transition-all shadow-xl group"
+                >
+                  <Link to="/pricing">
+                    <Cpu className="mr-3 h-6 w-6 group-hover:animate-spin" />
+                    Quantum Pricing Matrix
+                  </Link>
+                </Button>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                Cancel anytime
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                14-day free trial
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div className="flex items-center justify-center gap-3 glass-card">
+                  <div className="w-3 h-3 rounded-full bg-brand-purple animate-pulse" />
+                  <span className="text-brand-purple font-semibold">
+                    Infinite Quantum States
+                  </span>
+                </div>
+                <div className="flex items-center justify-center gap-3 glass-card">
+                  <div className="w-3 h-3 rounded-full bg-brand-blue animate-pulse" />
+                  <span className="text-brand-blue font-semibold">
+                    Zero Latency Processing
+                  </span>
+                </div>
+                <div className="flex items-center justify-center gap-3 glass-card">
+                  <div className="w-3 h-3 rounded-full bg-brand-cyan animate-pulse" />
+                  <span className="text-brand-cyan font-semibold">
+                    Multidimensional Support
+                  </span>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Quantum signature */}
+          <div className="mt-16 text-center">
+            <p className="text-muted-foreground/60 text-sm">
+              "Where quantum mechanics meets financial certainty"
+              <span className="text-brand-purple">
+                — Dr. Quantum, Lead Architect
+              </span>
+            </p>
           </div>
         </div>
       </section>
