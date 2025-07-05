@@ -379,153 +379,158 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {filteredInvoices.map((invoice) => (
-                <div
-                  key={invoice.id}
-                  className="flex items-center justify-between p-4 rounded-lg border border-border/40 hover:bg-secondary/50 transition-colors"
-                >
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-purple/10">
-                      <FileText className="h-5 w-5 text-brand-purple" />
+              {filteredInvoices.map((invoice) => {
+                const invoiceId = useConvex
+                  ? (invoice as any)._id
+                  : (invoice as any).id;
+                return (
+                  <div
+                    key={invoiceId}
+                    className="flex items-center justify-between p-4 rounded-lg border border-border/40 hover:bg-secondary/50 transition-colors"
+                  >
+                    <div className="flex items-center space-x-4">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-purple/10">
+                        <FileText className="h-5 w-5 text-brand-purple" />
+                      </div>
+                      <div>
+                        <p className="font-medium">{invoice.invoiceNumber}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {invoice.clientName}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium">{invoice.invoiceNumber}</p>
+                    <div className="text-right">
+                      <p className="font-medium">
+                        {formatCurrency(invoice.amount)}
+                      </p>
                       <p className="text-sm text-muted-foreground">
-                        {invoice.clientName}
+                        Due {formatDate(invoice.dueDate)}
                       </p>
                     </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-medium">
-                      {formatCurrency(invoice.amount)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Due {formatDate(invoice.dueDate)}
-                    </p>
-                  </div>
-                  <Badge
-                    variant="outline"
-                    className={getStatusColor(invoice.status)}
-                  >
-                    {invoice.status}
-                  </Badge>
-                  <div className="flex items-center space-x-2">
-                    <Button variant="ghost" size="sm" asChild>
-                      <Link to={`/invoice/${invoice.id}`}>
-                        <Eye className="h-4 w-4" />
-                      </Link>
-                    </Button>
-
-                    {invoice.status === "draft" && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() =>
-                          handleSendInvoice(invoice.id, invoice.invoiceNumber)
-                        }
-                      >
-                        <Send className="h-4 w-4" />
+                    <Badge
+                      variant="outline"
+                      className={getStatusColor(invoice.status)}
+                    >
+                      {invoice.status}
+                    </Badge>
+                    <div className="flex items-center space-x-2">
+                      <Button variant="ghost" size="sm" asChild>
+                        <Link to={`/invoice/${invoiceId}`}>
+                          <Eye className="h-4 w-4" />
+                        </Link>
                       </Button>
-                    )}
 
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="sm">
-                          <MoreHorizontal className="h-4 w-4" />
+                      {invoice.status === "draft" && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() =>
+                            handleSendInvoice(invoiceId, invoice.invoiceNumber)
+                          }
+                        >
+                          <Send className="h-4 w-4" />
                         </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent
-                        align="end"
-                        className="glass border-brand-purple/30"
-                      >
-                        <DropdownMenuItem asChild>
-                          <Link to={`/invoice/${invoice.id}`}>
-                            <Edit className="mr-2 h-4 w-4" />
-                            Edit
-                          </Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <Copy className="mr-2 h-4 w-4" />
-                          Duplicate
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <Download className="mr-2 h-4 w-4" />
-                          Download PDF
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        {invoice.status !== "paid" && (
-                          <>
-                            <DropdownMenuItem
-                              onClick={() =>
-                                handleStatusUpdate(
-                                  invoice.id,
-                                  "paid",
-                                  invoice.invoiceNumber,
-                                )
-                              }
-                            >
-                              <DollarSign className="mr-2 h-4 w-4" />
-                              Mark as Paid
-                            </DropdownMenuItem>
-                            {invoice.status !== "sent" && (
+                      )}
+
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="sm">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent
+                          align="end"
+                          className="glass border-brand-purple/30"
+                        >
+                          <DropdownMenuItem asChild>
+                            <Link to={`/invoice/${invoiceId}`}>
+                              <Edit className="mr-2 h-4 w-4" />
+                              Edit
+                            </Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Copy className="mr-2 h-4 w-4" />
+                            Duplicate
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Download className="mr-2 h-4 w-4" />
+                            Download PDF
+                          </DropdownMenuItem>
+                          <DropdownMenuSeparator />
+                          {invoice.status !== "paid" && (
+                            <>
                               <DropdownMenuItem
                                 onClick={() =>
                                   handleStatusUpdate(
-                                    invoice.id,
-                                    "sent",
+                                    invoiceId,
+                                    "paid",
                                     invoice.invoiceNumber,
                                   )
                                 }
                               >
-                                <Send className="mr-2 h-4 w-4" />
-                                Mark as Sent
+                                <DollarSign className="mr-2 h-4 w-4" />
+                                Mark as Paid
                               </DropdownMenuItem>
-                            )}
-                            <DropdownMenuSeparator />
-                          </>
-                        )}
-                        <AlertDialog>
-                          <AlertDialogTrigger asChild>
-                            <DropdownMenuItem
-                              onSelect={(e) => e.preventDefault()}
-                              className="text-red-400 hover:text-red-300"
-                            >
-                              <Trash2 className="mr-2 h-4 w-4" />
-                              Delete
-                            </DropdownMenuItem>
-                          </AlertDialogTrigger>
-                          <AlertDialogContent className="glass border-brand-purple/30">
-                            <AlertDialogHeader>
-                              <AlertDialogTitle>
-                                Delete Invoice
-                              </AlertDialogTitle>
-                              <AlertDialogDescription>
-                                Are you sure you want to delete invoice{" "}
-                                {invoice.invoiceNumber}? This action cannot be
-                                undone.
-                              </AlertDialogDescription>
-                            </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction
-                                onClick={() =>
-                                  handleDeleteInvoice(
-                                    invoice.id,
-                                    invoice.invoiceNumber,
-                                  )
-                                }
-                                className="bg-red-600 hover:bg-red-700"
+                              {invoice.status !== "sent" && (
+                                <DropdownMenuItem
+                                  onClick={() =>
+                                    handleStatusUpdate(
+                                      invoiceId,
+                                      "sent",
+                                      invoice.invoiceNumber,
+                                    )
+                                  }
+                                >
+                                  <Send className="mr-2 h-4 w-4" />
+                                  Mark as Sent
+                                </DropdownMenuItem>
+                              )}
+                              <DropdownMenuSeparator />
+                            </>
+                          )}
+                          <AlertDialog>
+                            <AlertDialogTrigger asChild>
+                              <DropdownMenuItem
+                                onSelect={(e) => e.preventDefault()}
+                                className="text-red-400 hover:text-red-300"
                               >
+                                <Trash2 className="mr-2 h-4 w-4" />
                                 Delete
-                              </AlertDialogAction>
-                            </AlertDialogFooter>
-                          </AlertDialogContent>
-                        </AlertDialog>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                              </DropdownMenuItem>
+                            </AlertDialogTrigger>
+                            <AlertDialogContent className="glass border-brand-purple/30">
+                              <AlertDialogHeader>
+                                <AlertDialogTitle>
+                                  Delete Invoice
+                                </AlertDialogTitle>
+                                <AlertDialogDescription>
+                                  Are you sure you want to delete invoice{" "}
+                                  {invoice.invoiceNumber}? This action cannot be
+                                  undone.
+                                </AlertDialogDescription>
+                              </AlertDialogHeader>
+                              <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction
+                                  onClick={() =>
+                                    handleDeleteInvoice(
+                                      invoiceId,
+                                      invoice.invoiceNumber,
+                                    )
+                                  }
+                                  className="bg-red-600 hover:bg-red-700"
+                                >
+                                  Delete
+                                </AlertDialogAction>
+                              </AlertDialogFooter>
+                            </AlertDialogContent>
+                          </AlertDialog>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </CardContent>
         </Card>
