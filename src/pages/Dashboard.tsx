@@ -56,8 +56,20 @@ import MouseFollower from "@/components/MouseFollower";
 
 export default function Dashboard() {
   const [selectedTab, setSelectedTab] = useState("all");
+  const { user } = useUser();
+  const { signOut } = useClerk();
+
+  // Try to use Convex first, fallback to localStorage if needed
+  const convexUrl = import.meta.env.VITE_CONVEX_URL;
+  const clerkKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+  const convexHook = useConvexInvoices();
+  const localHook = useInvoices();
+
+  // Use Convex if available and user is authenticated, otherwise use localStorage
+  const useConvex = convexUrl && clerkKey && user;
   const { invoices, loading, deleteInvoice, updateInvoice, getInvoiceStats } =
-    useInvoices();
+    useConvex ? convexHook : localHook;
 
   const stats = getInvoiceStats();
 
