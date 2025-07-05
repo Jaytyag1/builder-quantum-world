@@ -17,8 +17,21 @@ import {
   Eye,
   Edit,
   Trash2,
+  Zap,
+  LogOut,
+  Settings,
+  User,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 // Mock data for demonstration
 const mockInvoices = [
