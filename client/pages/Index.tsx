@@ -937,70 +937,110 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Enterprise Integrations */}
+      {/* Freelancer Tools Integration */}
       <section className="py-24 px-4 bg-gradient-to-br from-brand-purple/5 to-brand-blue/5">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Seamless{" "}
-            <span className="gradient-text">enterprise integrations</span>
+            Connect With the{" "}
+            <span className="gradient-text">Tools You Already Use</span>
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Connect with your existing workflow in seconds. Built for scale with
-            enterprise-grade security and compliance.
+            Works with your favorite platforms. No code. No setup.
           </p>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+          {/* 3x2 Integration Grid */}
+          <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
             {[
-              { name: "QuickBooks", logo: "📊" },
-              { name: "Salesforce", logo: "☁️" },
-              { name: "Stripe", logo: "💳" },
-              { name: "HubSpot", logo: "🎯" },
-              { name: "Slack", logo: "💬" },
-              { name: "Zapier", logo: "⚡" },
+              {
+                name: "Gmail",
+                logo: "✉️",
+                tooltip: "Send follow-ups from Gmail",
+              },
+              {
+                name: "Google Drive",
+                logo: "💾",
+                tooltip: "Attach invoices from Drive",
+              },
+              { name: "PayPal", logo: "💰", tooltip: "Upload PayPal invoices" },
+              {
+                name: "Notion",
+                logo: "📝",
+                tooltip: "Sync client tasks from Notion",
+              },
+              {
+                name: "Calendly",
+                logo: "📅",
+                tooltip: "Follow up after meetings",
+              },
+              {
+                name: "Zapier",
+                logo: "⚡",
+                tooltip: "Connect any tool you use",
+              },
             ].map((integration, i) => (
               <div
                 key={integration.name}
-                className="glass-card p-6 hover:scale-105 transition-all duration-300 group"
+                className="relative group"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
-                <div className="text-4xl mb-3 group-hover:animate-bounce">
-                  {integration.logo}
+                <div className="glass-card p-8 hover:scale-105 transition-all duration-500 cursor-pointer premium-shadow">
+                  <div className="text-5xl mb-4 group-hover:animate-pulse">
+                    {integration.logo}
+                  </div>
+                  <div className="font-semibold text-lg text-white">
+                    {integration.name}
+                  </div>
+
+                  {/* Hover Tooltip */}
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-brand-purple/90 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-10">
+                    {integration.tooltip}
+                  </div>
                 </div>
-                <div className="font-semibold text-sm">{integration.name}</div>
               </div>
             ))}
           </div>
 
-          <div className="glass-card p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-6 gradient-text">
-              Developer-First API
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-brand-purple/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Zap className="h-6 w-6 text-brand-purple" />
-                </div>
-                <h4 className="font-semibold mb-2">RESTful API</h4>
+          {/* Mini Copy */}
+          <div className="max-w-3xl mx-auto mb-16">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              InvoIQ connects with your daily tools — so you can send follow-ups
+              without switching tabs.
+              <br />
+              <strong className="text-foreground">
+                No setup. No Zapier maze. Just connect and go.
+              </strong>
+            </p>
+          </div>
+
+          {/* Bonus Features Strip */}
+          <div className="glass-card p-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center space-y-3">
+                <div className="text-2xl">🔁</div>
+                <h4 className="font-semibold">Gmail Sync</h4>
                 <p className="text-sm text-muted-foreground">
-                  Complete API access with webhooks and real-time events
+                  Detect replies and send auto follow-ups
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Shield className="h-6 w-6 text-brand-blue" />
-                </div>
-                <h4 className="font-semibold mb-2">SOC 2 Compliant</h4>
+              <div className="text-center space-y-3">
+                <div className="text-2xl">📎</div>
+                <h4 className="font-semibold">Drive Support</h4>
                 <p className="text-sm text-muted-foreground">
-                  Enterprise security with end-to-end encryption
+                  Attach invoices directly from GDrive
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-brand-cyan/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <BarChart3 className="h-6 w-6 text-brand-cyan" />
-                </div>
-                <h4 className="font-semibold mb-2">Real-time Analytics</h4>
+              <div className="text-center space-y-3">
+                <div className="text-2xl">🧾</div>
+                <h4 className="font-semibold">PayPal Friendly</h4>
                 <p className="text-sm text-muted-foreground">
-                  Detailed insights and performance metrics dashboard
+                  Upload PayPal invoices or screenshots
+                </p>
+              </div>
+              <div className="text-center space-y-3">
+                <div className="text-2xl">📅</div>
+                <h4 className="font-semibold">Works With Calendly</h4>
+                <p className="text-sm text-muted-foreground">
+                  Know when client is booked, follow up after
                 </p>
               </div>
             </div>
