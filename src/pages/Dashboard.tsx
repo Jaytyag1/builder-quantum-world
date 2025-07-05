@@ -227,12 +227,10 @@ export default function Dashboard() {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
                     className="text-red-400 hover:text-red-300"
-                    asChild
+                    onClick={() => signOut()}
                   >
-                    <Link to="/">
-                      <LogOut className="mr-2 h-4 w-4" />
-                      <span>Log out</span>
-                    </Link>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Log out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
