@@ -186,9 +186,9 @@ export default function Index() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden pt-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center pr-8">
             {/* Left Content */}
-            <div className="space-y-8">
+            <div className="space-y-8 pl-7">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border border-brand-purple/20">
                 <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-brand-purple">
