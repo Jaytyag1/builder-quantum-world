@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery, useMutation } from "convex/react";
-import { useUser } from "@clerk/clerk-react";
+import { useSafeUser } from "@/hooks/useSafeAuth";
 import { api } from "../../convex/_generated/api";
 import type { Id } from "../../convex/_generated/dataModel";
 
