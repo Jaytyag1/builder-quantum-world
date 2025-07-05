@@ -83,7 +83,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
     background: linear-gradient(
       135deg,
       hsl(var(--background)) 0%,
