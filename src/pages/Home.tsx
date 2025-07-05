@@ -46,59 +46,33 @@ export default function Home() {
     <div className="min-h-screen relative overflow-hidden">
       <Navigation />
 
-      {/* Quantum Background Effects */}
+      {/* Subtle Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background" />
 
-        {/* Animated particles */}
+        {/* Subtle animated particles */}
         <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(30)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-brand-purple/30 rounded-full animate-pulse"
+              className="absolute w-0.5 h-0.5 bg-brand-purple/20 rounded-full animate-pulse"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`,
               }}
             />
           ))}
         </div>
 
-        {/* Quantum grid */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full">
-            <defs>
-              <pattern
-                id="quantum-grid"
-                width="100"
-                height="100"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 100 0 L 0 0 0 100"
-                  fill="none"
-                  stroke="url(#quantum-gradient)"
-                  strokeWidth="1"
-                />
-              </pattern>
-              <linearGradient id="quantum-gradient">
-                <stop offset="0%" stopColor="hsl(var(--brand-purple))" />
-                <stop offset="100%" stopColor="hsl(var(--brand-cyan))" />
-              </linearGradient>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#quantum-grid)" />
-          </svg>
-        </div>
-
         {/* Interactive glow effect */}
         <div
-          className="absolute w-96 h-96 rounded-full pointer-events-none"
+          className="absolute w-96 h-96 rounded-full pointer-events-none opacity-30"
           style={{
             background: `radial-gradient(circle,
-              hsl(var(--brand-purple) / 0.1) 0%,
-              hsl(var(--brand-blue) / 0.05) 50%,
+              hsl(var(--brand-purple) / 0.03) 0%,
+              hsl(var(--brand-blue) / 0.02) 50%,
               transparent 100%)`,
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
@@ -136,7 +110,6 @@ export default function Home() {
                     Transform awkward payment chases into automated,
                     professional reminders.
                   </p>
-                  {/* Quantum glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-purple/5 via-brand-blue/5 to-brand-cyan/5 rounded-2xl animate-pulse" />
                 </div>
               </div>
@@ -152,7 +125,6 @@ export default function Home() {
                       <ArrowRight className="mr-2 h-5 w-5" />
                       Upload Invoice
                     </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-brand-purple via-brand-blue to-brand-cyan opacity-0 group-hover:opacity-30 transition-opacity" />
                   </Link>
                 </Button>
                 <Button
@@ -210,78 +182,96 @@ export default function Home() {
                   </Button>
                 </div>
 
+                {/* Copy Layout Badge */}
+                <div className="absolute top-4 right-4">
+                  <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs">
+                    Copy Layout
+                  </Badge>
+                </div>
+
+                {/* Invoice List Header */}
+                <div className="grid grid-cols-6 gap-4 mb-4 text-sm text-muted-foreground px-3">
+                  <span>Recipient</span>
+                  <span>Amount</span>
+                  <span>Status</span>
+                  <span>Due date</span>
+                  <span>Invoice no.</span>
+                  <span>Invoice date</span>
+                </div>
+
                 {/* Invoice List */}
                 <div className="space-y-3">
                   {[
                     {
                       name: "Ethan",
-                      company: "DevCorp",
                       amount: "$200.00",
                       status: "Processing",
-                      date: "Apr 20, 2025",
+                      dueDate: "Apr 20, 2025",
                       invoice: "JKC-006",
+                      date: "Mar 10, 2025",
                     },
                     {
                       name: "Noah",
                       company: "Bennett",
                       amount: "$480.00",
                       status: "Paid",
-                      date: "Apr 02, 2025",
+                      dueDate: "Apr 02, 2025",
                       invoice: "JKC-008",
+                      date: "Mar 10, 2025",
                     },
                     {
                       name: "Emma",
                       company: "Stone",
                       amount: "$250.00",
                       status: "Cancelled",
-                      date: "Mar 28, 2025",
+                      dueDate: "Mar 28, 2025",
                       invoice: "JKC-006",
+                      date: "Feb 06, 2025",
                     },
                     {
                       name: "Lucas",
                       company: "Hayes",
                       amount: "$230.00",
                       status: "Overdue",
-                      date: "Mar 10, 2025",
+                      dueDate: "Mar 10, 2025",
                       invoice: "JKC-006",
+                      date: "Jan 30, 2025",
                     },
                     {
                       name: "Chloe",
                       company: "Wilson",
                       amount: "$304.00",
                       status: "Paid",
-                      date: "Mar 02, 2025",
+                      dueDate: "Mar 02, 2025",
                       invoice: "JKC-006",
+                      date: "Jan 06, 2025",
                     },
                   ].map((invoice, i) => (
                     <div
                       key={i}
-                      className="flex items-center justify-between p-3 rounded-xl bg-background/50 border border-border/20 hover:bg-background/70 transition-colors"
+                      className="grid grid-cols-6 gap-4 items-center p-3 rounded-xl bg-background/50 border border-border/20 hover:bg-background/70 transition-colors text-sm"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-gradient-to-r from-brand-purple to-brand-blue flex items-center justify-center text-white text-sm font-bold">
                           {invoice.name[0]}
                         </div>
                         <div>
-                          <div className="font-medium text-white text-sm">
+                          <div className="font-medium text-white">
                             {invoice.name}
                           </div>
-                          <div className="text-xs text-muted-foreground">
-                            {invoice.company}
-                          </div>
+                          {invoice.company && (
+                            <div className="text-xs text-muted-foreground">
+                              {invoice.company}
+                            </div>
+                          )}
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="font-medium text-white text-sm">
-                          {invoice.amount}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {invoice.date}
-                        </div>
+                      <div className="font-medium text-white">
+                        {invoice.amount}
                       </div>
                       <Badge
                         variant="outline"
-                        className={`text-xs ${
+                        className={`text-xs w-fit ${
                           invoice.status === "Paid"
                             ? "border-green-500/30 text-green-400 bg-green-500/10"
                             : invoice.status === "Processing"
@@ -293,19 +283,25 @@ export default function Home() {
                       >
                         {invoice.status}
                       </Badge>
-                      <div className="text-xs text-muted-foreground">
+                      <div className="text-muted-foreground">
+                        {invoice.dueDate}
+                      </div>
+                      <div className="text-muted-foreground">
                         {invoice.invoice}
+                      </div>
+                      <div className="text-muted-foreground">
+                        {invoice.date}
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Floating quantum particles for the dashboard */}
+                {/* Floating particles for the dashboard */}
                 <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(8)].map((_, i) => (
+                  {[...Array(6)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-1 h-1 bg-brand-cyan/30 rounded-full animate-pulse"
+                      className="absolute w-1 h-1 bg-brand-cyan/20 rounded-full animate-pulse"
                       style={{
                         left: `${20 + Math.random() * 60}%`,
                         top: `${20 + Math.random() * 60}%`,
@@ -315,14 +311,64 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-
-              {/* Copy Layout Badge */}
-              <div className="absolute -top-4 -left-4">
-                <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs">
-                  Copy Layout
-                </Badge>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="py-20 px-4 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/5 to-transparent" />
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <Badge className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm mb-8">
+              Copy Layout
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              The payment chase is{" "}
+              <span className="text-red-400">killing your business</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="glass text-center p-8">
+              <CardHeader>
+                <Clock className="h-16 w-16 text-red-400 mx-auto mb-6" />
+                <CardTitle className="text-xl mb-4">
+                  Late payments hurt your cash flow
+                </CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  73% of invoices are paid late, disrupting your ability to
+                  operate and grow.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="glass text-center p-8">
+              <CardHeader>
+                <Mail className="h-16 w-16 text-red-400 mx-auto mb-6" />
+                <CardTitle className="text-xl mb-4">
+                  You hate sounding desperate
+                </CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Writing follow-up emails feels awkward and damages client
+                  relationships.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="glass text-center p-8">
+              <CardHeader>
+                <Users className="h-16 w-16 text-red-400 mx-auto mb-6" />
+                <CardTitle className="text-xl mb-4">
+                  Clients ghost after getting the invoice
+                </CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Even good clients "forget" to pay, leaving you to play
+                  collection agent.
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
