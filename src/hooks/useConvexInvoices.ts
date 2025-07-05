@@ -27,7 +27,7 @@ export interface ConvexInvoice {
 }
 
 export function useConvexInvoices() {
-  const { user } = useUser();
+  const { user } = useSafeUser();
   const clerkId = user?.id;
 
   // Get or create user in Convex
