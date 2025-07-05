@@ -251,7 +251,84 @@
     }
   }
 
+  @keyframes quantumFloat {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(90deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(-15px) rotate(270deg);
+    }
+  }
+
+  @keyframes quantumPulse {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes quantumGlow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 10px hsl(var(--brand-purple) / 0.3),
+        0 0 20px hsl(var(--brand-purple) / 0.2),
+        0 0 30px hsl(var(--brand-purple) / 0.1);
+    }
+    33% {
+      box-shadow:
+        0 0 10px hsl(var(--brand-blue) / 0.3),
+        0 0 20px hsl(var(--brand-blue) / 0.2),
+        0 0 30px hsl(var(--brand-blue) / 0.1);
+    }
+    66% {
+      box-shadow:
+        0 0 10px hsl(var(--brand-cyan) / 0.3),
+        0 0 20px hsl(var(--brand-cyan) / 0.2),
+        0 0 30px hsl(var(--brand-cyan) / 0.1);
+    }
+  }
+
+  @keyframes quantumRipple {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
   .fade-in-up {
     animation: fadeInUp 0.6s ease-out;
+  }
+
+  .quantum-float {
+    animation: quantumFloat 6s ease-in-out infinite;
+  }
+
+  .quantum-pulse {
+    animation: quantumPulse 2s ease-in-out infinite;
+  }
+
+  .quantum-glow {
+    animation: quantumGlow 4s ease-in-out infinite;
+  }
+
+  .quantum-ripple {
+    animation: quantumRipple 1.5s ease-out infinite;
   }
 }
