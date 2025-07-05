@@ -25,6 +25,10 @@ import {
   Infinity,
   Cpu,
   Orbit,
+  Users,
+  Settings,
+  Lock,
+  Calendar,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
