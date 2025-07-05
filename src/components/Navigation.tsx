@@ -59,13 +59,15 @@ export default function Navigation() {
                 <Button variant="ghost" asChild>
                   <Link to="/dashboard">Dashboard</Link>
                 </Button>
-                <UserButton
-                  appearance={{
-                    elements: {
-                      avatarBox: "w-8 h-8",
-                    },
-                  }}
-                />
+                {isClerkAvailable() && (
+                  <UserButton
+                    appearance={{
+                      elements: {
+                        avatarBox: "w-8 h-8",
+                      },
+                    }}
+                  />
+                )}
               </>
             ) : (
               <>
