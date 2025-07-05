@@ -460,7 +460,7 @@ export default function Index() {
           <div className="premium-3d space-y-24 px-5">
             {/* Step 1: AI Analysis */}
             <div className="workflow-step">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-12 items-center px-5">
                 <div className="floating-3d">
                   <div className="glass-card p-8 hologram-effect">
                     <div className="flex items-center gap-4 mb-6">
