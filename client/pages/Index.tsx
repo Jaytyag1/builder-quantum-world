@@ -533,7 +533,7 @@ export default function Index() {
 
             {/* Step 2: AI Follow-up with Smart Tracking */}
             <div className="workflow-step">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-2 gap-12 items-center px-5">
                 <div className="order-2 lg:order-1 space-y-6">
                   <h4 className="text-3xl font-bold">
                     Step 2: AI Sends & Tracks Everything
