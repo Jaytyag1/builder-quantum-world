@@ -402,9 +402,17 @@ export default function Index() {
       {/* Animated Workflow Section */}
       <section className="py-24 px-4 bg-gradient-to-r from-muted/30 to-transparent relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-20">
-            Transform your payment process
-          </h2>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border border-brand-purple/20 mb-6">
+              <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-brand-purple">
+                Workflow Automation
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Transform your payment process
+            </h2>
+          </div>
 
           {/* Animated Workflow Timeline */}
           <div className="relative">
