@@ -19,9 +19,16 @@ import {
   Mail,
   Smartphone,
   Globe,
+  ArrowRight,
+  Sparkles,
+  Brain,
+  Infinity,
+  Cpu,
+  Orbit,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
