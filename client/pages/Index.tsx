@@ -781,7 +781,7 @@ export default function Index() {
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              💥 Chase Less.{" "}
+              Chase Less.{" "}
               <span className="gradient-text block md:inline">
                 Get Paid Faster.
               </span>
