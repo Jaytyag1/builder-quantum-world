@@ -33,6 +33,7 @@ import {
   Edit3,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@clerk/clerk-react";
 import Navigation from "@/components/Navigation";
 import MouseFollower from "@/components/MouseFollower";
 import ROICalculator from "@/components/ROICalculator";
