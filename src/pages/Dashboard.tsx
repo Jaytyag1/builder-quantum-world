@@ -190,9 +190,10 @@ export default function Dashboard() {
                     className="relative h-8 w-8 rounded-full"
                   >
                     <Avatar className="h-8 w-8">
-                      <AvatarImage src="/placeholder-avatar.jpg" alt="User" />
+                      <AvatarImage src={user?.imageUrl} alt="User" />
                       <AvatarFallback className="gradient-bg text-white">
-                        JT
+                        {user?.firstName?.charAt(0) || "U"}
+                        {user?.lastName?.charAt(0) || ""}
                       </AvatarFallback>
                     </Avatar>
                   </Button>
