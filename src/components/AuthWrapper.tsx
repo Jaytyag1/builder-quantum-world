@@ -43,9 +43,45 @@ export default function AuthWrapper({ children, fallback }: AuthWrapperProps) {
           </div>
           <SignIn
             appearance={{
+              baseTheme: undefined,
               elements: {
-                formButtonPrimary: "gradient-bg hover:opacity-90",
-                card: "glass border-brand-purple/30",
+                rootBox: "mx-auto",
+                card: "bg-background border border-border/40 shadow-2xl backdrop-blur-sm",
+                headerTitle: "text-foreground",
+                headerSubtitle: "text-muted-foreground",
+                socialButtonsBlockButton:
+                  "border border-border/40 hover:bg-secondary/50",
+                socialButtonsBlockButtonText: "text-foreground",
+                dividerLine: "bg-border",
+                dividerText: "text-muted-foreground",
+                formFieldLabel: "text-foreground",
+                formFieldInput:
+                  "bg-background border-border/40 text-foreground focus:border-brand-purple",
+                formButtonPrimary:
+                  "bg-gradient-to-r from-brand-purple to-brand-blue hover:opacity-90 text-white",
+                footerActionLink: "text-brand-purple hover:text-brand-blue",
+                identityPreviewText: "text-foreground",
+                formFieldSuccessText: "text-green-400",
+                formFieldErrorText: "text-red-400",
+                alertText: "text-foreground",
+                formFieldWarningText: "text-yellow-400",
+                otpCodeFieldInput:
+                  "bg-background border-border/40 text-foreground",
+                formResendCodeLink: "text-brand-purple hover:text-brand-blue",
+              },
+              variables: {
+                colorPrimary: "#9a4dff",
+                colorSuccess: "#22c55e",
+                colorWarning: "#eab308",
+                colorDanger: "#ef4444",
+                colorNeutral: "#71717a",
+                colorText: "#f4f4f6",
+                colorTextSecondary: "#a1a1aa",
+                colorBackground: "#070911",
+                colorInputBackground: "#070911",
+                colorInputText: "#f4f4f6",
+                borderRadius: "0.75rem",
+                fontFamily: "inherit",
               },
             }}
           />
