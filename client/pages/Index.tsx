@@ -109,6 +109,80 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/20 backdrop-blur-lg bg-background/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Brand */}
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <h1 className="text-2xl font-bold gradient-text">InvoIQ</h1>
+              </div>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-8">
+                <a
+                  href="#features"
+                  className="text-foreground hover:text-brand-purple transition-colors duration-200 px-3 py-2 text-sm font-medium"
+                >
+                  Features
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-foreground hover:text-brand-purple transition-colors duration-200 px-3 py-2 text-sm font-medium"
+                >
+                  Pricing
+                </a>
+                <a
+                  href="#about"
+                  className="text-foreground hover:text-brand-purple transition-colors duration-200 px-3 py-2 text-sm font-medium"
+                >
+                  About
+                </a>
+              </div>
+            </div>
+
+            {/* Auth Buttons */}
+            <div className="flex items-center space-x-4">
+              <Button
+                variant="ghost"
+                className="text-foreground hover:text-brand-purple hover:bg-brand-purple/10 transition-all duration-200"
+              >
+                Sign In
+              </Button>
+              <Button className="bg-gradient-to-r from-brand-purple to-brand-blue hover:from-brand-purple/80 hover:to-brand-blue/80 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105">
+                Get Started
+              </Button>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-foreground hover:text-brand-purple"
+              >
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto">
