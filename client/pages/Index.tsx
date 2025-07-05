@@ -387,42 +387,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Investor-Focused Metrics */}
-      <section className="py-16 px-4 border-y border-border/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center group">
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform duration-300">
-                $2.4M
-              </div>
-              <div className="text-sm text-muted-foreground">
-                Revenue Recovered
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform duration-300">
-                10,000+
-              </div>
-              <div className="text-sm text-muted-foreground">Active Users</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform duration-300">
-                40%
-              </div>
-              <div className="text-sm text-muted-foreground">
-                Faster Payments
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform duration-300">
-                99.7%
-              </div>
-              <div className="text-sm text-muted-foreground">Uptime SLA</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Problem Section */}
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
