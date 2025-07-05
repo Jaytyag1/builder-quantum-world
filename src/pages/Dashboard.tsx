@@ -108,23 +108,38 @@ export default function Dashboard() {
     return invoice.status === selectedTab;
   });
 
-  const handleDeleteInvoice = (id: string, invoiceNumber: string) => {
-    deleteInvoice(id);
-    toast.success(`Invoice ${invoiceNumber} deleted successfully`);
+  const handleDeleteInvoice = async (id: string, invoiceNumber: string) => {
+    try {
+      if (useConvex) {
+        await deleteInvoice(id as any);
+      } else {
+        (deleteInvoice as any)(id);
+      }
+      toast.success(`Invoice ${invoiceNumber} deleted successfully`);
+    } catch (error) {
+      toast.error("Failed to delete invoice");
+    }
   };
 
-  const handleStatusUpdate = (
+  const handleStatusUpdate = async (
     id: string,
     newStatus: "sent" | "paid" | "overdue",
     invoiceNumber: string,
   ) => {
-    updateInvoice(id, { status: newStatus });
-    toast.success(`Invoice ${invoiceNumber} marked as ${newStatus}`);
+    try {
+      if (useConvex) {
+        await updateInvoice(id as any, newStatus);
+      } else {
+        (updateInvoice as any)(id, { status: newStatus });
+      }
+      toast.success(`Invoice ${invoiceNumber} marked as ${newStatus}`);
+    } catch (error) {
+      toast.error("Failed to update invoice");
+    }
   };
 
-  const handleSendInvoice = (id: string, invoiceNumber: string) => {
-    updateInvoice(id, { status: "sent" });
-    toast.success(`Invoice ${invoiceNumber} sent successfully`);
+  const handleSendInvoice = async (id: string, invoiceNumber: string) => {
+    await handleStatusUpdate(id, "sent", invoiceNumber);
   };
 
   if (loading) {
