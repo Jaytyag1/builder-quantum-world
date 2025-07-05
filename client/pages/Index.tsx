@@ -786,7 +786,7 @@ export default function Index() {
                 Get Paid Faster.
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-8">
               Your AI-powered invoice follow-up agent that reads, writes, and
               reminds — so you don't have to.
               <br />
@@ -795,7 +795,7 @@ export default function Index() {
             </p>
 
             {/* Live Feature Showcase */}
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-5">
               <div className="animated-border glass-card hover:scale-105 transition-all duration-500">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full flex items-center justify-center">
