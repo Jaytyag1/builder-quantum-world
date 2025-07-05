@@ -7,7 +7,12 @@ interface AuthWrapperProps {
 }
 
 export default function AuthWrapper({ children, fallback }: AuthWrapperProps) {
-  const { isSignedIn, isLoaded } = useAuth();
+  const { isSignedIn, isLoaded } = useSafeAuth();
+
+  // If Clerk is not available, just render children (fallback to localStorage mode)
+  if (!isClerkAvailable()) {
+    return <>{children}</>;
+  }
 
   if (!isLoaded) {
     return (
