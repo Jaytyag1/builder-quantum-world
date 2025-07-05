@@ -10,10 +10,6 @@ import App from "./App.tsx";
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 const convexUrl = import.meta.env.VITE_CONVEX_URL;
 
-if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key");
-}
-
 const convex = convexUrl ? new ConvexReactClient(convexUrl) : null;
 
 function AppWrapper() {
