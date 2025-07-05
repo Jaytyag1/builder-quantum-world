@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
