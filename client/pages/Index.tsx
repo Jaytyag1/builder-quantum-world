@@ -110,110 +110,204 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden floating-particles">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/5 via-background to-brand-blue/5" />
-        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-brand-purple/20 to-brand-blue/20 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-brand-blue/20 to-brand-cyan/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "2s" }}
-        />
+      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-purple/10 to-brand-blue/10 border border-brand-purple/20">
+                <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-brand-purple">
+                  AI-Powered Invoice Management
+                </span>
+              </div>
 
-        {/* Additional floating elements */}
-        <div
-          className="absolute top-1/4 left-1/4 w-4 h-4 bg-brand-cyan/60 rounded-full animate-float"
-          style={{ animationDelay: "1s" }}
-        />
-        <div
-          className="absolute top-3/4 right-1/3 w-3 h-3 bg-brand-purple/80 rounded-full animate-float"
-          style={{ animationDelay: "3s" }}
-        />
-        <div
-          className="absolute top-1/2 left-3/4 w-2 h-2 bg-brand-blue/70 rounded-full animate-float"
-          style={{ animationDelay: "5s" }}
-        />
-
-        <div className="relative z-10 max-w-6xl mx-auto text-center">
-          <div className="space-y-8">
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-focus-in">
-              <br />
-              <span
-                className="inline-block stagger-animation"
-                style={{ animationDelay: "0.2s" }}
-              >
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Stop chasing clients
-              </span>
-              <span
-                className="gradient-text inline-block stagger-animation"
-                style={{ animationDelay: "0.4s" }}
-              >
-                &nbsp;to pay.
-              </span>
-            </h1>
+                <span className="gradient-text block">&nbsp;to pay.</span>
+              </h1>
 
-            <p
-              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed stagger-animation"
-              style={{ animationDelay: "0.6s" }}
-            >
-              FollowUpAI reads your invoices and follows up on your behalf.
-              Transform awkward payment chases into automated, professional
-              reminders.
-            </p>
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                FollowUpAI reads your invoices and follows up on your behalf.
+                Transform awkward payment chases into automated, professional
+                reminders.
+              </p>
 
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center stagger-animation"
-              style={{ animationDelay: "0.8s" }}
-            >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-brand-purple to-brand-blue hover:from-brand-purple/80 hover:to-brand-blue/80 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform premium-shadow"
-              >
-                <Upload className="mr-2 h-5 w-5" />
-                Upload Invoice
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-brand-purple text-brand-purple hover:bg-brand-purple/5 px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 transform hover:shadow-lg"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                Watch Demo
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-brand-purple to-brand-blue hover:from-brand-purple/80 hover:to-brand-blue/80 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform"
+                >
+                  <Upload className="mr-2 h-5 w-5" />
+                  Upload Invoice
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-brand-purple text-brand-purple hover:bg-brand-purple/5 px-8 py-6 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 transform"
+                >
+                  <Play className="mr-2 h-5 w-5" />
+                  Watch Demo
+                </Button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex items-center gap-6 pt-8">
+                <div className="flex items-center gap-2">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full border-2 border-white"></div>
+                    <div className="w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full border-2 border-white"></div>
+                    <div className="w-8 h-8 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-full border-2 border-white"></div>
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    10,000+ happy users
+                  </span>
+                </div>
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                  <span className="text-sm text-muted-foreground ml-2">
+                    4.9/5 rating
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Typing Animation Demo */}
-          <div
-            className="mt-16 animated-border glass-card max-w-2xl mx-auto text-left stagger-animation"
-            style={{ animationDelay: "1s" }}
-          >
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+            {/* Right Dashboard Mockup */}
+            <div className="relative">
+              <div className="animated-border glass-card p-6 max-w-2xl">
+                {/* Dashboard Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold">Invoicing</h3>
+                  <Button
+                    size="sm"
+                    className="bg-brand-purple hover:bg-brand-purple/80 text-white"
+                  >
+                    + Create Invoice
+                  </Button>
+                </div>
+
+                {/* Draft Notice */}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-6">
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <span className="text-sm font-medium">
+                      You have a draft invoice.
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Finish it up and send it to your client.
+                  </p>
+                </div>
+
+                {/* Invoice Table */}
+                <div className="space-y-3">
+                  <div className="grid grid-cols-6 gap-2 text-xs font-medium text-muted-foreground pb-2 border-b">
+                    <span>Recipient</span>
+                    <span>Amount</span>
+                    <span>Status</span>
+                    <span>Due date</span>
+                    <span>Invoice no.</span>
+                    <span>Invoice date</span>
+                  </div>
+
+                  {/* Invoice Rows */}
+                  {[
+                    {
+                      name: "Ethan Walker",
+                      amount: "$200.00",
+                      status: "Processing",
+                      color: "blue",
+                      due: "Apr 20, 2025",
+                      invoice: "INC-006 Abc...",
+                      date: "Mar 10, 2025",
+                    },
+                    {
+                      name: "Noah Bennett",
+                      amount: "$1680.00",
+                      status: "Paid",
+                      color: "green",
+                      due: "Apr 02, 2025",
+                      invoice: "INC-006 Abc...",
+                      date: "Mar 02, 2025",
+                    },
+                    {
+                      name: "Emma Sullivan",
+                      amount: "$1250.00",
+                      status: "Cancelled",
+                      color: "gray",
+                      due: "Mar 26, 2025",
+                      invoice: "INC-006 Abc...",
+                      date: "Feb 06, 2025",
+                    },
+                    {
+                      name: "Lucas Hayes",
+                      amount: "$2230.00",
+                      status: "Overdue",
+                      color: "red",
+                      due: "Mar 10, 2025",
+                      invoice: "INC-006 Abc...",
+                      date: "Jan30, 2025",
+                    },
+                    {
+                      name: "Chloe Reed",
+                      amount: "$3594.00",
+                      status: "Paid",
+                      color: "green",
+                      due: "Mar 02, 2025",
+                      invoice: "INC-006 Abc...",
+                      date: "Jan 06, 2025",
+                    },
+                  ].map((invoice, i) => (
+                    <div
+                      key={i}
+                      className="grid grid-cols-6 gap-2 text-xs py-2 hover:bg-muted/20 rounded transition-colors"
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full flex items-center justify-center text-white font-bold text-xs">
+                          {invoice.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </div>
+                        <span className="font-medium">{invoice.name}</span>
+                      </div>
+                      <span className="font-medium">{invoice.amount}</span>
+                      <span
+                        className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
+                          invoice.color === "blue"
+                            ? "bg-blue-100 text-blue-700"
+                            : invoice.color === "green"
+                              ? "bg-green-100 text-green-700"
+                              : invoice.color === "red"
+                                ? "bg-red-100 text-red-700"
+                                : "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {invoice.status}
+                      </span>
+                      <span>{invoice.due}</span>
+                      <span className="text-muted-foreground">
+                        {invoice.invoice}
+                      </span>
+                      <span>{invoice.date}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full animate-pulse"></div>
               <div
-                className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"
-                style={{ animationDelay: "0.5s" }}
-              />
-              <div
-                className="w-3 h-3 bg-green-500 rounded-full animate-pulse"
+                className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full animate-pulse"
                 style={{ animationDelay: "1s" }}
-              />
-              <span className="ml-2 text-sm text-muted-foreground">
-                FollowUpAI composing...
-              </span>
-            </div>
-            <div className="font-mono text-sm space-y-2">
-              <div className="text-muted-foreground">
-                To: client@company.com
-              </div>
-              <div className="text-muted-foreground">
-                Subject: Friendly reminder about Invoice #2024-001
-              </div>
-              <div className="mt-4 leading-relaxed">
-                <TypingAnimation
-                  text="Hi John, I hope you're doing well! I wanted to follow up on Invoice #2024-001 for $2,500 that was sent on January 15th. The payment was due on February 1st, and I haven't received it yet. Could you please let me know the status? Thanks for your time!"
-                  className="text-foreground"
-                />
-              </div>
+              ></div>
             </div>
           </div>
         </div>
@@ -439,7 +533,7 @@ export default function Index() {
                       😊 "Hi John! Hope you're well..."
                     </div>
                     <div className="text-green-400">
-                      �� Generated in 2 seconds
+                      ⚡ Generated in 2 seconds
                     </div>
                     <div className="text-green-400">
                       📈 3x higher response rate
