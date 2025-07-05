@@ -1048,111 +1048,181 @@ export default function Index() {
         </div>
       </section>
 
-      {/* AI Technology Deep Dive */}
-      <section className="py-24 px-4">
+      {/* Smart AI Technology */}
+      <section className="py-24 px-4 bg-gradient-to-b from-slate-900/50 to-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Next-gen AI{" "}
-              <span className="gradient-text">technology stack</span>
+              Built with Smart AI.{" "}
+              <span className="gradient-text">Trained to Get You Paid.</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Powered by advanced language models and proprietary algorithms
-              trained on millions of successful payment conversations.
+              Our AI doesn't just send emails—it understands your clients,
+              learns from every interaction, and gets smarter with each payment.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            {/* Left Side - AI Feature Cards */}
             <div className="space-y-8">
-              <div className="glass-card p-6 border-l-4 border-brand-purple">
-                <h3 className="text-xl font-bold mb-3 gradient-text">
-                  Neural Payment Intelligence
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Our proprietary AI analyzes payment patterns, client behavior,
-                  and industry trends to optimize follow-up timing and
-                  messaging.
+              <div className="glass-card p-8 border border-brand-purple/30 hover:border-brand-purple/50 transition-all duration-500 group">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-brand-purple to-brand-blue rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Brain className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold gradient-text">
+                    Neural Payment Intelligence
+                  </h3>
+                </div>
+                <p className="text-muted-foreground mb-6 text-lg">
+                  Predicts when to follow up, in what tone, and how often —
+                  based on your client's behavior.
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" /> 97%
-                    accuracy in payment prediction
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" /> Real-time
-                    sentiment analysis
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
-                    Multi-language support (40+ languages)
-                  </li>
-                </ul>
+                <div className="grid gap-4">
+                  <div className="flex items-center gap-3 group/item">
+                    <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center group-hover/item:scale-110 transition-transform">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                    </div>
+                    <span className="text-foreground font-medium">
+                      97% accuracy in payment prediction
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 group/item">
+                    <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center group-hover/item:scale-110 transition-transform">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                    </div>
+                    <span className="text-foreground font-medium">
+                      Real-time sentiment shift detection
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 group/item">
+                    <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center group-hover/item:scale-110 transition-transform">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                    </div>
+                    <span className="text-foreground font-medium">
+                      Understands 40+ languages
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div className="glass-card p-6 border-l-4 border-brand-blue">
-                <h3 className="text-xl font-bold mb-3 gradient-text">
-                  Adaptive Learning Engine
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Machine learning algorithms that improve with every
-                  interaction, personalizing strategies for each client
-                  relationship.
+              <div className="glass-card p-8 border border-brand-blue/30 hover:border-brand-blue/50 transition-all duration-500 group">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Zap className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold gradient-text">
+                    Adaptive Learning Engine
+                  </h3>
+                </div>
+                <p className="text-muted-foreground mb-6 text-lg">
+                  Every email improves it. The AI learns from your clients — not
+                  just the internet.
                 </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
-                    Continuous model optimization
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
-                    Client-specific behavioral modeling
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400" />{" "}
-                    Industry-specific training data
-                  </li>
-                </ul>
+                <div className="grid gap-4">
+                  <div className="flex items-center gap-3 group/item">
+                    <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center group-hover/item:scale-110 transition-transform">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                    </div>
+                    <span className="text-foreground font-medium">
+                      Learns tone preferences for each client
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 group/item">
+                    <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center group-hover/item:scale-110 transition-transform">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                    </div>
+                    <span className="text-foreground font-medium">
+                      Personalizes follow-up timing
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 group/item">
+                    <div className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center group-hover/item:scale-110 transition-transform">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                    </div>
+                    <span className="text-foreground font-medium">
+                      Constantly optimizes success rate
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="glass-card p-8 premium-glow">
-              <h3 className="text-2xl font-bold mb-6 text-center gradient-text">
-                AI Performance Metrics
+            {/* Right Side - Performance Metrics */}
+            <div className="glass-card p-8 bg-gradient-to-br from-brand-purple/5 to-brand-blue/5 border border-brand-purple/20">
+              <h3 className="text-3xl font-bold mb-8 text-center">
+                <span className="gradient-text">AI Performance Boost</span>
               </h3>
-              <div className="space-y-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">
-                    Response Rate Improvement
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-r from-brand-purple to-brand-blue rounded-full animate-pulse"></div>
+              <div className="space-y-8">
+                <div className="group cursor-pointer">
+                  <div className="flex justify-between items-center mb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">📈</span>
+                      <span className="text-foreground font-semibold">
+                        Reply Rate Increase
+                      </span>
                     </div>
-                    <span className="font-bold text-brand-purple">340%</span>
+                    <span className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform">
+                      +340%
+                    </span>
+                  </div>
+                  <div className="w-full h-3 bg-muted/30 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-brand-purple via-brand-blue to-brand-cyan rounded-full animate-pulse"
+                      style={{ width: "100%" }}
+                    ></div>
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">
-                    Collection Time Reduction
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
-                      <div className="w-3/4 h-full bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full animate-pulse"></div>
+
+                <div className="group cursor-pointer">
+                  <div className="flex justify-between items-center mb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">⏱️</span>
+                      <span className="text-foreground font-semibold">
+                        Time to Payment Cut By
+                      </span>
                     </div>
-                    <span className="font-bold text-brand-blue">75%</span>
+                    <span className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform">
+                      –75%
+                    </span>
+                  </div>
+                  <div className="w-full h-3 bg-muted/30 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full animate-pulse"
+                      style={{ width: "75%" }}
+                    ></div>
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">
-                    Client Satisfaction Score
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
-                      <div className="w-5/6 h-full bg-gradient-to-r from-brand-cyan to-green-400 rounded-full animate-pulse"></div>
+
+                <div className="group cursor-pointer">
+                  <div className="flex justify-between items-center mb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">❤️</span>
+                      <span className="text-foreground font-semibold">
+                        Client Experience Score
+                      </span>
                     </div>
-                    <span className="font-bold text-green-400">9.2/10</span>
+                    <span className="text-4xl font-bold gradient-text group-hover:scale-110 transition-transform">
+                      9.2/10
+                    </span>
+                  </div>
+                  <div className="w-full h-3 bg-muted/30 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-brand-cyan to-green-400 rounded-full animate-pulse"
+                      style={{ width: "92%" }}
+                    ></div>
                   </div>
                 </div>
+              </div>
+
+              {/* Tooltip on hover */}
+              <div className="mt-6 p-4 bg-brand-purple/10 rounded-lg border border-brand-purple/20">
+                <p className="text-sm text-muted-foreground text-center">
+                  <span className="text-brand-purple font-medium">
+                    Based on 10,000+ invoices processed
+                  </span>{" "}
+                  • Real client data from Q4 2024
+                </p>
               </div>
             </div>
           </div>
