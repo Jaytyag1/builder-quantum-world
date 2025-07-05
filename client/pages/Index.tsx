@@ -837,6 +837,12 @@ export default function Index() {
                 </div>
               </div>
             </div>
+
+            {/* Trust Statement */}
+            <p className="text-center text-muted-foreground italic mb-12 max-w-3xl mx-auto">
+              "Based on real client testing, InvoIQ helped freelancers collect
+              unpaid invoices 32% faster."
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
