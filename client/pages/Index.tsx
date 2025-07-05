@@ -69,6 +69,300 @@ const FloatingCard = ({
   </div>
 );
 
+// Animated Counter Component
+const AnimatedCounter = ({
+  value,
+  prefix = "",
+  suffix = "",
+  decimals = 0,
+}: {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+}) => {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    const startValue = displayValue;
+    const endValue = value;
+    const duration = 1000; // 1 second
+    const startTime = Date.now();
+
+    const updateValue = () => {
+      const now = Date.now();
+      const progress = Math.min((now - startTime) / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+      const currentValue = startValue + (endValue - startValue) * easeProgress;
+
+      setDisplayValue(currentValue);
+
+      if (progress < 1) {
+        requestAnimationFrame(updateValue);
+      }
+    };
+
+    requestAnimationFrame(updateValue);
+  }, [value, displayValue]);
+
+  const formatValue = (num: number) => {
+    if (decimals === 0) {
+      return Math.round(num).toLocaleString();
+    }
+    return num.toFixed(decimals);
+  };
+
+  return (
+    <span>
+      {prefix}
+      {formatValue(displayValue)}
+      {suffix}
+    </span>
+  );
+};
+
+// Interactive ROI Calculator Component
+const ROICalculator = () => {
+  const [invoiceVolume, setInvoiceVolume] = useState(50);
+  const [invoiceValue, setInvoiceValue] = useState(2500);
+  const [latePaymentRate, setLatePaymentRate] = useState(25);
+
+  // Calculations
+  const monthlyRevenue = invoiceVolume * invoiceValue;
+  const revenueAtRisk = monthlyRevenue * (latePaymentRate / 100);
+  const recoveryAmount = revenueAtRisk * 0.9; // 90% recovery rate
+  const monthlyROI = ((recoveryAmount - 9) / 9) * 100; // Assuming $9 monthly cost
+  const annualRecovery = recoveryAmount * 12;
+
+  return (
+    <section className="py-32 px-4 bg-gradient-to-br from-slate-900/80 via-background to-slate-900/60 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-purple/10 rounded-full blur-3xl animate-pulse"></div>
+        <div
+          className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-brand-blue/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Calculate your <span className="gradient-text">ROI potential</span>
+          </h2>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            See how much revenue you could recover with InvoIQ's AI-powered
+            follow-ups
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Left Panel - User Inputs */}
+          <div className="space-y-8">
+            <div className="glass-card p-8 border border-brand-purple/20 hover:border-brand-purple/40 transition-all duration-500">
+              <h3 className="text-2xl font-bold mb-8 gradient-text">
+                Your Business Metrics
+              </h3>
+
+              {/* Monthly Invoice Volume */}
+              <div className="space-y-4 mb-8">
+                <div className="flex justify-between items-center">
+                  <label className="text-lg font-semibold text-foreground">
+                    Monthly Invoice Volume
+                  </label>
+                  <span className="text-2xl font-bold gradient-text">
+                    {invoiceVolume}
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="10"
+                  max="200"
+                  value={invoiceVolume}
+                  onChange={(e) => setInvoiceVolume(Number(e.target.value))}
+                  className="w-full h-3 bg-muted rounded-lg appearance-none cursor-pointer slider"
+                  style={{
+                    background: `linear-gradient(to right, hsl(var(--brand-purple)) 0%, hsl(var(--brand-blue)) ${((invoiceVolume - 10) / (200 - 10)) * 100}%, hsl(var(--muted)) ${((invoiceVolume - 10) / (200 - 10)) * 100}%, hsl(var(--muted)) 100%)`,
+                  }}
+                />
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>10 invoices</span>
+                  <span>200 invoices</span>
+                </div>
+              </div>
+
+              {/* Average Invoice Value */}
+              <div className="space-y-4 mb-8">
+                <div className="flex justify-between items-center">
+                  <label className="text-lg font-semibold text-foreground">
+                    Average Invoice Value
+                  </label>
+                  <span className="text-2xl font-bold gradient-text">
+                    ${invoiceValue.toLocaleString()}
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="500"
+                  max="10000"
+                  step="100"
+                  value={invoiceValue}
+                  onChange={(e) => setInvoiceValue(Number(e.target.value))}
+                  className="w-full h-3 bg-muted rounded-lg appearance-none cursor-pointer slider"
+                  style={{
+                    background: `linear-gradient(to right, hsl(var(--brand-blue)) 0%, hsl(var(--brand-cyan)) ${((invoiceValue - 500) / (10000 - 500)) * 100}%, hsl(var(--muted)) ${((invoiceValue - 500) / (10000 - 500)) * 100}%, hsl(var(--muted)) 100%)`,
+                  }}
+                />
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>$500</span>
+                  <span>$10,000</span>
+                </div>
+              </div>
+
+              {/* Late Payment Rate */}
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <label className="text-lg font-semibold text-foreground">
+                    Current Late Payment Rate
+                  </label>
+                  <span className="text-2xl font-bold text-destructive">
+                    {latePaymentRate}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="5"
+                  max="50"
+                  value={latePaymentRate}
+                  onChange={(e) => setLatePaymentRate(Number(e.target.value))}
+                  className="w-full h-3 bg-muted rounded-lg appearance-none cursor-pointer slider"
+                  style={{
+                    background: `linear-gradient(to right, hsl(var(--destructive)) 0%, hsl(var(--destructive)) ${((latePaymentRate - 5) / (50 - 5)) * 100}%, hsl(var(--muted)) ${((latePaymentRate - 5) / (50 - 5)) * 100}%, hsl(var(--muted)) 100%)`,
+                  }}
+                />
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>5%</span>
+                  <span>50%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Panel - Dynamic Results */}
+          <div className="space-y-6">
+            <div className="glass-card p-8 bg-gradient-to-br from-brand-purple/10 to-brand-blue/10 border border-brand-purple/30 premium-shadow">
+              <h3 className="text-2xl font-bold mb-8 text-center">
+                <span className="gradient-text">
+                  Your Revenue Recovery Potential
+                </span>
+              </h3>
+
+              <div className="space-y-8">
+                {/* Monthly Revenue at Risk */}
+                <div className="group">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-foreground font-medium">
+                      Monthly Revenue at Risk
+                    </span>
+                    <span className="text-3xl font-bold text-destructive">
+                      <AnimatedCounter value={revenueAtRisk} prefix="$" />
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-muted/30 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-destructive to-red-400 rounded-full transition-all duration-1000"
+                      style={{
+                        width: `${Math.min((revenueAtRisk / 50000) * 100, 100)}%`,
+                      }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Recovery with InvoIQ */}
+                <div className="group">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-foreground font-medium">
+                      Recovery with InvoIQ
+                    </span>
+                    <span className="text-3xl font-bold text-green-400">
+                      <AnimatedCounter value={recoveryAmount} prefix="$" />
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-muted/30 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-green-400 to-brand-cyan rounded-full transition-all duration-1000"
+                      style={{
+                        width: `${Math.min((recoveryAmount / 50000) * 100, 100)}%`,
+                      }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Monthly ROI */}
+                <div className="group">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-foreground font-medium">
+                      Monthly ROI
+                    </span>
+                    <span className="text-3xl font-bold gradient-text">
+                      <AnimatedCounter
+                        value={monthlyROI}
+                        suffix="%"
+                        decimals={0}
+                      />
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-muted/30 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-brand-purple to-brand-blue rounded-full transition-all duration-1000"
+                      style={{ width: `${Math.min(monthlyROI / 50, 100)}%` }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Annual Revenue Recovery */}
+                <div className="border-t border-border pt-6">
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-2">
+                      Annual Revenue Recovery
+                    </div>
+                    <div className="text-5xl font-bold gradient-text mb-4">
+                      <AnimatedCounter value={annualRecovery} prefix="$" />
+                    </div>
+                    <div className="text-sm text-green-400">
+                      That's{" "}
+                      <AnimatedCounter
+                        value={annualRecovery / 108}
+                        prefix="$"
+                      />{" "}
+                      profit after InvoIQ costs
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-brand-purple to-brand-blue hover:from-brand-purple/80 hover:to-brand-blue/80 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 premium-shadow"
+              >
+                <DollarSign className="mr-2 h-5 w-5" />
+                Get Started – Recover Your Revenue
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <p className="text-sm text-muted-foreground mt-3">
+                No setup fees • Cancel anytime • 14-day free trial
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function Index() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
