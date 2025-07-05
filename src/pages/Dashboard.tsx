@@ -56,8 +56,8 @@ import MouseFollower from "@/components/MouseFollower";
 
 export default function Dashboard() {
   const [selectedTab, setSelectedTab] = useState("all");
-  const { user } = useUser();
-  const { signOut } = useClerk();
+  const { user } = useSafeUser();
+  const { signOut } = useSafeClerk();
 
   // Try to use Convex first, fallback to localStorage if needed
   const convexUrl = import.meta.env.VITE_CONVEX_URL;
