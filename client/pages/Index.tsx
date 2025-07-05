@@ -799,13 +799,13 @@ export default function Index() {
               <div className="animated-border glass-card hover:scale-105 transition-all duration-500">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-brand-blue rounded-full flex items-center justify-center">
-                    <Brain className="h-4 w-4 text-white" />
+                    <Clock className="h-4 w-4 text-white" />
                   </div>
-                  <span className="font-semibold">Neural Processing</span>
+                  <span className="font-semibold">Avg Response Time</span>
                 </div>
-                <div className="text-2xl font-bold gradient-text">15ms</div>
+                <div className="text-2xl font-bold gradient-text">~5 sec</div>
                 <div className="text-sm text-muted-foreground">
-                  Average response time
+                  From upload to follow-up
                 </div>
               </div>
 
@@ -1511,7 +1511,7 @@ export default function Index() {
               </p>
             </div>
             <div className="glass-card p-6 hover:scale-105 transition-all duration-300">
-              <div className="text-4xl mb-4">⚡</div>
+              <div className="text-4xl mb-4">��</div>
               <h3 className="font-bold mb-2">99.9% Uptime SLA</h3>
               <p className="text-sm text-muted-foreground">
                 Enterprise reliability guarantee
