@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useUser, useClerk } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -48,6 +49,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useConvexInvoices } from "@/hooks/useConvexInvoices";
 import { useInvoices } from "@/hooks/useInvoices";
 import { toast } from "sonner";
 import MouseFollower from "@/components/MouseFollower";
