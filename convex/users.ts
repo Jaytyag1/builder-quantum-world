@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { query, mutation } from "./_generated/server";
+import type { QueryCtx, MutationCtx } from "./_generated/server";
 
 // Get or create user by Clerk ID
 export const getOrCreateUser = mutation({
