@@ -19,30 +19,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/about" element={<About />} />
-        <Route
-          path="/dashboard"
-          element={
-            <AuthWrapper>
-              <Dashboard />
-            </AuthWrapper>
-          }
-        />
-        <Route
-          path="/invoice/create"
-          element={
-            <AuthWrapper>
-              <InvoiceCreate />
-            </AuthWrapper>
-          }
-        />
-        <Route
-          path="/invoice/:id"
-          element={
-            <AuthWrapper>
-              <InvoiceView />
-            </AuthWrapper>
-          }
-        />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/invoice/create" element={<InvoiceCreate />} />
+        <Route path="/invoice/:id" element={<InvoiceView />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
